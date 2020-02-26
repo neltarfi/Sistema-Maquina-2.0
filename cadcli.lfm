@@ -1,0 +1,518 @@
+object frmCadCli: TfrmCadCli
+  Left = 333
+  Height = 493
+  Top = 196
+  Width = 676
+  Caption = 'Cadastro de Cliente'
+  ClientHeight = 493
+  ClientWidth = 676
+  Font.Height = -13
+  Font.Name = 'Sans'
+  OnClose = FormClose
+  OnShow = FormShow
+  LCLVersion = '2.0.6.0'
+  object DbeNome: TDBEdit
+    Left = 176
+    Height = 27
+    Top = 112
+    Width = 448
+    DataField = 'NOME'
+    DataSource = DsCadCli
+    CharCase = ecNormal
+    MaxLength = 30
+    TabOrder = 0
+  end
+  object DbdData: TDBDateEdit
+    Left = 184
+    Height = 27
+    Top = 144
+    Width = 103
+    CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
+    DateOrder = doNone
+    ButtonWidth = 23
+    NumGlyphs = 1
+    MaxLength = 0
+    TabOrder = 1
+    DataField = 'DATE_REG'
+    DataSource = DsCadCli
+  end
+  object DbeTelefone: TDBEdit
+    Left = 136
+    Height = 27
+    Top = 176
+    Width = 112
+    DataField = 'TELEFONE'
+    DataSource = DsCadCli
+    CharCase = ecNormal
+    EditMask = '(99)9999-9999;1;_'
+    MaxLength = 13
+    TabOrder = 2
+  end
+  object DbeCelular: TDBEdit
+    Left = 360
+    Height = 27
+    Top = 176
+    Width = 112
+    DataField = 'CELULAR'
+    DataSource = DsCadCli
+    CharCase = ecNormal
+    EditMask = '(99)99999-9999;1;_'
+    MaxLength = 14
+    TabOrder = 3
+  end
+  object DbeEndereco: TDBEdit
+    Left = 176
+    Height = 27
+    Top = 208
+    Width = 448
+    DataField = 'ENDERECO'
+    DataSource = DsCadCli
+    CharCase = ecNormal
+    MaxLength = 40
+    TabOrder = 4
+  end
+  object DbeBairro: TDBEdit
+    Left = 176
+    Height = 27
+    Top = 240
+    Width = 448
+    DataField = 'BAIRRO'
+    DataSource = DsCadCli
+    CharCase = ecNormal
+    MaxLength = 40
+    TabOrder = 5
+  end
+  object DbeDoc: TDBEdit
+    Left = 472
+    Height = 27
+    Top = 336
+    Width = 152
+    CustomEditMask = True
+    DataField = 'DOC'
+    DataSource = DsCadCli
+    CharCase = ecNormal
+    MaxLength = 0
+    TabOrder = 10
+  end
+  object CbTipoDoc: TDBComboBox
+    Left = 176
+    Height = 29
+    Top = 344
+    Width = 80
+    AutoSize = False
+    DataField = 'TIPODOC'
+    DataSource = DsCadCli
+    ItemHeight = 0
+    Items.Strings = (
+      'CPF'
+      'CNPJ'
+    )
+    MaxLength = 0
+    OnChange = CbTipoDocChange
+    TabOrder = 9
+  end
+  object Label1: TLabel
+    Left = 72
+    Height = 17
+    Top = 75
+    Width = 95
+    Caption = 'Codigo Cliente'
+    Font.Height = -13
+    Font.Name = 'Sans'
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label2: TLabel
+    Left = 72
+    Height = 17
+    Top = 115
+    Width = 99
+    Caption = 'Nome..............:'
+    ParentColor = False
+  end
+  object Label3: TLabel
+    Left = 72
+    Height = 17
+    Top = 152
+    Width = 108
+    Caption = 'Data de Registro'
+    ParentColor = False
+  end
+  object Label4: TLabel
+    Left = 72
+    Height = 17
+    Top = 184
+    Width = 55
+    Caption = 'Telefone'
+    ParentColor = False
+  end
+  object Label5: TLabel
+    Left = 304
+    Height = 17
+    Top = 184
+    Width = 46
+    Caption = 'Celular'
+    ParentColor = False
+  end
+  object Label6: TLabel
+    Left = 72
+    Height = 17
+    Top = 210
+    Width = 100
+    Caption = 'Endereço.........:'
+    ParentColor = False
+  end
+  object Label7: TLabel
+    Left = 72
+    Height = 17
+    Top = 250
+    Width = 99
+    Caption = 'Bairro..............:'
+    ParentColor = False
+  end
+  object DbeCidade: TDBEdit
+    Left = 176
+    Height = 27
+    Top = 272
+    Width = 376
+    DataField = 'CIDADE'
+    DataSource = DsCadCli
+    CharCase = ecNormal
+    MaxLength = 40
+    TabOrder = 6
+  end
+  object Label8: TLabel
+    Left = 72
+    Height = 17
+    Top = 282
+    Width = 101
+    Caption = 'Cidade.............:'
+    ParentColor = False
+  end
+  object DbeEstado: TDBEdit
+    Left = 176
+    Height = 27
+    Top = 312
+    Width = 32
+    DataField = 'ESTADO'
+    DataSource = DsCadCli
+    CharCase = ecNormal
+    MaxLength = 2
+    TabOrder = 7
+  end
+  object Label9: TLabel
+    Left = 72
+    Height = 17
+    Top = 322
+    Width = 100
+    Caption = 'Estado.............:'
+    ParentColor = False
+  end
+  object DbeInscEstadual: TDBEdit
+    Left = 472
+    Height = 27
+    Top = 304
+    Width = 152
+    DataField = 'INSCESTADUAL'
+    DataSource = DsCadCli
+    CharCase = ecNormal
+    EditMask = '999.999.999.999;1;_'
+    MaxLength = 15
+    TabOrder = 8
+  end
+  object Label10: TLabel
+    Left = 325
+    Height = 17
+    Top = 314
+    Width = 142
+    Caption = 'Insc. Estadual............:'
+    ParentColor = False
+  end
+  object Label11: TLabel
+    Left = 325
+    Height = 17
+    Top = 346
+    Width = 143
+    Caption = 'CPF/CNPJ....................:'
+    ParentColor = False
+  end
+  object Label12: TLabel
+    Left = 72
+    Height = 17
+    Top = 356
+    Width = 101
+    Caption = 'Tipo Doc..........:'
+    ParentColor = False
+  end
+  object Label13: TLabel
+    Left = 72
+    Height = 17
+    Top = 386
+    Width = 101
+    Caption = 'Obs.  ..............;:'
+    ParentColor = False
+  end
+  object DbeObs: TDBEdit
+    Left = 176
+    Height = 27
+    Top = 376
+    Width = 448
+    DataField = 'OBS'
+    DataSource = DsCadCli
+    CharCase = ecNormal
+    MaxLength = 100
+    TabOrder = 11
+  end
+  object BtSalvar: TButton
+    Left = 160
+    Height = 25
+    Top = 432
+    Width = 75
+    Caption = 'Salvar'
+    OnClick = BtSalvarClick
+    TabOrder = 12
+  end
+  object BtSair: TButton
+    Left = 400
+    Height = 25
+    Top = 432
+    Width = 75
+    Caption = 'Sair'
+    OnClick = BtSairClick
+    TabOrder = 13
+  end
+  object EdtCodigo: TEdit
+    Left = 176
+    Height = 27
+    Top = 65
+    Width = 80
+    TabOrder = 14
+  end
+  object QrCadCli: TSQLQuery
+    FieldDefs = <    
+      item
+        Name = 'COD_CLIENTE'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'NOME'
+        DataType = ftString
+        Precision = -1
+        Size = 120
+      end    
+      item
+        Name = 'DATE_REG'
+        DataType = ftDate
+        Precision = -1
+      end    
+      item
+        Name = 'TELEFONE'
+        DataType = ftString
+        Precision = -1
+        Size = 48
+      end    
+      item
+        Name = 'CELULAR'
+        DataType = ftString
+        Precision = -1
+        Size = 48
+      end    
+      item
+        Name = 'ENDERECO'
+        DataType = ftString
+        Precision = -1
+        Size = 160
+      end    
+      item
+        Name = 'BAIRRO'
+        DataType = ftString
+        Precision = -1
+        Size = 160
+      end    
+      item
+        Name = 'CIDADE'
+        DataType = ftString
+        Precision = -1
+        Size = 120
+      end    
+      item
+        Name = 'ESTADO'
+        DataType = ftString
+        Precision = -1
+        Size = 8
+      end    
+      item
+        Name = 'TIPODOC'
+        DataType = ftString
+        Precision = -1
+        Size = 16
+      end    
+      item
+        Name = 'DOC'
+        DataType = ftString
+        Precision = -1
+        Size = 56
+      end    
+      item
+        Name = 'INSCESTADUAL'
+        DataType = ftString
+        Precision = -1
+        Size = 48
+      end    
+      item
+        Name = 'OBS'
+        DataType = ftString
+        Precision = -1
+        Size = 400
+      end>
+    Database = DataModule1.IBCMaquina
+    Transaction = DataModule1.SQLTMaquina
+    SQL.Strings = (
+      'select * from Clientes'
+      'where Cod_Cliente = :IDCliente'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'IDCliente'
+        ParamType = ptInput
+      end>
+    UpdateMode = upWhereAll
+    left = 32
+    top = 16
+    object QrCadCliCOD_CLIENTE: TLongintField
+      FieldKind = fkData
+      FieldName = 'COD_CLIENTE'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object QrCadCliNOME: TStringField
+      FieldKind = fkData
+      FieldName = 'NOME'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 120
+    end
+    object QrCadCliDATE_REG: TDateField
+      FieldKind = fkData
+      FieldName = 'DATE_REG'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object QrCadCliTELEFONE: TStringField
+      FieldKind = fkData
+      FieldName = 'TELEFONE'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 48
+    end
+    object QrCadCliCELULAR: TStringField
+      FieldKind = fkData
+      FieldName = 'CELULAR'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 48
+    end
+    object QrCadCliENDERECO: TStringField
+      FieldKind = fkData
+      FieldName = 'ENDERECO'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 160
+    end
+    object QrCadCliBAIRRO: TStringField
+      FieldKind = fkData
+      FieldName = 'BAIRRO'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 160
+    end
+    object QrCadCliCIDADE: TStringField
+      FieldKind = fkData
+      FieldName = 'CIDADE'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 120
+    end
+    object QrCadCliESTADO: TStringField
+      FieldKind = fkData
+      FieldName = 'ESTADO'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 8
+    end
+    object QrCadCliINSCESTADUAL: TStringField
+      FieldKind = fkData
+      FieldName = 'INSCESTADUAL'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 48
+    end
+    object QrCadCliTIPODOC: TStringField
+      FieldKind = fkData
+      FieldName = 'TIPODOC'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 16
+    end
+    object QrCadCliDOC: TStringField
+      FieldKind = fkData
+      FieldName = 'DOC'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 56
+    end
+    object QrCadCliOBS: TStringField
+      FieldKind = fkData
+      FieldName = 'OBS'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 400
+    end
+  end
+  object DsCadCli: TDataSource
+    DataSet = QrCadCli
+    left = 120
+    top = 16
+  end
+end

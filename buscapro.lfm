@@ -1,0 +1,164 @@
+object frmBuscaPro: TfrmBuscaPro
+  Left = 333
+  Height = 493
+  Top = 164
+  Width = 683
+  Caption = 'Busca Propriedade'
+  ClientHeight = 493
+  ClientWidth = 683
+  OnShow = FormShow
+  LCLVersion = '2.0.6.0'
+  object DbeNomeCli: TDBEdit
+    Left = 144
+    Height = 27
+    Top = 64
+    Width = 484
+    DataField = 'NOME'
+    DataSource = frmBuscaCli.DSBuscaCli
+    ReadOnly = True
+    CharCase = ecNormal
+    MaxLength = 0
+    TabOrder = 0
+  end
+  object Label1: TLabel
+    Left = 32
+    Height = 17
+    Top = 68
+    Width = 112
+    Caption = 'Nome do Cliente'
+    ParentColor = False
+  end
+  object DbgBuscaPro: TDBGrid
+    Left = 24
+    Height = 237
+    Top = 104
+    Width = 640
+    Color = clWindow
+    Columns = <    
+      item
+        Title.Caption = 'Cod. Pro'
+        FieldName = 'COD_PRO'
+      end    
+      item
+        Title.Caption = 'Nome Propriedade'
+        Width = 280
+        FieldName = 'NOME'
+      end    
+      item
+        Title.Caption = 'Cidade'
+        Width = 280
+        FieldName = 'CIDADE'
+      end>
+    DataSource = DsBuscaPro
+    ReadOnly = True
+    TabOrder = 1
+  end
+  object BtNovo: TButton
+    Left = 110
+    Height = 25
+    Top = 377
+    Width = 75
+    Caption = 'Novo'
+    OnClick = BtNovoClick
+    TabOrder = 2
+  end
+  object BtEditar: TButton
+    Left = 264
+    Height = 25
+    Top = 377
+    Width = 75
+    Caption = 'Editar'
+    OnClick = BtEditarClick
+    TabOrder = 3
+  end
+  object BtSair: TButton
+    Left = 528
+    Height = 25
+    Top = 377
+    Width = 75
+    Caption = 'Sair'
+    OnClick = BtSairClick
+    TabOrder = 4
+  end
+  object QrBuscaPro: TSQLQuery
+    FieldDefs = <    
+      item
+        Name = 'COD_CLI'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'COD_PRO'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'NOME'
+        DataType = ftString
+        Precision = -1
+        Size = 120
+      end    
+      item
+        Name = 'CIDADE'
+        DataType = ftString
+        Precision = -1
+        Size = 160
+      end>
+    Database = DataModule1.IBCMaquina
+    Transaction = DataModule1.SQLTMaquina
+    SQL.Strings = (
+      'select Cod_Cli,Cod_Pro, Nome, Cidade from Propriedades'
+      'where Cod_Cli = :IDCliente'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'IDCliente'
+        ParamType = ptInput
+      end>
+    UpdateMode = upWhereAll
+    left = 32
+    object QrBuscaProCOD_CLI: TLongintField
+      FieldKind = fkData
+      FieldName = 'COD_CLI'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object QrBuscaProCOD_PRO: TLongintField
+      FieldKind = fkData
+      FieldName = 'COD_PRO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object QrBuscaProNOME: TStringField
+      FieldKind = fkData
+      FieldName = 'NOME'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 120
+    end
+    object QrBuscaProCIDADE: TStringField
+      FieldKind = fkData
+      FieldName = 'CIDADE'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 160
+    end
+  end
+  object DsBuscaPro: TDataSource
+    DataSet = QrBuscaPro
+    left = 120
+  end
+end

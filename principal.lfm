@@ -1,0 +1,27 @@
+object frmPrincipal: TfrmPrincipal
+  Left = 315
+  Height = 544
+  Top = 172
+  Width = 705
+  Caption = 'Tela incipal'
+  Menu = MainMenu1
+  LCLVersion = '2.0.6.0'
+  object MainMenu1: TMainMenu
+    left = 46
+    top = 65
+    object Cadastro: TMenuItem
+      Caption = '&Cadastro'
+      object Clientes: TMenuItem
+        Caption = 'C&lientes'
+        OnClick = ClientesClick
+      end
+      object mnuLoteCoco: TMenuItem
+        Caption = 'Lote Coco'
+      end
+    end
+    object mnSair: TMenuItem
+      Caption = '&Sair'
+      OnClick = mnSairClick
+    end
+  end
+end

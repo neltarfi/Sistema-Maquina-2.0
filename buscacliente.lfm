@@ -1,0 +1,162 @@
+object frmBuscaCli: TfrmBuscaCli
+  Left = 319
+  Height = 486
+  Top = 161
+  Width = 705
+  Caption = 'Busca Cliente'
+  ClientHeight = 486
+  ClientWidth = 705
+  OnClose = FormClose
+  OnShow = FormShow
+  LCLVersion = '2.0.6.0'
+  object DBGBuscaCli: TDBGrid
+    Left = 8
+    Height = 215
+    Top = 128
+    Width = 688
+    Color = clWindow
+    Columns = <    
+      item
+        ReadOnly = True
+        Title.Caption = 'Código Cliente'
+        Width = 110
+        FieldName = 'COD_CLIENTE'
+      end    
+      item
+        ReadOnly = True
+        Title.Caption = 'Nome do Cliente'
+        Width = 300
+        FieldName = 'NOME'
+      end    
+      item
+        Title.Caption = 'Cidade do Cliente'
+        Width = 250
+        FieldName = 'CIDADE'
+      end>
+    DataSource = DSBuscaCli
+    ReadOnly = True
+    TabOrder = 1
+  end
+  object btNovo: TButton
+    Left = 32
+    Height = 25
+    Top = 392
+    Width = 104
+    Caption = 'Novo Cliente'
+    OnClick = btNovoClick
+    TabOrder = 2
+  end
+  object edtBuscaCli: TEdit
+    Left = 288
+    Height = 27
+    Top = 72
+    Width = 314
+    OnChange = edtBuscaCliChange
+    TabOrder = 0
+  end
+  object Label1: TLabel
+    Left = 192
+    Height = 17
+    Top = 82
+    Width = 89
+    Caption = 'Busca Cliente'
+    Font.Height = -13
+    Font.Name = 'Sans'
+    ParentColor = False
+    ParentFont = False
+  end
+  object btEditar: TButton
+    Left = 144
+    Height = 25
+    Top = 392
+    Width = 104
+    Caption = 'Editar Cliente'
+    OnClick = btEditarClick
+    TabOrder = 3
+  end
+  object btPropriedade: TButton
+    Left = 272
+    Height = 25
+    Top = 392
+    Width = 320
+    Caption = 'Visualizar Propriedade do Cliente Selecionado'
+    OnClick = btPropriedadeClick
+    TabOrder = 4
+  end
+  object btSair: TButton
+    Left = 616
+    Height = 25
+    Top = 392
+    Width = 75
+    Caption = 'Sair'
+    OnClick = btSairClick
+    TabOrder = 5
+  end
+  object DSBuscaCli: TDataSource
+    DataSet = QrBuscaCli
+    left = 32
+  end
+  object QrBuscaCli: TSQLQuery
+    FieldDefs = <    
+      item
+        Name = 'COD_CLIENTE'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'NOME'
+        DataType = ftString
+        Precision = -1
+        Size = 120
+      end    
+      item
+        Name = 'CIDADE'
+        DataType = ftString
+        Precision = -1
+        Size = 120
+      end>
+    Database = DataModule1.IBCMaquina
+    Transaction = DataModule1.SQLTMaquina
+    SQL.Strings = (
+      'select Cod_Cliente, Nome, Cidade from Clientes'
+      'where lower(Nome) like  lower(:IDCliente)'
+      'order by Nome'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'IDCliente'
+        ParamType = ptInput
+      end>
+    left = 120
+    object QrBuscaCliCOD_CLIENTE: TLongintField
+      FieldKind = fkData
+      FieldName = 'COD_CLIENTE'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object QrBuscaCliNOME: TStringField
+      FieldKind = fkData
+      FieldName = 'NOME'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 120
+    end
+    object QrBuscaCliCIDADE: TStringField
+      FieldKind = fkData
+      FieldName = 'CIDADE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 120
+    end
+  end
+end

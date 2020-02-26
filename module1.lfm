@@ -1,0 +1,28 @@
+object DataModule1: TDataModule1
+  OldCreateOrder = False
+  Height = 352
+  HorizontalOffset = 404
+  VerticalOffset = 226
+  Width = 440
+  PPI = 96
+  object IBCMaquina: TIBConnection
+    Connected = True
+    LoginPrompt = False
+    DatabaseName = '/home/nelson/Sistema Maquina/Banco de Dados/Maquina.fdb'
+    KeepConnection = False
+    Password = 'masterkey'
+    Transaction = SQLTMaquina
+    UserName = 'SYSDBA'
+    CharSet = 'utf8'
+    HostName = 'localhost'
+    CheckTransactionParams = False
+    left = 120
+    top = 96
+  end
+  object SQLTMaquina: TSQLTransaction
+    Active = True
+    Database = IBCMaquina
+    left = 256
+    top = 104
+  end
+end
