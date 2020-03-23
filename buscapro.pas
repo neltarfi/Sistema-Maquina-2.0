@@ -54,6 +54,7 @@ end;
 procedure TfrmBuscaPro.BtNovoClick(Sender: TObject);
 begin
   Opcao:='Novo';
+   frmCadPro:= TfrmCadPro.Create(Application);
   frmCadPro.ShowModal;
 end;
 
@@ -65,6 +66,7 @@ end;
 procedure TfrmBuscaPro.BtEditarClick(Sender: TObject);
 begin
   Opcao:='Editar';
+  frmCadPro:= TfrmCadPro.Create(Application);
   frmCadPro.ShowModal;
 end;
 

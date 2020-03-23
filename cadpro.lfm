@@ -1,7 +1,7 @@
 object frmCadPro: TfrmCadPro
   Left = 344
   Height = 521
-  Top = 163
+  Top = 162
   Width = 665
   Caption = 'Cadastro dePropriedade'
   ClientHeight = 521
@@ -255,7 +255,6 @@ object frmCadPro: TfrmCadPro
     TabOrder = 1
   end
   object QrCadPro: TSQLQuery
-    IndexName = 'DEFAULT_ORDER'
     FieldDefs = <    
       item
         Name = 'COD_CLI'

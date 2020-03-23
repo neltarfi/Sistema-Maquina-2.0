@@ -7,7 +7,8 @@ uses
   cthreads,
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, Principal, BuscaCliente, Module1, CadCli, Funcoes, BuscaPro, CadPro;
+  Forms, Principal, BuscaCliente, Module1, CadCli, Funcoes, BuscaPro, CadPro,
+  Romaneio, fortes324forlaz, ImpRomaneio, CadLoteCoco;
 
 {$R *.res}
 
@@ -16,11 +17,8 @@ begin
   Application.Scaled:=True;
   Application.Initialize;
   Application.CreateForm(TfrmPrincipal, frmPrincipal);
-  Application.CreateForm(TfrmBuscaCli, frmBuscaCli);
   Application.CreateForm(TDataModule1, DataModule1);
-  Application.CreateForm(TfrmCadCli, frmCadCli);
-  Application.CreateForm(TfrmBuscaPro, frmBuscaPro);
-  Application.CreateForm(TfrmCadPro, frmCadPro);
+  Application.CreateForm(TfrmCadLoteCoco, frmCadLoteCoco);
   Application.Run;
 end.
 

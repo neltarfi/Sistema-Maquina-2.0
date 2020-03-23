@@ -15,9 +15,13 @@ type
     MainMenu1: TMainMenu;
     Cadastro: TMenuItem;
     Clientes: TMenuItem;
+    smnRomaneio: TMenuItem;
+    mnLacamento: TMenuItem;
     mnuLoteCoco: TMenuItem;
     mnSair: TMenuItem;
     procedure ClientesClick(Sender: TObject);
+    procedure mnuLoteCocoClick(Sender: TObject);
+    procedure smnRomaneioClick(Sender: TObject);
     procedure mnSairClick(Sender: TObject);
   private
 
@@ -31,7 +35,7 @@ var
 implementation
 
 uses
-  BuscaCliente;
+  BuscaCliente, Romaneio, CadLoteCoco;
 {$R *.lfm}
 
 { TfrmPrincipal }
@@ -39,7 +43,20 @@ uses
 
 procedure TfrmPrincipal.ClientesClick(Sender: TObject);
 begin
-     frmBuscaCli.ShowModal;
+  frmBuscaCli:= TfrmBuscaCli.Create(Application);
+  frmBuscaCli.ShowModal;
+end;
+
+procedure TfrmPrincipal.mnuLoteCocoClick(Sender: TObject);
+begin
+    frmCadLoteCoco:=TfrmCadLoteCoco.Create(Application);
+    frmCadLoteCoco.ShowModal;
+end;
+
+procedure TfrmPrincipal.smnRomaneioClick(Sender: TObject);
+begin
+    frmRomaneio:= TfrmRomaneio.Create(Application);
+   frmRomaneio.ShowModal;
 end;
 
 procedure TfrmPrincipal.mnSairClick(Sender: TObject);

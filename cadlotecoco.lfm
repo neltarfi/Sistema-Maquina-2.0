@@ -1,0 +1,8 @@
+object frmCadLoteCoco: TfrmCadLoteCoco
+  Left = 344
+  Height = 461
+  Top = 163
+  Width = 679
+  Caption = 'frmCadLoteCoco'
+  LCLVersion = '2.0.6.0'
+end

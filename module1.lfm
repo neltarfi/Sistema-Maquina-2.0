@@ -2,13 +2,13 @@ object DataModule1: TDataModule1
   OldCreateOrder = False
   Height = 352
   HorizontalOffset = 404
-  VerticalOffset = 226
+  VerticalOffset = 225
   Width = 440
   PPI = 96
   object IBCMaquina: TIBConnection
     Connected = True
     LoginPrompt = False
-    DatabaseName = '/home/nelson/Sistema Maquina/Banco de Dados/Maquina.fdb'
+    DatabaseName = '/home/nelson/Sistema Maquina2.0/Banco de Dados/Maquina.fdb'
     KeepConnection = False
     Password = 'masterkey'
     Transaction = SQLTMaquina

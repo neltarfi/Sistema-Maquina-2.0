@@ -1,7 +1,7 @@
 object frmPrincipal: TfrmPrincipal
-  Left = 315
+  Left = 314
   Height = 544
-  Top = 172
+  Top = 171
   Width = 705
   Caption = 'Tela incipal'
   Menu = MainMenu1
@@ -17,6 +17,14 @@ object frmPrincipal: TfrmPrincipal
       end
       object mnuLoteCoco: TMenuItem
         Caption = 'Lote Coco'
+        OnClick = mnuLoteCocoClick
+      end
+    end
+    object mnLacamento: TMenuItem
+      Caption = '&Laçamento'
+      object smnRomaneio: TMenuItem
+        Caption = 'Romaneio'
+        OnClick = smnRomaneioClick
       end
     end
     object mnSair: TMenuItem

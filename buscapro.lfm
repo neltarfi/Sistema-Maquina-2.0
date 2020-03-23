@@ -1,7 +1,7 @@
 object frmBuscaPro: TfrmBuscaPro
-  Left = 333
+  Left = 332
   Height = 493
-  Top = 164
+  Top = 163
   Width = 683
   Caption = 'Busca Propriedade'
   ClientHeight = 493

@@ -77,17 +77,20 @@ end;
 procedure TfrmBuscaCli.btNovoClick(Sender: TObject);
 begin
   Opcao := 'Novo';
-   frmCadCli.ShowModal;
+  frmCadCli:= TfrmCadCli.Create(Application);
+  frmCadCli.ShowModal;
 end;
 
 procedure TfrmBuscaCli.btPropriedadeClick(Sender: TObject);
 begin
+    frmBuscaPro:= TfrmBuscaPro.Create(Application);
    frmBuscaPro.ShowModal;
 end;
 
 procedure TfrmBuscaCli.btEditarClick(Sender: TObject);
 begin
    Opcao := 'Editar';
+    frmCadCli:= TfrmCadCli.Create(Application);
    frmCadCli.ShowModal;
 end;
 

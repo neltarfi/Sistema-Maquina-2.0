@@ -25,15 +25,18 @@
       <FormatVersion Value="2"/>
       <Modes Count="0"/>
     </RunParams>
-    <RequiredPackages Count="2">
+    <RequiredPackages Count="3">
       <Item1>
-        <PackageName Value="FCL"/>
+        <PackageName Value="fortes324forlaz"/>
       </Item1>
       <Item2>
-        <PackageName Value="LCL"/>
+        <PackageName Value="FCL"/>
       </Item2>
+      <Item3>
+        <PackageName Value="LCL"/>
+      </Item3>
     </RequiredPackages>
-    <Units Count="8">
+    <Units Count="11">
       <Unit0>
         <Filename Value="Maquina.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -91,6 +94,30 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="CadPro"/>
       </Unit7>
+      <Unit8>
+        <Filename Value="romaneio.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmRomaneio"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Romaneio"/>
+      </Unit8>
+      <Unit9>
+        <Filename Value="impromaneio.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmImpRomaneio"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="impRomaneio"/>
+      </Unit9>
+      <Unit10>
+        <Filename Value="cadlotecoco.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmCadLoteCoco"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="CadLoteCoco"/>
+      </Unit10>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
