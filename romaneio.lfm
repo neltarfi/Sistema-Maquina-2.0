@@ -795,7 +795,7 @@ object frmRomaneio: TfrmRomaneio
   object dbeTotalRomaneio: TDBEdit
     Left = 184
     Height = 27
-    Top = 464
+    Top = 459
     Width = 80
     DataField = 'TOTALROMANEIO'
     DataSource = dsRomaneio

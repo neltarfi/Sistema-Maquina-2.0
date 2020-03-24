@@ -18,7 +18,6 @@ begin
   Application.Initialize;
   Application.CreateForm(TfrmPrincipal, frmPrincipal);
   Application.CreateForm(TDataModule1, DataModule1);
-  Application.CreateForm(TfrmCadLoteCoco, frmCadLoteCoco);
   Application.Run;
 end.
 

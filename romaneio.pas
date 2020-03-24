@@ -218,7 +218,10 @@ begin
 
     qrCompra.Close;
     qrCompra.ParamByName('IDCompra').Value:=qrRomaneio.FieldByName('Cod_Compra').Value;
-
+    qrDepositado.Open;
+    qrCompra.Open;
+    CalcRomaneio;
+    calcCompra;
   end
   else
   begin
@@ -227,14 +230,11 @@ begin
 
     qrCompra.Close;
     qrCompra.ParamByName('IDCompra').Value:=0;
+    qrDepositado.Open;
+    qrCompra.Open;
   end;
-  qrDepositado.Open;
-  qrCompra.Open;
-
   edtCidade.Text:=qrListNomePro.FieldByName('Cidade').AsString;
   dbeData.Text:= datetostr(Date);
-  CalcRomaneio;
-  calcCompra;
   btSalvar.Enabled:=false;
   Novo:=False;
   NovaCompra:=False ;
@@ -268,12 +268,12 @@ end;
 procedure TfrmRomaneio.btNovoClick(Sender: TObject);
 begin
   Novo:=true;
-  qrRomaneio.Append;
-  qrCompra.Append;
-  qrDepositado.Append;
+  qrRomaneio.Insert;
+  qrCompra.Insert;
+  qrDepositado.Insert;
   qrAuxCompra.Open;
-  qrAuxDepositado.Open;
   qrRomaneio.FieldByName('Cod_Romaneio').Value:=-1;
+  qrAuxDepositado.Open;
   dbeData.Text:= datetostr(Date);
   dbeData.ReadOnly:=False;
   btSalvar.Enabled:=true;
@@ -294,6 +294,7 @@ begin
      begin
           if SalvarTrue then
           begin
+
            if dbeDepositado.Text > '0' then
            begin
              qrRomaneio.FieldByName('Cod_Depositado').Value:=qrAuxDepositado.RecordCount;
@@ -329,7 +330,7 @@ end;
 
 procedure TfrmRomaneio.btImprimirClick(Sender: TObject);
 begin
-   frmImpRomaneio:=TfrmImpRomaneio.Create(Application);
+   frmImpRomaneio:=TfrmImpRomaneio.Create(self);
    frmImpRomaneio.RLReport1.Preview();
 end;
 
@@ -656,17 +657,27 @@ begin
 end;
 
 procedure TfrmRomaneio.CalcCompra;
-var Aux:real;
+var Aux:double;
 begin
-  if rgOpcao.Value='Saco' then
-     edtValorBruto.Text:=FormatFloat('0.00',(qrCompra.FieldByName('Valor').Value*qrCompra.FieldByName('Peso').Value/40))
-  else
-  begin
-       Aux:=qrCompra.FieldByName('Valor').Value*qrCompra.FieldByName('Peso').Value*qrRomaneio.FieldByName('Renda').Value/40000;
-       edtValorBruto.Text:=FormatFloat('0.00',Aux);
-  end;
-  edtFunRural.Text:=FormatFloat('0.00',(strTofloat(edtValorBruto.Text)*qrCompra.FieldByName('Aliquota').Value*qrCompra.FieldByName('PorcFundoRural').Value/10000));
-  edtValorLivre.Text:=FormatFloat('0.00',(strtofloat(edtValorBruto.Text)-strToFloat(edtFunRural.Text)));
+     if (dbeComprado.Text>'0') and (strTofloat(dbeValor.Text)>0.00) then
+     begin
+        if rgOpcao.Value='Saco' then
+           edtValorBruto.Text:=FormatFloat('0.00',(qrCompra.FieldByName('Valor').Value*qrCompra.FieldByName('Peso').Value/40))
+        else
+        begin
+             Aux:=qrCompra.FieldByName('Valor').Value*qrCompra.FieldByName('Peso').Value*qrRomaneio.FieldByName('Renda').Value/40000;
+             edtValorBruto.Text:=FormatFloat('0.00',Aux);
+        end;
+        edtFunRural.Text:=FormatFloat('0.00',(strTofloat(edtValorBruto.Text)*qrCompra.FieldByName('Aliquota').Value*qrCompra.FieldByName('PorcFundoRural').Value/10000));
+        edtValorLivre.Text:=FormatFloat('0.00',(strtofloat(edtValorBruto.Text)-strToFloat(edtFunRural.Text)));
+     end
+     else
+     begin
+          edtValorBruto.Text:='0.00';
+          edtFunRural.Text:='0.00';
+          edtValorLivre.Text:='0.00';
+     end;
+
 end;
 
 procedure TfrmRomaneio.rgOpcaoChange(Sender: TObject);

@@ -6,11 +6,12 @@ object frmImpRomaneio: TfrmImpRomaneio
   Caption = 'Relatório de Romaneio'
   ClientHeight = 549
   ClientWidth = 839
+  OnClose = FormClose
   LCLVersion = '2.0.6.0'
   object RLReport1: TRLReport
-    Left = 8
+    Left = 0
     Height = 1123
-    Top = 8
+    Top = 0
     Width = 794
     DataSource = dsImpRomaneio
     Font.Color = clBlack
@@ -58,26 +59,6 @@ object frmImpRomaneio: TfrmImpRomaneio
           RealBounds.Top = 0
           RealBounds.Width = 0
           RealBounds.Height = 0
-          object rlCodRomaneio: TRLDBText
-            Left = 136
-            Height = 19
-            Top = 8
-            Width = 72
-            Alignment = taRightJustify
-            AutoSize = False
-            Borders.Sides = sdCustom
-            Borders.DrawLeft = True
-            Borders.DrawTop = True
-            Borders.DrawRight = True
-            Borders.DrawBottom = True
-            Borders.Color = clGrayText
-            DataField = 'COD_ROMANEIO'
-            DataSource = dsImpRomaneio
-            RealBounds.Left = 0
-            RealBounds.Top = 0
-            RealBounds.Width = 0
-            RealBounds.Height = 0
-          end
           object RLLabel1: TRLLabel
             Left = 0
             Height = 17
@@ -235,6 +216,26 @@ object frmImpRomaneio: TfrmImpRomaneio
             Font.Name = 'Sans'
             Font.Style = [fsBold]
             ParentFont = False
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object rlCodRomaneio: TRLDBText
+            Left = 158
+            Height = 15
+            Top = 12
+            Width = 76
+            Alignment = taRightJustify
+            AutoSize = False
+            Borders.Sides = sdCustom
+            Borders.DrawLeft = True
+            Borders.DrawTop = True
+            Borders.DrawRight = True
+            Borders.DrawBottom = True
+            Borders.Color = clGrayText
+            DataField = 'COD_ROMANEIO'
+            DataSource = dsImpRomaneio
             RealBounds.Left = 0
             RealBounds.Top = 0
             RealBounds.Width = 0
@@ -2825,116 +2826,10 @@ object frmImpRomaneio: TfrmImpRomaneio
     end
   end
   object qrImpRomaneio: TSQLQuery
+    IndexName = 'DEFAULT_ORDER'
     FieldDefs = <    
       item
-        Name = 'NOMECLI'
-        DataType = ftString
-        Precision = -1
-        Size = 120
-      end    
-      item
-        Name = 'NOMEPRO'
-        DataType = ftString
-        Precision = -1
-        Size = 120
-      end    
-      item
-        Name = 'CIDADE'
-        DataType = ftString
-        Precision = -1
-        Size = 160
-      end    
-      item
-        Name = 'COD_DEPOSITADO'
-        DataType = ftInteger
-        Precision = -1
-      end    
-      item
         Name = 'COD_ROMANEIO'
-        DataType = ftInteger
-        Precision = -1
-      end    
-      item
-        Name = 'DEPOSITADO'
-        DataType = ftInteger
-        Precision = -1
-      end    
-      item
-        Name = 'COMPRADO'
-        DataType = ftInteger
-        Precision = -1
-      end    
-      item
-        Name = 'SALDO'
-        DataType = ftInteger
-        Precision = -1
-      end    
-      item
-        Name = 'CANCELADO'
-        DataType = ftString
-        Precision = -1
-        Size = 20
-      end    
-      item
-        Name = 'COD_COMPRA'
-        DataType = ftInteger
-        Precision = -1
-      end    
-      item
-        Name = 'COD_ROMANEIO_1'
-        DataType = ftInteger
-        Precision = -1
-      end    
-      item
-        Name = 'DATA'
-        DataType = ftDate
-        Precision = -1
-      end    
-      item
-        Name = 'PESO'
-        DataType = ftInteger
-        Precision = -1
-      end    
-      item
-        Name = 'SACOKG'
-        DataType = ftString
-        Precision = -1
-        Size = 16
-      end    
-      item
-        Name = 'PORCFUNDORURAL'
-        DataType = ftInteger
-        Precision = -1
-      end    
-      item
-        Name = 'ALIQUOTA'
-        DataType = ftFloat
-        Precision = -1
-      end    
-      item
-        Name = 'VALOR'
-        DataType = ftFloat
-        Precision = -1
-      end    
-      item
-        Name = 'OBS'
-        DataType = ftString
-        Precision = -1
-        Size = 400
-      end    
-      item
-        Name = 'COD_CONTACORRENTE'
-        DataType = ftInteger
-        Precision = -1
-      end    
-      item
-        Name = 'CANCELADO_1'
-        DataType = ftString
-        Precision = -1
-        Size = 20
-      end    
-      item
-        Name = 'COD_ROMANEIO_2'
         DataType = ftInteger
         Precision = -1
       end    
@@ -2949,7 +2844,7 @@ object frmImpRomaneio: TfrmImpRomaneio
         Precision = -1
       end    
       item
-        Name = 'DATA_1'
+        Name = 'DATA'
         DataType = ftDate
         Precision = -1
       end    
@@ -3003,7 +2898,7 @@ object frmImpRomaneio: TfrmImpRomaneio
       end    
       item
         Name = 'BEBERLIMPO'
-        DataType = ftCurrency
+        DataType = ftFloat
         Precision = -1
       end    
       item
@@ -3033,7 +2928,7 @@ object frmImpRomaneio: TfrmImpRomaneio
         Precision = -1
       end    
       item
-        Name = 'OBS_1'
+        Name = 'OBS'
         DataType = ftString
         Precision = -1
         Size = 400
@@ -3044,7 +2939,66 @@ object frmImpRomaneio: TfrmImpRomaneio
         Precision = -1
       end    
       item
-        Name = 'CANCELADO_2'
+        Name = 'CANCELADO'
+        DataType = ftString
+        Precision = -1
+        Size = 20
+      end    
+      item
+        Name = 'COD_COMPRA'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'COD_DEPOSITADO'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'NOMECLI'
+        DataType = ftString
+        Precision = -1
+        Size = 120
+      end    
+      item
+        Name = 'NOMEPRO'
+        DataType = ftString
+        Precision = -1
+        Size = 120
+      end    
+      item
+        Name = 'CIDADE'
+        DataType = ftString
+        Precision = -1
+        Size = 160
+      end    
+      item
+        Name = 'COD_DEPOSITADO_1'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'COD_ROMANEIO_1'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'DEPOSITADO'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'COMPRADO'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'SALDO'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'CANCELADO_1'
         DataType = ftString
         Precision = -1
         Size = 20
@@ -3055,19 +3009,67 @@ object frmImpRomaneio: TfrmImpRomaneio
         Precision = -1
       end    
       item
-        Name = 'COD_DEPOSITADO_1'
+        Name = 'COD_ROMANEIO_2'
         DataType = ftInteger
         Precision = -1
+      end    
+      item
+        Name = 'DATA_1'
+        DataType = ftDate
+        Precision = -1
+      end    
+      item
+        Name = 'PESO'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'SACOKG'
+        DataType = ftString
+        Precision = -1
+        Size = 16
+      end    
+      item
+        Name = 'PORCFUNDORURAL'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'ALIQUOTA'
+        DataType = ftFloat
+        Precision = -1
+      end    
+      item
+        Name = 'VALOR'
+        DataType = ftFloat
+        Precision = -1
+      end    
+      item
+        Name = 'OBS_1'
+        DataType = ftString
+        Precision = -1
+        Size = 400
+      end    
+      item
+        Name = 'COD_CONTACORRENTE'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'CANCELADO_2'
+        DataType = ftString
+        Precision = -1
+        Size = 20
       end>
     Database = DataModule1.IBCMaquina
     Transaction = DataModule1.SQLTMaquina
     SQL.Strings = (
-      'select c.Nome as NomeCli,p.Nome as NomePro, p.Cidade, d.*, co.*, r.* from Romaneio r'
+      'select r.*, c.Nome as NomeCli,p.Nome as NomePro, p.Cidade, d.*, co.* from Romaneio r'
       'inner join Clientes c on c.Cod_Cliente = r.Cod_cli'
       'inner join Propriedades p on (c.Cod_Cliente = r.Cod_cli) and (p.Cod_Pro = r.Cod_Pro)'
       'inner join Compra co on co.Cod_Compra = r.Cod_Compra'
       'inner join Depositado d on d.Cod_Depositado = r.Cod_Depositado'
-      'where r.Cod_Romaneio = :IDCOdigoRomaneio'
+      'where r.Cod_Romaneio = :IDCodigoRomaneio'
       ''
       ''
       ''

@@ -215,6 +215,7 @@ type
     RLPanel4: TRLPanel;
     RLReport1: TRLReport;
     rlValorLivre1: TRLDBText;
+    procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure RLReport1BeforePrint(Sender: TObject; var PrintIt: boolean);
   private
 
@@ -244,6 +245,7 @@ begin
     rlTotalPlastico.Text:= intTostr(qrimpRomaneio.FieldByName('QuanPlastico').Value*qrImpRomaneio.FieldByName('PesoPlastico').Value);
     rlTotalPlastico1.Text:=rlTotalPlastico.Text;
     rlTotalJuta.Text:=intTostr(qrimpRomaneio.FieldByName('QuanJuta').Value*qrImpRomaneio.FieldByName('PesoJuta').Value);
+    rlTotalJuta1.Text:=rlTotalJuta.Text;
     Aux:=qrImpRomaneio.FieldByName('PesoBruto').Value-qrImpRomaneio.FieldByName('Impureza').Value-strToInt(rlTotalPlastico.Text);
      Aux:=Aux-strToint(rlTotalJuta.Text)-qrimpRomaneio.FieldByName('Desconto1').Value;
      if qrImpRomaneio.FieldByName('Porcentagem').Value >0 then
@@ -263,23 +265,44 @@ begin
      end;
      rlSaldoCoco.Text:=floatTostr(Aux-strToint(rlDescPorcentagem.Text)-qrImpRomaneio.FieldByName('BeberCoco').Value-qrImpRomaneio.FieldByName('Desconto2').Value);
      rlSaldoCoco1.Text:=rlSaldoCoco.Text;
-     if qrImpRomaneio.FieldByName('SacoKg').Value='Saco' then
+     if frmRomaneio.qrRomaneio.FieldByName('Cod_Compra').Value>0 then
      begin
-          rlValorBruto.Text:=FormatFloat('0.00',(qrimpRomaneio.FieldByName('Valor').Value*qrImpRomaneio.FieldByName('Peso').Value/40));
-          rlUnidadePreco.Caption:='R$/Saco';
+        if qrImpRomaneio.FieldByName('SacoKg').Value='Saco' then
+        begin
+             rlValorBruto.Text:=FormatFloat('0.00',(qrimpRomaneio.FieldByName('Valor').Value*qrImpRomaneio.FieldByName('Peso').Value/40));
+             rlValorBruto1.Text:=rlValorBruto.Text;
+             rlUnidadePreco.Caption:='R$/Saco';
+        end
+        else
+        begin
+             Aux:=qrImpRomaneio.FieldByName('Valor').Value*qrImpRomaneio.FieldByName('Peso').Value*qrImpRomaneio.FieldByName('Renda').Value/40000;
+             rlValorBruto.Text:=FormatFloat('0.00',Aux);
+             rlValorBruto1.Text:=rlValorBruto.Text;
+             rlUnidadePreco.Caption:='R$/Kg';
+        end;
+        rlFundoRural.Text:=FormatFloat('0.00',(strTofloat(rlValorBruto.Text)*qrImpRomaneio.FieldByName('Aliquota').Value*qrImpRomaneio.FieldByName('PorcFundoRural').Value/10000));
+        rlFundoRural1.Text:=rlFundoRural.Text;
+        rlValorLivre.Text:=FormatFloat('0.00',(strtofloat(rlValorBruto.Text)-strToFloat(rlFundoRural.Text)));
+        rlValorLivre1.Text:=rlValorLivre.Text;
      end
      else
      begin
-       Aux:=qrImpRomaneio.FieldByName('Valor').Value*qrImpRomaneio.FieldByName('Peso').Value*qrImpRomaneio.FieldByName('Renda').Value/40000;
-       rlValorBruto.Text:=FormatFloat('0.00',Aux);
-       rlValorBruto1.Text:=rlValorBruto.Text;
-       rlUnidadePreco.Caption:='R$/Kg';
+          rlValorBruto.Text:='0.00';
+          rlValorBruto1.Text:='0.00';
+          rlFundoRural.Text:='0.00';
+          rlFundoRural1.Text:='0.00';
+          rlValorLivre.Text:='0.00';
+          rlValorLivre1.Text:='0.00';
      end;
-     rlFundoRural.Text:=FormatFloat('0.00',(strTofloat(rlValorBruto.Text)*qrImpRomaneio.FieldByName('Aliquota').Value*qrImpRomaneio.FieldByName('PorcFundoRural').Value/10000));
-     rlFundoRural1.Text:=rlFundoRural.Text;
-     rlValorLivre.Text:=FormatFloat('0.00',(strtofloat(rlValorBruto.Text)-strToFloat(rlFundoRural.Text)));
-     rlValorLivre1.Text:=rlValorLivre.Text;
+
 end;
+
+procedure TfrmImpRomaneio.FormClose(Sender: TObject;
+  var CloseAction: TCloseAction);
+begin
+  qrImpRomaneio.Close;
+end;
+
 
 
 end.
