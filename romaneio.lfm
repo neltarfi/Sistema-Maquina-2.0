@@ -574,6 +574,7 @@ object frmRomaneio: TfrmRomaneio
       Top = 304
       Width = 80
       Alignment = taRightJustify
+      ReadOnly = True
       TabOrder = 21
     end
   end

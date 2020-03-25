@@ -542,6 +542,7 @@ begin
      edtDesconto.Text:='20';
      dbeBeberCoco.ReadOnly:=False;
      dbeLegenda2.ReadOnly:=False;
+     dbeDesconto2.ReadOnly:=False;
      qrRomaneio.FieldByName('Legenda2').Text:='Outros descontos';
      dblLoteCoco.Enabled:=True;
      dblLoteCoco.Clear;
@@ -580,6 +581,7 @@ Begin
      edtDesconto.ReadOnly:=True;
      dbeBeberCoco.ReadOnly:=True;
      dbeLegenda2.ReadOnly:=True;
+     dbeDesconto2.ReadOnly:=True;
      dblLoteCoco.Enabled:=False;
      dbeComprado.ReadOnly:=True;
      dbeValor.ReadOnly:=True;
@@ -631,7 +633,11 @@ begin
         begin
              if novo then qrDepositado.FieldByName('Depositado').Value:=strToint(edtSaldoCoco.Text);
         end
-     else DesabilitaCompra;
+     else
+     begin
+          DesabilitaCompra;
+          if novo then qrDepositado.FieldByName('Depositado').Value:=0;
+     end;
      dbeTotalRomaneio.Text:=intTostr(strToint(dbeBeberCoco.Text)+strToint(edtSaldoCoco.Text));
 end;
 
