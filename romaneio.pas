@@ -17,6 +17,7 @@ type
     btSalvar: TButton;
     btSair: TButton;
     btImprimir: TButton;
+    btFiltro: TButton;
     dbeTotalRomaneio: TDBEdit;
     dbePorcFundoRural: TDBEdit;
     dbeAliquota: TDBEdit;
@@ -154,6 +155,7 @@ type
     procedure btSairClick(Sender: TObject);
     procedure btSalvarClick(Sender: TObject);
     procedure btImprimirClick(Sender: TObject);
+    procedure btFiltroClick(Sender: TObject);
     procedure dbeBeberCocoExit(Sender: TObject);
     procedure dbeBeberLimpoExit(Sender: TObject);
     procedure dbeCompradoEnter(Sender: TObject);
@@ -185,6 +187,7 @@ type
     procedure CalcCompra;
     procedure rgOpcaoChange(Sender: TObject);
     function SalvarTrue():boolean;
+    procedure PopulaCampos;
   private
 
   public
@@ -208,6 +211,7 @@ begin
   qrListNomeCli.Open;
   qrRomaneio.Open;
   qrRomaneio.Last;
+  dbNomeCli.KeyValue:=qrRomaneio.FieldByName('Cod_Cli').Value;
   qrListNomePro.Close;
   qrListNomePro.ParamByName('IDCliente').Value:=dbNomeCli.KeyValue;
   qrListNomePro.Open;
@@ -260,19 +264,29 @@ procedure TfrmRomaneio.dbNomeCliSelect(Sender: TObject);
 begin
      dbNomePro.Clear;
      edtCidade.Clear;
+     if btFiltro.Caption='Filtro on' then
+     begin
+          qrRomaneio.Close;
+          qrRomaneio.ParamByName('IDCliente').Value:= dbNomeCli.KeyValue;
+          qrRomaneio.Open;
+     end;
      qrListNomePro.Close;
      qrListNomePro.ParamByName('IDCliente').Value:=dbNomeCli.KeyValue;
      qrListNomePro.Open;
+     if Novo then dbNomePro.KeyValue:=0
+     else edtCidade.Text:=qrListNomePro.FieldByName('Cidade').Text;
 end;
 
 procedure TfrmRomaneio.btNovoClick(Sender: TObject);
 begin
   Novo:=true;
+  btFiltro.Enabled:=False;
   qrRomaneio.Insert;
   qrCompra.Insert;
   qrDepositado.Insert;
   qrAuxCompra.Open;
   qrRomaneio.FieldByName('Cod_Romaneio').Value:=-1;
+  dbNomeCli.KeyValue:=0;
   qrAuxDepositado.Open;
   dbeData.Text:= datetostr(Date);
   dbeData.ReadOnly:=False;
@@ -299,6 +313,7 @@ begin
            begin
              qrRomaneio.FieldByName('Cod_Depositado').Value:=qrAuxDepositado.RecordCount;
              qrDepositado.FieldByName('Cod_Depositado').Value:= -1;
+             qrDepositado.FieldByName('Cod_Romaneio').Value:= qrRomaneio.RecordCount+1;
              qrDepositado.ApplyUpdates;
            end
            else
@@ -313,6 +328,8 @@ begin
            else
             qrRomaneio.FieldByName('Cod_Compra').Value:= 0;
 
+           qrRomaneio.FieldByName('Cod_Cli').Value:=dbNomeCli.KeyValue;
+
            qrRomaneio.ApplyUpdates;
            DataModule1.SQLTMaquina.CommitRetaining;
            qrRomaneio.Close;
@@ -322,6 +339,7 @@ begin
            btSalvar.Enabled:=False;
            btImprimir.Enabled:=True;
            btNovo.Enabled:=True;
+           btFiltro.Enabled:=True;
            Novo:=False;
         end
         else MessageDLG(Erro, mtError,[mbOK],0);
@@ -330,8 +348,39 @@ end;
 
 procedure TfrmRomaneio.btImprimirClick(Sender: TObject);
 begin
-   frmImpRomaneio:=TfrmImpRomaneio.Create(self);
+   frmImpRomaneio:=TfrmImpRomaneio.Create(Application);
    frmImpRomaneio.RLReport1.Preview();
+end;
+
+procedure TfrmRomaneio.btFiltroClick(Sender: TObject);
+begin
+     if btFiltro.Caption='Filtro off' then
+     begin
+          qrRomaneio.Close;
+          qrRomaneio.SQL.Clear;
+          qrRomaneio.SQL.Add('Select * from Romaneio where Cod_Cli = :IDCliente');
+          qrRomaneio.SQL.Add('order by Cod_Romaneio');
+          qrRomaneio.ParamByName('IDCliente').Value:= dbNomeCli.KeyValue;
+          qrRomaneio.Open;
+          qrRomaneio.Last;
+          dbNomeCli.KeyValue:=qrRomaneio.FieldByName('Cod_Cli').Value;
+          btFiltro.Caption:='Filtro on';
+          btNovo.Enabled:=false;
+          dbNomeCli.Enabled:=True;
+     end
+     else
+     begin
+          qrRomaneio.Close;
+          qrRomaneio.SQL.Clear;
+          qrRomaneio.SQL.Add('Select * from Romaneio order by Cod_Romaneio');
+          qrRomaneio.Open;
+          qrRomaneio.Last;
+          dbNomeCli.KeyValue:=qrRomaneio.FieldByName('Cod_Cli').Value;
+          btFiltro.Caption:='Filtro off';
+          btNovo.Enabled:=True;
+          dbNomeCli.Enabled:=False;
+     end;
+     PopulaCampos;
 end;
 
 procedure TfrmRomaneio.dbeBeberCocoExit(Sender: TObject);
@@ -455,20 +504,7 @@ end;
 procedure TfrmRomaneio.DBNavigator1Click(Sender: TObject;
   Button: TDBNavButtonType);
 begin
-     qrListNomePro.Close;
-     qrListNomePro.ParamByName('IDCliente').Value:=dbNomeCli.KeyValue;
-     qrListNomePro.Open;
-     edtCidade.Text:=qrListNomePro.FieldByName('Cidade').AsString;
-
-     qrDepositado.Close;
-     qrDepositado.ParamByName('IDDepositado').Value:=qrRomaneio.FieldByName('Cod_Depositado').Value;
-     qrDepositado.Open;
-
-     qrCompra.Close;
-     qrCompra.ParamByName('IDCompra').Value:=qrRomaneio.FieldByName('Cod_Compra').Value;
-     qrCompra.Open;
-     CalcRomaneio;
-     CalcCompra;
+     PopulaCampos;
 end;
 
 procedure TfrmRomaneio.dbNomeProSelect(Sender: TObject);
@@ -623,7 +659,8 @@ begin
           AuxRestoDiv:=(Aux*AuxPorc);
           AuxDiv:= Round(Aux*AuxPorc);
           if AuxRestoDiv<>AuxDiv then
-             edtDescPorcentagem.Text:=floatTostr(AuxDiv+1);
+             edtDescPorcentagem.Text:=floatTostr(AuxDiv+1)
+          else edtDescPorcentagem.Text:=floatTostr(AuxDiv);
      end
      else edtDescPorcentagem.Text:='0';
      if Novo then
@@ -706,5 +743,27 @@ begin
      else
          SalvarTrue := False;
 end;
+
+procedure TfrmRomaneio.PopulaCampos;
+begin
+     if not novo then dbNomeCli.KeyValue:=qrRomaneio.FieldByName('Cod_Cli').Value;
+     qrListNomePro.Close;
+     qrListNomePro.ParamByName('IDCliente').Value:=dbNomeCli.KeyValue;
+     qrListNomePro.Open;
+
+
+     if not Novo then edtCidade.Text:=qrListNomePro.FieldByName('Cidade').AsString;
+
+     qrDepositado.Close;
+     qrDepositado.ParamByName('IDDepositado').Value:=qrRomaneio.FieldByName('Cod_Depositado').Value;
+     qrDepositado.Open;
+
+     qrCompra.Close;
+     qrCompra.ParamByName('IDCompra').Value:=qrRomaneio.FieldByName('Cod_Compra').Value;
+     qrCompra.Open;
+     CalcRomaneio;
+     CalcCompra;
+end;
+
 end.
 

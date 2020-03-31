@@ -23,8 +23,6 @@ object frmRomaneio: TfrmRomaneio
       Height = 29
       Top = 40
       Width = 484
-      DataField = 'COD_CLI'
-      DataSource = dsRomaneio
       Enabled = False
       Font.Height = -13
       Font.Name = 'Sans'
@@ -813,6 +811,15 @@ object frmRomaneio: TfrmRomaneio
     Caption = 'Imprimir'
     OnClick = btImprimirClick
     TabOrder = 8
+  end
+  object btFiltro: TButton
+    Left = 686
+    Height = 57
+    Top = 70
+    Width = 75
+    Caption = 'Filtro off'
+    OnClick = btFiltroClick
+    TabOrder = 9
   end
   object qrListNomeCli: TSQLQuery
     FieldDefs = <    
