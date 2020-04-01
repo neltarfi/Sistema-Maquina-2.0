@@ -25,7 +25,7 @@ object frmImpRomaneio: TfrmImpRomaneio
     BeforePrint = RLReport1BeforePrint
     object RLBand1: TRLBand
       Left = 38
-      Height = 890
+      Height = 872
       Top = 38
       Width = 718
       AutoExpand = False
@@ -61,9 +61,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           RealBounds.Height = 0
           object RLLabel1: TRLLabel
             Left = 0
-            Height = 17
+            Height = 16
             Top = 12
-            Width = 133
+            Width = 118
             Caption = 'Código Romaneio'
             Font.Color = clBlack
             Font.Height = -13
@@ -96,9 +96,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel2: TRLLabel
             Left = 248
-            Height = 17
+            Height = 16
             Top = 8
-            Width = 40
+            Width = 33
             Caption = 'Data'
             Font.Color = clBlack
             Font.Height = -13
@@ -131,9 +131,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel3: TRLLabel
             Left = 0
-            Height = 17
+            Height = 16
             Top = 39
-            Width = 152
+            Width = 130
             Caption = 'Nome do Cliente....:'
             Font.Color = clBlack
             Font.Height = -13
@@ -166,9 +166,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel4: TRLLabel
             Left = -2
-            Height = 17
+            Height = 16
             Top = 71
-            Width = 154
+            Width = 131
             Caption = 'Propriedade...........:'
             Font.Color = clBlack
             Font.Height = -13
@@ -201,9 +201,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel5: TRLLabel
             Left = 2
-            Height = 17
+            Height = 16
             Top = 96
-            Width = 150
+            Width = 125
             Borders.Sides = sdCustom
             Borders.DrawLeft = False
             Borders.DrawTop = False
@@ -432,9 +432,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel6: TRLLabel
             Left = 8
-            Height = 17
+            Height = 16
             Top = 9
-            Width = 116
+            Width = 97
             Caption = 'Renda............:'
             Font.Color = clBlack
             Font.Height = -13
@@ -448,9 +448,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel7: TRLLabel
             Left = 8
-            Height = 17
+            Height = 16
             Top = 25
-            Width = 226
+            Width = 185
             Caption = 'Peso Bruto...........................:'
             Font.Color = clBlack
             Font.Height = -13
@@ -464,9 +464,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel8: TRLLabel
             Left = 8
-            Height = 17
+            Height = 16
             Top = 49
-            Width = 224
+            Width = 184
             Caption = 'Impureza.............................:'
             Font.Color = clBlack
             Font.Height = -13
@@ -560,9 +560,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel9: TRLLabel
             Left = 8
-            Height = 17
+            Height = 16
             Top = 81
-            Width = 63
+            Width = 54
             Caption = 'Plástico'
             Font.Color = clBlack
             Font.Height = -13
@@ -576,7 +576,7 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel10: TRLLabel
             Left = 72
-            Height = 15
+            Height = 16
             Top = 65
             Width = 73
             Caption = 'Quan. Saco'
@@ -587,7 +587,7 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel11: TRLLabel
             Left = 143
-            Height = 15
+            Height = 16
             Top = 65
             Width = 68
             Caption = 'Peso/Saco'
@@ -617,9 +617,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel12: TRLLabel
             Left = 8
-            Height = 17
+            Height = 16
             Top = 101
-            Width = 34
+            Width = 31
             Caption = 'Juta'
             Font.Color = clBlack
             Font.Height = -13
@@ -633,9 +633,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel13: TRLLabel
             Left = 212
-            Height = 17
+            Height = 16
             Top = 101
-            Width = 25
+            Width = 20
             Caption = '....'
             Font.Color = clBlack
             Font.Height = -13
@@ -649,9 +649,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel14: TRLLabel
             Left = 218
-            Height = 17
+            Height = 16
             Top = 121
-            Width = 20
+            Width = 16
             Caption = '...'
             Font.Color = clBlack
             Font.Height = -13
@@ -665,9 +665,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel15: TRLLabel
             Left = 212
-            Height = 17
+            Height = 16
             Top = 81
-            Width = 25
+            Width = 20
             Caption = '....'
             Font.Color = clBlack
             Font.Height = -13
@@ -681,9 +681,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel16: TRLLabel
             Left = 194
-            Height = 17
+            Height = 16
             Top = 7
-            Width = 54
+            Width = 48
             Caption = 'g/Saco'
             Font.Color = clBlack
             Font.Height = -13
@@ -717,9 +717,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel17: TRLLabel
             Left = 218
-            Height = 17
+            Height = 16
             Top = 137
-            Width = 18
+            Width = 14
             Caption = '%'
             Font.Color = clBlack
             Font.Height = -13
@@ -733,9 +733,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel18: TRLLabel
             Left = 8
-            Height = 17
+            Height = 16
             Top = 137
-            Width = 163
+            Width = 137
             Caption = 'Porcentagem...........:'
             Font.Color = clBlack
             Font.Height = -13
@@ -767,9 +767,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel19: TRLLabel
             Left = 8
-            Height = 17
+            Height = 16
             Top = 169
-            Width = 112
+            Width = 96
             Caption = 'Café P/ Beber:'
             Font.Color = clBlack
             Font.Height = -13
@@ -783,7 +783,7 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel20: TRLLabel
             Left = 130
-            Height = 15
+            Height = 16
             Top = 153
             Width = 39
             Caption = 'Limpo'
@@ -813,9 +813,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel21: TRLLabel
             Left = 218
-            Height = 17
+            Height = 16
             Top = 185
-            Width = 20
+            Width = 16
             Caption = '...'
             Font.Color = clBlack
             Font.Height = -13
@@ -847,9 +847,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel22: TRLLabel
             Left = 8
-            Height = 17
+            Height = 16
             Top = 209
-            Width = 226
+            Width = 189
             Caption = 'Saldo Coco...........................:'
             Font.Color = clBlack
             Font.Height = -13
@@ -863,9 +863,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel23: TRLLabel
             Left = 312
-            Height = 17
+            Height = 16
             Top = 25
-            Width = 24
+            Width = 21
             Caption = 'Kg'
             Font.Color = clBlack
             Font.Height = -13
@@ -879,9 +879,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel24: TRLLabel
             Left = 312
-            Height = 17
+            Height = 16
             Top = 49
-            Width = 24
+            Width = 21
             Caption = 'Kg'
             Font.Color = clBlack
             Font.Height = -13
@@ -895,9 +895,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel25: TRLLabel
             Left = 312
-            Height = 17
+            Height = 16
             Top = 79
-            Width = 24
+            Width = 21
             Caption = 'Kg'
             Font.Color = clBlack
             Font.Height = -13
@@ -911,9 +911,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel26: TRLLabel
             Left = 312
-            Height = 17
+            Height = 16
             Top = 101
-            Width = 24
+            Width = 21
             Caption = 'Kg'
             Font.Color = clBlack
             Font.Height = -13
@@ -927,9 +927,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel27: TRLLabel
             Left = 312
-            Height = 17
+            Height = 16
             Top = 121
-            Width = 24
+            Width = 21
             Caption = 'Kg'
             Font.Color = clBlack
             Font.Height = -13
@@ -943,9 +943,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel28: TRLLabel
             Left = 312
-            Height = 17
+            Height = 16
             Top = 137
-            Width = 24
+            Width = 21
             Caption = 'Kg'
             Font.Color = clBlack
             Font.Height = -13
@@ -959,9 +959,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel29: TRLLabel
             Left = 312
-            Height = 17
+            Height = 16
             Top = 169
-            Width = 24
+            Width = 21
             Caption = 'Kg'
             Font.Color = clBlack
             Font.Height = -13
@@ -975,9 +975,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel30: TRLLabel
             Left = 312
-            Height = 17
+            Height = 16
             Top = 185
-            Width = 24
+            Width = 21
             Caption = 'Kg'
             Font.Color = clBlack
             Font.Height = -13
@@ -991,9 +991,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel31: TRLLabel
             Left = 312
-            Height = 17
+            Height = 16
             Top = 209
-            Width = 24
+            Width = 21
             Caption = 'Kg'
             Font.Color = clBlack
             Font.Height = -13
@@ -1196,9 +1196,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel34: TRLLabel
             Left = 36
-            Height = 17
+            Height = 16
             Top = 45
-            Width = 230
+            Width = 195
             Caption = 'Saldo Comprado....................:'
             Font.Color = clBlack
             Font.Height = -13
@@ -1212,9 +1212,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel35: TRLLabel
             Left = 39
-            Height = 17
+            Height = 16
             Top = 65
-            Width = 155
+            Width = 130
             Caption = 'Valor......................:'
             Font.Color = clBlack
             Font.Height = -13
@@ -1228,9 +1228,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object rlUnidadePreco: TRLLabel
             Left = 196
-            Height = 17
+            Height = 16
             Top = 65
-            Width = 47
+            Width = 41
             Caption = 'Preço'
             Font.Color = clBlack
             Font.Height = -13
@@ -1244,9 +1244,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel37: TRLLabel
             Left = 39
-            Height = 17
+            Height = 16
             Top = 121
-            Width = 202
+            Width = 168
             Caption = 'Valor Bruto......................:'
             Font.Color = clBlack
             Font.Height = -13
@@ -1260,9 +1260,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel38: TRLLabel
             Left = 41
-            Height = 17
+            Height = 16
             Top = 137
-            Width = 122
+            Width = 107
             Caption = 'Porc. Fun. Rural'
             Font.Color = clBlack
             Font.Height = -13
@@ -1276,9 +1276,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel39: TRLLabel
             Left = 39
-            Height = 17
+            Height = 16
             Top = 177
-            Width = 202
+            Width = 170
             Caption = 'Fundo Rural.....................:'
             Font.Color = clBlack
             Font.Height = -13
@@ -1292,9 +1292,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel40: TRLLabel
             Left = 41
-            Height = 17
+            Height = 16
             Top = 201
-            Width = 202
+            Width = 170
             Caption = 'Valor Livre.......................:'
             Font.Color = clBlack
             Font.Height = -13
@@ -1308,9 +1308,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel41: TRLLabel
             Left = 335
-            Height = 17
+            Height = 16
             Top = 17
-            Width = 24
+            Width = 21
             Caption = 'Kg'
             Font.Color = clBlack
             Font.Height = -13
@@ -1324,9 +1324,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel42: TRLLabel
             Left = 337
-            Height = 17
+            Height = 16
             Top = 41
-            Width = 24
+            Width = 21
             Caption = 'Kg'
             Font.Color = clBlack
             Font.Height = -13
@@ -1340,9 +1340,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel36: TRLLabel
             Left = 209
-            Height = 17
+            Height = 16
             Top = 137
-            Width = 18
+            Width = 14
             Caption = '%'
             Font.Color = clBlack
             Font.Height = -13
@@ -1356,9 +1356,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel43: TRLLabel
             Left = 209
-            Height = 17
+            Height = 16
             Top = 161
-            Width = 18
+            Width = 14
             Caption = '%'
             Font.Color = clBlack
             Font.Height = -13
@@ -1372,9 +1372,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel44: TRLLabel
             Left = 105
-            Height = 17
+            Height = 16
             Top = 161
-            Width = 65
+            Width = 57
             Caption = 'Aliquota'
             Font.Color = clBlack
             Font.Height = -13
@@ -1389,9 +1389,9 @@ object frmImpRomaneio: TfrmImpRomaneio
         end
         object RLLabel32: TRLLabel
           Left = 8
-          Height = 17
+          Height = 16
           Top = 368
-          Width = 38
+          Width = 32
           Caption = 'Obs:'
           Font.Color = clBlack
           Font.Height = -13
@@ -1424,7 +1424,1407 @@ object frmImpRomaneio: TfrmImpRomaneio
         end
         object RLLabel89: TRLLabel
           Left = -2
+          Height = 16
+          Top = 400
+          Width = 708
+          Caption = '................................................................................................................................................................................'
+          RealBounds.Left = 0
+          RealBounds.Top = 0
+          RealBounds.Width = 0
+          RealBounds.Height = 0
+        end
+      end
+      object RLPanel5: TRLPanel
+        Left = 8
+        Height = 432
+        Top = 440
+        Width = 704
+        RealBounds.Left = 0
+        RealBounds.Top = 0
+        RealBounds.Width = 0
+        RealBounds.Height = 0
+        object RLPanel6: TRLPanel
+          Left = 0
+          Height = 120
+          Top = 8
+          Width = 704
+          Borders.Sides = sdCustom
+          Borders.DrawLeft = False
+          Borders.DrawTop = False
+          Borders.DrawRight = False
+          Borders.DrawBottom = True
+          Borders.Color = clInfoBk
+          Borders.FixedBottom = True
+          RealBounds.Left = 0
+          RealBounds.Top = 0
+          RealBounds.Width = 0
+          RealBounds.Height = 0
+          object RLLabel45: TRLLabel
+            Left = 0
+            Height = 16
+            Top = 12
+            Width = 118
+            Caption = 'Código Romaneio'
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Sans'
+            Font.Style = [fsBold]
+            ParentFont = False
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object rlData1: TRLDBText
+            Left = 295
+            Height = 19
+            Top = 8
+            Width = 73
+            AutoSize = False
+            Borders.Sides = sdCustom
+            Borders.DrawLeft = True
+            Borders.DrawTop = True
+            Borders.DrawRight = True
+            Borders.DrawBottom = True
+            Borders.Color = clGrayText
+            DataField = 'DATA'
+            DataSource = dsImpRomaneio
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object RLLabel46: TRLLabel
+            Left = 248
+            Height = 16
+            Top = 8
+            Width = 33
+            Caption = 'Data'
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Sans'
+            Font.Style = [fsBold]
+            ParentFont = False
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object RLDBText8: TRLDBText
+            Left = 160
+            Height = 24
+            Top = 32
+            Width = 518
+            AutoSize = False
+            Borders.Sides = sdCustom
+            Borders.DrawLeft = True
+            Borders.DrawTop = True
+            Borders.DrawRight = True
+            Borders.DrawBottom = True
+            Borders.Color = clGrayText
+            DataField = 'NOMECLI'
+            DataSource = dsImpRomaneio
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object RLLabel47: TRLLabel
+            Left = 0
+            Height = 16
+            Top = 39
+            Width = 130
+            Caption = 'Nome do Cliente....:'
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Sans'
+            Font.Style = [fsBold]
+            ParentFont = False
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object RLDBText9: TRLDBText
+            Left = 160
+            Height = 24
+            Top = 64
+            Width = 518
+            AutoSize = False
+            Borders.Sides = sdCustom
+            Borders.DrawLeft = True
+            Borders.DrawTop = True
+            Borders.DrawRight = True
+            Borders.DrawBottom = True
+            Borders.Color = clGrayText
+            DataField = 'NOMEPRO'
+            DataSource = dsImpRomaneio
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object RLLabel48: TRLLabel
+            Left = -2
+            Height = 16
+            Top = 71
+            Width = 131
+            Caption = 'Propriedade...........:'
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Sans'
+            Font.Style = [fsBold]
+            ParentFont = False
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object RLDBText12: TRLDBText
+            Left = 160
+            Height = 23
+            Top = 96
+            Width = 518
+            AutoSize = False
+            Borders.Sides = sdCustom
+            Borders.DrawLeft = True
+            Borders.DrawTop = True
+            Borders.DrawRight = True
+            Borders.DrawBottom = True
+            Borders.Color = clGrayText
+            DataField = 'CIDADE'
+            DataSource = dsImpRomaneio
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object RLLabel49: TRLLabel
+            Left = 2
+            Height = 16
+            Top = 96
+            Width = 125
+            Borders.Sides = sdCustom
+            Borders.DrawLeft = False
+            Borders.DrawTop = False
+            Borders.DrawRight = False
+            Borders.DrawBottom = False
+            Borders.Color = clBtnText
+            Caption = 'Cidade..................:'
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Sans'
+            Font.Style = [fsBold]
+            ParentFont = False
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object rlCodRomaneio1: TRLDBText
+            Left = 158
+            Height = 15
+            Top = 12
+            Width = 76
+            Alignment = taRightJustify
+            AutoSize = False
+            Borders.Sides = sdCustom
+            Borders.DrawLeft = True
+            Borders.DrawTop = True
+            Borders.DrawRight = True
+            Borders.DrawBottom = True
+            Borders.Color = clGrayText
+            DataField = 'COD_ROMANEIO'
+            DataSource = dsImpRomaneio
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+        end
+        object RLPanel7: TRLPanel
+          Left = 0
+          Height = 240
+          Top = 128
+          Width = 344
+          Borders.Sides = sdCustom
+          Borders.DrawLeft = False
+          Borders.DrawTop = True
+          Borders.DrawRight = True
+          Borders.DrawBottom = False
+          RealBounds.Left = 0
+          RealBounds.Top = 0
+          RealBounds.Width = 0
+          RealBounds.Height = 0
+          object rlRenda1: TRLDBText
+            Left = 128
+            Height = 15
+            Top = 9
+            Width = 64
+            Alignment = taRightJustify
+            AutoSize = False
+            Borders.Sides = sdCustom
+            Borders.DrawLeft = True
+            Borders.DrawTop = True
+            Borders.DrawRight = True
+            Borders.DrawBottom = True
+            Borders.Color = clGrayText
+            DataField = 'RENDA'
+            DataSource = dsImpRomaneio
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object rlPesoBruto1: TRLDBText
+            Left = 240
+            Height = 15
+            Top = 25
+            Width = 70
+            Alignment = taRightJustify
+            AutoSize = False
+            Borders.Sides = sdCustom
+            Borders.DrawLeft = True
+            Borders.DrawTop = True
+            Borders.DrawRight = True
+            Borders.DrawBottom = True
+            Borders.Color = clGrayText
+            DataField = 'PESOBRUTO'
+            DataSource = dsImpRomaneio
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object rlImpureza1: TRLDBText
+            Left = 240
+            Height = 15
+            Top = 49
+            Width = 70
+            Alignment = taRightJustify
+            AutoSize = False
+            Borders.Sides = sdCustom
+            Borders.DrawLeft = True
+            Borders.DrawTop = True
+            Borders.DrawRight = True
+            Borders.DrawBottom = True
+            Borders.Color = clGrayText
+            DataField = 'IMPUREZA'
+            DataSource = dsImpRomaneio
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object rlTotalPlastico1: TRLDBText
+            Left = 240
+            Height = 15
+            Top = 79
+            Width = 70
+            Alignment = taRightJustify
+            AutoSize = False
+            Borders.Sides = sdCustom
+            Borders.DrawLeft = True
+            Borders.DrawTop = True
+            Borders.DrawRight = True
+            Borders.DrawBottom = True
+            Borders.Color = clGrayText
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object rlTotalJuta1: TRLDBText
+            Left = 240
+            Height = 15
+            Top = 101
+            Width = 70
+            Alignment = taRightJustify
+            AutoSize = False
+            Borders.Sides = sdCustom
+            Borders.DrawLeft = True
+            Borders.DrawTop = True
+            Borders.DrawRight = True
+            Borders.DrawBottom = True
+            Borders.Color = clGrayText
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object RLDBText13: TRLDBText
+            Left = 240
+            Height = 15
+            Top = 121
+            Width = 70
+            Alignment = taRightJustify
+            AutoSize = False
+            Borders.Sides = sdCustom
+            Borders.DrawLeft = True
+            Borders.DrawTop = True
+            Borders.DrawRight = True
+            Borders.DrawBottom = True
+            Borders.Color = clGrayText
+            DataField = 'DESCONTO1'
+            DataSource = dsImpRomaneio
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object rlDescPorcentagem1: TRLDBText
+            Left = 240
+            Height = 15
+            Top = 137
+            Width = 70
+            Alignment = taRightJustify
+            AutoSize = False
+            Borders.Sides = sdCustom
+            Borders.DrawLeft = True
+            Borders.DrawTop = True
+            Borders.DrawRight = True
+            Borders.DrawBottom = True
+            Borders.Color = clGrayText
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object rlBeberCoco1: TRLDBText
+            Left = 240
+            Height = 15
+            Top = 169
+            Width = 70
+            Alignment = taRightJustify
+            AutoSize = False
+            Borders.Sides = sdCustom
+            Borders.DrawLeft = True
+            Borders.DrawTop = True
+            Borders.DrawRight = True
+            Borders.DrawBottom = True
+            Borders.Color = clGrayText
+            DataField = 'BEBERCOCO'
+            DataSource = dsImpRomaneio
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object rlDesconto3: TRLDBText
+            Left = 240
+            Height = 15
+            Top = 185
+            Width = 70
+            Alignment = taRightJustify
+            AutoSize = False
+            Borders.Sides = sdCustom
+            Borders.DrawLeft = True
+            Borders.DrawTop = True
+            Borders.DrawRight = True
+            Borders.DrawBottom = True
+            Borders.Color = clGrayText
+            DataField = 'DESCONTO2'
+            DataSource = dsImpRomaneio
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object RLLabel50: TRLLabel
+            Left = 8
+            Height = 16
+            Top = 9
+            Width = 97
+            Caption = 'Renda............:'
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Sans'
+            Font.Style = [fsBold]
+            ParentFont = False
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object RLLabel51: TRLLabel
+            Left = 8
+            Height = 16
+            Top = 25
+            Width = 185
+            Caption = 'Peso Bruto...........................:'
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Sans'
+            Font.Style = [fsBold]
+            ParentFont = False
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object RLLabel52: TRLLabel
+            Left = 8
+            Height = 16
+            Top = 49
+            Width = 184
+            Caption = 'Impureza.............................:'
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Sans'
+            Font.Style = [fsBold]
+            ParentFont = False
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object rlQuanPlastico1: TRLDBText
+            Left = 77
+            Height = 15
+            Top = 79
+            Width = 70
+            Alignment = taRightJustify
+            AutoSize = False
+            Borders.Sides = sdCustom
+            Borders.DrawLeft = True
+            Borders.DrawTop = True
+            Borders.DrawRight = True
+            Borders.DrawBottom = True
+            Borders.Color = clGrayText
+            DataField = 'QUANPLASTICO'
+            DataSource = dsImpRomaneio
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object rlPesoPlastico1: TRLDBText
+            Left = 145
+            Height = 15
+            Top = 81
+            Width = 66
+            Alignment = taRightJustify
+            AutoSize = False
+            Borders.Sides = sdCustom
+            Borders.DrawLeft = True
+            Borders.DrawTop = True
+            Borders.DrawRight = True
+            Borders.DrawBottom = True
+            Borders.Color = clGrayText
+            DataField = 'PESOPLASTICO'
+            DataSource = dsImpRomaneio
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object rlQuanJuta1: TRLDBText
+            Left = 72
+            Height = 19
+            Top = 97
+            Width = 70
+            Alignment = taRightJustify
+            AutoSize = False
+            Borders.Sides = sdCustom
+            Borders.DrawLeft = True
+            Borders.DrawTop = True
+            Borders.DrawRight = True
+            Borders.DrawBottom = True
+            Borders.Color = clGrayText
+            DataField = 'QUANJUTA'
+            DataSource = dsImpRomaneio
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object RLDBText18: TRLDBText
+            Left = 143
+            Height = 15
+            Top = 101
+            Width = 65
+            Alignment = taRightJustify
+            AutoSize = False
+            Borders.Sides = sdCustom
+            Borders.DrawLeft = True
+            Borders.DrawTop = True
+            Borders.DrawRight = True
+            Borders.DrawBottom = True
+            Borders.Color = clGrayText
+            DataField = 'PESOJUTA'
+            DataSource = dsImpRomaneio
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object RLLabel53: TRLLabel
+            Left = 8
+            Height = 16
+            Top = 81
+            Width = 54
+            Caption = 'Plástico'
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Sans'
+            Font.Style = [fsBold]
+            ParentFont = False
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object RLLabel54: TRLLabel
+            Left = 72
+            Height = 16
+            Top = 65
+            Width = 73
+            Caption = 'Quan. Saco'
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object RLLabel55: TRLLabel
+            Left = 143
+            Height = 16
+            Top = 65
+            Width = 68
+            Caption = 'Peso/Saco'
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object RLDBText14: TRLDBText
+            Left = 8
+            Height = 15
+            Top = 121
+            Width = 209
+            AutoSize = False
+            Borders.Sides = sdCustom
+            Borders.DrawLeft = True
+            Borders.DrawTop = True
+            Borders.DrawRight = True
+            Borders.DrawBottom = True
+            Borders.Color = clGrayText
+            DataField = 'LEGENDA1'
+            DataSource = dsImpRomaneio
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object RLLabel56: TRLLabel
+            Left = 8
+            Height = 16
+            Top = 101
+            Width = 31
+            Caption = 'Juta'
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Sans'
+            Font.Style = [fsBold]
+            ParentFont = False
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object RLLabel57: TRLLabel
+            Left = 212
+            Height = 16
+            Top = 101
+            Width = 20
+            Caption = '....'
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Sans'
+            Font.Style = [fsBold]
+            ParentFont = False
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object RLLabel58: TRLLabel
+            Left = 218
+            Height = 16
+            Top = 121
+            Width = 16
+            Caption = '...'
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Sans'
+            Font.Style = [fsBold]
+            ParentFont = False
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object RLLabel59: TRLLabel
+            Left = 212
+            Height = 16
+            Top = 81
+            Width = 20
+            Caption = '....'
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Sans'
+            Font.Style = [fsBold]
+            ParentFont = False
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object RLLabel60: TRLLabel
+            Left = 194
+            Height = 16
+            Top = 7
+            Width = 48
+            Caption = 'g/Saco'
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Sans'
+            Font.Style = [fsBold]
+            ParentFont = False
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object RLDBText19: TRLDBText
+            Left = 176
+            Height = 15
+            Top = 137
+            Width = 40
+            Alignment = taRightJustify
+            AutoSize = False
+            Borders.Sides = sdCustom
+            Borders.DrawLeft = True
+            Borders.DrawTop = True
+            Borders.DrawRight = True
+            Borders.DrawBottom = True
+            Borders.Color = clGrayText
+            DataField = 'PORCENTAGEM'
+            DataSource = dsImpRomaneio
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object RLLabel61: TRLLabel
+            Left = 218
+            Height = 16
+            Top = 137
+            Width = 14
+            Caption = '%'
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Sans'
+            Font.Style = [fsBold]
+            ParentFont = False
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object RLLabel62: TRLLabel
+            Left = 8
+            Height = 16
+            Top = 137
+            Width = 137
+            Caption = 'Porcentagem...........:'
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Sans'
+            Font.Style = [fsBold]
+            ParentFont = False
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object rlBeberLimpo1: TRLDBText
+            Left = 120
+            Height = 15
+            Top = 169
+            Width = 70
+            Alignment = taRightJustify
+            AutoSize = False
+            Borders.Sides = sdCustom
+            Borders.DrawLeft = True
+            Borders.DrawTop = True
+            Borders.DrawRight = True
+            Borders.DrawBottom = True
+            Borders.Color = clGrayText
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object RLLabel63: TRLLabel
+            Left = 8
+            Height = 16
+            Top = 169
+            Width = 96
+            Caption = 'Café P/ Beber:'
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Sans'
+            Font.Style = [fsBold]
+            ParentFont = False
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object RLLabel64: TRLLabel
+            Left = 130
+            Height = 16
+            Top = 153
+            Width = 39
+            Caption = 'Limpo'
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object RLDBText20: TRLDBText
+            Left = 8
+            Height = 15
+            Top = 185
+            Width = 208
+            AutoSize = False
+            Borders.Sides = sdCustom
+            Borders.DrawLeft = True
+            Borders.DrawTop = True
+            Borders.DrawRight = True
+            Borders.DrawBottom = True
+            Borders.Color = clGrayText
+            DataField = 'LEGENDA2'
+            DataSource = dsImpRomaneio
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object RLLabel65: TRLLabel
+            Left = 218
+            Height = 16
+            Top = 185
+            Width = 16
+            Caption = '...'
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Sans'
+            Font.Style = [fsBold]
+            ParentFont = False
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object rlSaldoCoco1: TRLDBText
+            Left = 240
+            Height = 19
+            Top = 209
+            Width = 70
+            Alignment = taRightJustify
+            AutoSize = False
+            Borders.Sides = sdCustom
+            Borders.DrawLeft = True
+            Borders.DrawTop = True
+            Borders.DrawRight = True
+            Borders.DrawBottom = True
+            Borders.Color = clGrayText
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object RLLabel66: TRLLabel
+            Left = 8
+            Height = 16
+            Top = 209
+            Width = 189
+            Caption = 'Saldo Coco...........................:'
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Sans'
+            Font.Style = [fsBold]
+            ParentFont = False
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object RLLabel67: TRLLabel
+            Left = 312
+            Height = 16
+            Top = 25
+            Width = 21
+            Caption = 'Kg'
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Sans'
+            Font.Style = [fsBold]
+            ParentFont = False
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object RLLabel68: TRLLabel
+            Left = 312
+            Height = 16
+            Top = 49
+            Width = 21
+            Caption = 'Kg'
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Sans'
+            Font.Style = [fsBold]
+            ParentFont = False
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object RLLabel69: TRLLabel
+            Left = 312
+            Height = 16
+            Top = 79
+            Width = 21
+            Caption = 'Kg'
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Sans'
+            Font.Style = [fsBold]
+            ParentFont = False
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object RLLabel70: TRLLabel
+            Left = 312
+            Height = 16
+            Top = 101
+            Width = 21
+            Caption = 'Kg'
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Sans'
+            Font.Style = [fsBold]
+            ParentFont = False
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object RLLabel71: TRLLabel
+            Left = 312
+            Height = 16
+            Top = 121
+            Width = 21
+            Caption = 'Kg'
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Sans'
+            Font.Style = [fsBold]
+            ParentFont = False
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object RLLabel72: TRLLabel
+            Left = 312
+            Height = 16
+            Top = 137
+            Width = 21
+            Caption = 'Kg'
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Sans'
+            Font.Style = [fsBold]
+            ParentFont = False
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object RLLabel73: TRLLabel
+            Left = 312
+            Height = 16
+            Top = 169
+            Width = 21
+            Caption = 'Kg'
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Sans'
+            Font.Style = [fsBold]
+            ParentFont = False
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object RLLabel74: TRLLabel
+            Left = 312
+            Height = 16
+            Top = 185
+            Width = 21
+            Caption = 'Kg'
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Sans'
+            Font.Style = [fsBold]
+            ParentFont = False
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object RLLabel75: TRLLabel
+            Left = 312
+            Height = 16
+            Top = 209
+            Width = 21
+            Caption = 'Kg'
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Sans'
+            Font.Style = [fsBold]
+            ParentFont = False
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+        end
+        object RLPanel8: TRLPanel
+          Left = 344
+          Height = 240
+          Top = 128
+          Width = 360
+          Borders.Sides = sdCustom
+          Borders.DrawLeft = True
+          Borders.DrawTop = True
+          Borders.DrawRight = False
+          Borders.DrawBottom = False
+          RealBounds.Left = 0
+          RealBounds.Top = 0
+          RealBounds.Width = 0
+          RealBounds.Height = 0
+          object rlDepositado1: TRLDBText
+            Left = 264
+            Height = 15
+            Top = 19
+            Width = 70
+            Alignment = taRightJustify
+            AutoSize = False
+            Borders.Sides = sdCustom
+            Borders.DrawLeft = True
+            Borders.DrawTop = True
+            Borders.DrawRight = True
+            Borders.DrawBottom = True
+            Borders.Color = clGrayText
+            DataField = 'DEPOSITADO'
+            DataSource = dsImpRomaneio
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object rlSaldoComprado1: TRLDBText
+            Left = 265
+            Height = 19
+            Top = 41
+            Width = 70
+            Alignment = taRightJustify
+            AutoSize = False
+            Borders.Sides = sdCustom
+            Borders.DrawLeft = True
+            Borders.DrawTop = True
+            Borders.DrawRight = True
+            Borders.DrawBottom = True
+            Borders.Color = clGrayText
+            Borders.FixedBottom = True
+            DataField = 'PESO'
+            DataSource = dsImpRomaneio
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object RLDBText21: TRLDBText
+            Left = 266
+            Height = 15
+            Top = 65
+            Width = 70
+            Alignment = taRightJustify
+            AutoSize = False
+            Borders.Sides = sdCustom
+            Borders.DrawLeft = True
+            Borders.DrawTop = True
+            Borders.DrawRight = True
+            Borders.DrawBottom = True
+            Borders.Color = clGrayText
+            DataField = 'VALOR'
+            DataSource = dsImpRomaneio
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object rlValorBruto1: TRLDBText
+            Left = 249
+            Height = 15
+            Top = 121
+            Width = 94
+            Alignment = taRightJustify
+            AutoSize = False
+            Borders.Sides = sdCustom
+            Borders.DrawLeft = True
+            Borders.DrawTop = True
+            Borders.DrawRight = True
+            Borders.DrawBottom = True
+            Borders.Color = clGrayText
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object rlFundoRural1: TRLDBText
+            Left = 249
+            Height = 15
+            Top = 179
+            Width = 94
+            Alignment = taRightJustify
+            AutoSize = False
+            Borders.Sides = sdCustom
+            Borders.DrawLeft = True
+            Borders.DrawTop = True
+            Borders.DrawRight = True
+            Borders.DrawBottom = True
+            Borders.Color = clGrayText
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object rlValorLivre1: TRLDBText
+            Left = 249
+            Height = 15
+            Top = 201
+            Width = 94
+            Alignment = taRightJustify
+            AutoSize = False
+            Borders.Sides = sdCustom
+            Borders.DrawLeft = True
+            Borders.DrawTop = True
+            Borders.DrawRight = True
+            Borders.DrawBottom = True
+            Borders.Color = clGrayText
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object RLDBText22: TRLDBText
+            Left = 169
+            Height = 15
+            Top = 137
+            Width = 37
+            AutoSize = False
+            Borders.Sides = sdCustom
+            Borders.DrawLeft = True
+            Borders.DrawTop = True
+            Borders.DrawRight = True
+            Borders.DrawBottom = True
+            Borders.Color = clGrayText
+            DataField = 'PORCFUNDORURAL'
+            DataSource = dsImpRomaneio
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Sans'
+            ParentFont = False
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object RLDBText23: TRLDBText
+            Left = 173
+            Height = 19
+            Top = 159
+            Width = 33
+            AutoSize = False
+            Borders.Sides = sdCustom
+            Borders.DrawLeft = True
+            Borders.DrawTop = True
+            Borders.DrawRight = True
+            Borders.DrawBottom = True
+            Borders.Color = clGrayText
+            DataField = 'ALIQUOTA'
+            DataSource = dsImpRomaneio
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object RLLabel76: TRLLabel
+            Left = 36
+            Height = 17
+            Top = 17
+            Width = 228
+            AutoSize = False
+            Caption = 'Saldo Depositado..................:'
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Sans'
+            Font.Style = [fsBold]
+            ParentFont = False
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object RLLabel77: TRLLabel
+            Left = 36
+            Height = 16
+            Top = 45
+            Width = 195
+            Caption = 'Saldo Comprado....................:'
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Sans'
+            Font.Style = [fsBold]
+            ParentFont = False
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object RLLabel78: TRLLabel
+            Left = 39
+            Height = 16
+            Top = 65
+            Width = 130
+            Caption = 'Valor......................:'
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Sans'
+            Font.Style = [fsBold]
+            ParentFont = False
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object rlUnidadePreco1: TRLLabel
+            Left = 196
+            Height = 16
+            Top = 65
+            Width = 41
+            Caption = 'Preço'
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Sans'
+            Font.Style = [fsBold]
+            ParentFont = False
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object RLLabel79: TRLLabel
+            Left = 39
+            Height = 16
+            Top = 121
+            Width = 168
+            Caption = 'Valor Bruto......................:'
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Sans'
+            Font.Style = [fsBold]
+            ParentFont = False
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object RLLabel80: TRLLabel
+            Left = 41
+            Height = 16
+            Top = 137
+            Width = 107
+            Caption = 'Porc. Fun. Rural'
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Sans'
+            Font.Style = [fsBold]
+            ParentFont = False
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object RLLabel81: TRLLabel
+            Left = 39
+            Height = 16
+            Top = 177
+            Width = 170
+            Caption = 'Fundo Rural.....................:'
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Sans'
+            Font.Style = [fsBold]
+            ParentFont = False
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object RLLabel82: TRLLabel
+            Left = 41
+            Height = 16
+            Top = 201
+            Width = 170
+            Caption = 'Valor Livre.......................:'
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Sans'
+            Font.Style = [fsBold]
+            ParentFont = False
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object RLLabel83: TRLLabel
+            Left = 335
+            Height = 16
+            Top = 17
+            Width = 21
+            Caption = 'Kg'
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Sans'
+            Font.Style = [fsBold]
+            ParentFont = False
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object RLLabel84: TRLLabel
+            Left = 337
+            Height = 16
+            Top = 41
+            Width = 21
+            Caption = 'Kg'
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Sans'
+            Font.Style = [fsBold]
+            ParentFont = False
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object RLLabel85: TRLLabel
+            Left = 209
+            Height = 16
+            Top = 137
+            Width = 14
+            Caption = '%'
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Sans'
+            Font.Style = [fsBold]
+            ParentFont = False
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object RLLabel86: TRLLabel
+            Left = 209
+            Height = 16
+            Top = 161
+            Width = 14
+            Caption = '%'
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Sans'
+            Font.Style = [fsBold]
+            ParentFont = False
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object RLLabel87: TRLLabel
+            Left = 105
+            Height = 16
+            Top = 161
+            Width = 57
+            Caption = 'Aliquota'
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Sans'
+            Font.Style = [fsBold]
+            ParentFont = False
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+        end
+        object RLLabel88: TRLLabel
+          Left = 8
+          Height = 16
+          Top = 368
+          Width = 32
+          Caption = 'Obs:'
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Sans'
+          Font.Style = [fsBold]
+          ParentFont = False
+          RealBounds.Left = 0
+          RealBounds.Top = 0
+          RealBounds.Width = 0
+          RealBounds.Height = 0
+        end
+        object RLDBText24: TRLDBText
+          Left = 48
           Height = 15
+          Top = 368
+          Width = 656
+          AutoSize = False
+          Borders.Sides = sdCustom
+          Borders.DrawLeft = True
+          Borders.DrawTop = True
+          Borders.DrawRight = True
+          Borders.DrawBottom = True
+          Borders.Color = clGrayText
+          DataField = 'OBS'
+          DataSource = dsImpRomaneio
+          RealBounds.Left = 0
+          RealBounds.Top = 0
+          RealBounds.Width = 0
+          RealBounds.Height = 0
+        end
+        object RLLabel90: TRLLabel
+          Left = -2
+          Height = 16
           Top = 400
           Width = 708
           Caption = '................................................................................................................................................................................'
