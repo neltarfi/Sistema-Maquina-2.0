@@ -19,13 +19,6 @@ type
     qrImpRomaneioBEBERLIMPO: TFloatField;
     qrImpRomaneioCANCELADO: TStringField;
     qrImpRomaneioCIDADE: TStringField;
-    qrImpRomaneioCOD_CLI: TLongintField;
-    qrImpRomaneioCOD_COMPRA: TLongintField;
-    qrImpRomaneioCOD_COMPRA_1: TLongintField;
-    qrImpRomaneioCOD_CONTACORRENTE: TLongintField;
-    qrImpRomaneioCOD_DEPOSITADO: TLongintField;
-    qrImpRomaneioCOD_DEPOSITADO_1: TLongintField;
-    qrImpRomaneioCOD_PRO: TLongintField;
     qrImpRomaneioCOD_ROMANEIO: TLongintField;
     qrImpRomaneioDATA: TDateField;
     qrImpRomaneioDEPOSITADO: TLongintField;

@@ -50,7 +50,7 @@ type
     qrAuxCompraCOD_COMPRA: TLongintField;
     qrAuxDepositadoCOD_DEPOSITADO: TLongintField;
     qrCompraALIQUOTA: TFloatField;
-    qrCompraCANCELADO: TLongintField;
+    qrCompraCANCELADO: TStringField;
     qrCompraCOD_COMPRA: TLongintField;
     qrCompraCOD_CONTACORRENTE: TLongintField;
     qrCompraCOD_ROMANEIO: TLongintField;
@@ -60,7 +60,7 @@ type
     qrCompraPORCFUNDORURAL: TLongintField;
     qrCompraSACOKG: TStringField;
     qrCompraVALOR: TFloatField;
-    qrDepositadoCANCELADO: TLongintField;
+    qrDepositadoCANCELADO: TStringField;
     qrDepositadoCOD_DEPOSITADO: TLongintField;
     qrDepositadoCOD_ROMANEIO: TLongintField;
     qrDepositadoCOMPRADO: TLongintField;
@@ -269,6 +269,7 @@ begin
           qrRomaneio.Close;
           qrRomaneio.ParamByName('IDCliente').Value:= dbNomeCli.KeyValue;
           qrRomaneio.Open;
+          qrRomaneio.Last;
      end;
      qrListNomePro.Close;
      qrListNomePro.ParamByName('IDCliente').Value:=dbNomeCli.KeyValue;
@@ -314,6 +315,9 @@ begin
              qrRomaneio.FieldByName('Cod_Depositado').Value:=qrAuxDepositado.RecordCount;
              qrDepositado.FieldByName('Cod_Depositado').Value:= -1;
              qrDepositado.FieldByName('Cod_Romaneio').Value:= qrRomaneio.RecordCount+1;
+             qrDepositado.FieldByName('Comprado').Value:=0;
+             qrDepositado.FieldByName('Saldo').Value:=qrDepositado.FieldByName('Depositado').Value;
+             qrDepositado.FieldByName('Cancelado').Text:='False';
              qrDepositado.ApplyUpdates;
            end
            else
@@ -323,12 +327,15 @@ begin
                 qrRomaneio.FieldByName('Cod_Compra').Value:=qrAuxCompra.RecordCount;
                 qrCompra.FieldByName('Cod_Compra').Value:= -1;
                 qrCompra.FieldByName('Cod_Romaneio').Value:=qrRomaneio.RecordCount+1;
+                qrCompra.FieldByName('Data').Value:=strToDate(dbeData.Text);
+                qrCompra.FieldByName('Cancelado').Text:='False';
                 qrCompra.ApplyUpdates;
            end
            else
             qrRomaneio.FieldByName('Cod_Compra').Value:= 0;
 
            qrRomaneio.FieldByName('Cod_Cli').Value:=dbNomeCli.KeyValue;
+           qrRomaneio.FieldByName('Cancelado').Text:='False';
 
            qrRomaneio.ApplyUpdates;
            DataModule1.SQLTMaquina.CommitRetaining;
@@ -348,7 +355,7 @@ end;
 
 procedure TfrmRomaneio.btImprimirClick(Sender: TObject);
 begin
-   frmImpRomaneio:=TfrmImpRomaneio.Create(Application);
+   frmImpRomaneio:=TfrmImpRomaneio.Create(self);
    frmImpRomaneio.RLReport1.Preview();
 end;
 
@@ -746,13 +753,13 @@ end;
 
 procedure TfrmRomaneio.PopulaCampos;
 begin
-     if not novo then dbNomeCli.KeyValue:=qrRomaneio.FieldByName('Cod_Cli').Value;
+     dbNomeCli.KeyValue:=qrRomaneio.FieldByName('Cod_Cli').Value;
      qrListNomePro.Close;
      qrListNomePro.ParamByName('IDCliente').Value:=dbNomeCli.KeyValue;
      qrListNomePro.Open;
 
 
-     if not Novo then edtCidade.Text:=qrListNomePro.FieldByName('Cidade').AsString;
+     edtCidade.Text:=qrListNomePro.FieldByName('Cidade').AsString;
 
      qrDepositado.Close;
      qrDepositado.ParamByName('IDDepositado').Value:=qrRomaneio.FieldByName('Cod_Depositado').Value;
