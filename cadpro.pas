@@ -135,6 +135,7 @@ begin
        QrCadPro.Append;
        QrCadPro.FieldByName('Cod_Cli').Value:= frmBuscaCli.QrBuscaCli.FieldByName('Cod_Cliente').Value;
        QrCadPro.FieldByName('Cod_Pro').Value:= frmCadPro.QrCadPro.RecordCount + 1;
+       qrCadPro.FieldByName('Data_Reg').Value:=Date;
        EdtCodPro.Text := '';
   end
   else

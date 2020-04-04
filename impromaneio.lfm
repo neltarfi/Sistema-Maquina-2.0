@@ -760,8 +760,6 @@ object frmImpRomaneio: TfrmImpRomaneio
             Borders.DrawRight = True
             Borders.DrawBottom = True
             Borders.Color = clGrayText
-            DataField = 'BEBERLIMPO'
-            DataSource = dsImpRomaneio
             RealBounds.Left = 0
             RealBounds.Top = 0
             RealBounds.Width = 0
@@ -2839,7 +2837,6 @@ object frmImpRomaneio: TfrmImpRomaneio
     end
   end
   object qrImpRomaneio: TSQLQuery
-    IndexName = 'DEFAULT_ORDER'
     FieldDefs = <    
       item
         Name = 'COD_ROMANEIO'

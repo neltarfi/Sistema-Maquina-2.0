@@ -229,7 +229,7 @@ implementation
 
 procedure TfrmImpRomaneio.RLReport1BeforePrint(Sender: TObject;
   var PrintIt: boolean);
-var Aux:integer;AuxPorc, AuxRestoDiv,AuxDiv:double;
+var Aux:integer;AuxPorc, AuxRestoDiv,AuxDiv:double; AuxBeberLimpo:string;
 begin
     qrImpRomaneio.Close;
     qrImpRomaneio.ParamByName('IDCodigoRomaneio').Value:=frmRomaneio.qrRomaneio.FieldByName('Cod_Romaneio').Value;

@@ -143,6 +143,7 @@ begin
        QrCadCli.Append;
        QrCadCli.FieldByName('Cod_Cliente').Value:= -1;
        EdtCodigo.Text := '';
+       qrCadCli.FieldByName('Date_Reg').Value:=Date;
   end
   else
   begin

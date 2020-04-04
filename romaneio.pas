@@ -321,7 +321,11 @@ begin
              qrDepositado.ApplyUpdates;
            end
            else
-            qrRomaneio.FieldByName('Cod_Depositado').Value:= 0;
+           begin
+                qrRomaneio.FieldByName('Cod_Depositado').Value:= 0;
+                qrDepositado.Close;
+                qrDepositado.Open;
+           end;
            if dbeComprado.Text > '0' then
            begin
                 qrRomaneio.FieldByName('Cod_Compra').Value:=qrAuxCompra.RecordCount;
@@ -332,7 +336,11 @@ begin
                 qrCompra.ApplyUpdates;
            end
            else
-            qrRomaneio.FieldByName('Cod_Compra').Value:= 0;
+           begin
+                qrRomaneio.FieldByName('Cod_Compra').Value:= 0;
+                qrCompra.Close;
+                qrCompra.Open;
+           end;
 
            qrRomaneio.FieldByName('Cod_Cli').Value:=dbNomeCli.KeyValue;
            qrRomaneio.FieldByName('Cancelado').Text:='False';
@@ -342,12 +350,14 @@ begin
            qrRomaneio.Close;
            qrRomaneio.Open;
            qrRomaneio.Last;
+           Novo:=False;
+           PopulaCampos;
            desabilitaControles;
            btSalvar.Enabled:=False;
            btImprimir.Enabled:=True;
            btNovo.Enabled:=True;
            btFiltro.Enabled:=True;
-           Novo:=False;
+
         end
         else MessageDLG(Erro, mtError,[mbOK],0);
      end;

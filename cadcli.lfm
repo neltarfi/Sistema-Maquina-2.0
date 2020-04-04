@@ -6,6 +6,7 @@ object frmCadCli: TfrmCadCli
   Caption = 'Cadastro de Cliente'
   ClientHeight = 493
   ClientWidth = 676
+  Color = clSilver
   Font.Height = -13
   Font.Name = 'Sans'
   OnClose = FormClose

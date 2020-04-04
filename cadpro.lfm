@@ -6,6 +6,7 @@ object frmCadPro: TfrmCadPro
   Caption = 'Cadastro dePropriedade'
   ClientHeight = 521
   ClientWidth = 665
+  Color = clSilver
   OnClose = FormClose
   OnShow = FormShow
   LCLVersion = '2.0.6.0'

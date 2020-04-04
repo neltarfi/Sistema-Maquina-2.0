@@ -6,6 +6,7 @@ object frmBuscaPro: TfrmBuscaPro
   Caption = 'Busca Propriedade'
   ClientHeight = 493
   ClientWidth = 683
+  Color = clSilver
   OnShow = FormShow
   LCLVersion = '2.0.6.0'
   object DbeNomeCli: TDBEdit
