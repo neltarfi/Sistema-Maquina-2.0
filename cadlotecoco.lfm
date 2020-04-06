@@ -4,5 +4,222 @@ object frmCadLoteCoco: TfrmCadLoteCoco
   Top = 163
   Width = 679
   Caption = 'frmCadLoteCoco'
+  ClientHeight = 461
+  ClientWidth = 679
+  Color = clSilver
   LCLVersion = '2.0.6.0'
+  object Label1: TLabel
+    Left = 103
+    Height = 17
+    Top = 114
+    Width = 113
+    Caption = 'Nome.................:'
+    ParentColor = False
+  end
+  object Label2: TLabel
+    Left = 103
+    Height = 17
+    Top = 144
+    Width = 112
+    Caption = 'Safra..................:'
+    ParentColor = False
+  end
+  object Label3: TLabel
+    Left = 103
+    Height = 17
+    Top = 176
+    Width = 112
+    Caption = 'Complemento...:'
+    ParentColor = False
+  end
+  object Label4: TLabel
+    Left = 103
+    Height = 17
+    Top = 208
+    Width = 111
+    Caption = 'Obs....................:'
+    ParentColor = False
+  end
+  object dbeNome: TDBEdit
+    Left = 224
+    Height = 27
+    Top = 104
+    Width = 384
+    DataField = 'NOME'
+    DataSource = dsLoteCoco
+    CharCase = ecNormal
+    MaxLength = 0
+    TabOrder = 0
+  end
+  object dbeSafra: TDBEdit
+    Left = 224
+    Height = 27
+    Top = 134
+    Width = 64
+    DataField = 'SAFRA'
+    DataSource = dsLoteCoco
+    CharCase = ecNormal
+    EditMask = '9999;0;_'
+    MaxLength = 4
+    TabOrder = 1
+  end
+  object dbeComplemento: TDBEdit
+    Left = 224
+    Height = 27
+    Top = 166
+    Width = 240
+    DataField = 'COMPLEMENTO'
+    DataSource = dsLoteCoco
+    CharCase = ecNormal
+    MaxLength = 20
+    TabOrder = 2
+  end
+  object dbeObs: TDBEdit
+    Left = 224
+    Height = 27
+    Top = 198
+    Width = 424
+    DataField = 'OBS'
+    DataSource = dsLoteCoco
+    CharCase = ecNormal
+    MaxLength = 100
+    TabOrder = 3
+  end
+  object dsLoteCoco: TDataSource
+    DataSet = qrLoteCoco
+    left = 149
+    top = 26
+  end
+  object qrLoteCoco: TSQLQuery
+    IndexName = 'DEFAULT_ORDER'
+    FieldDefs = <    
+      item
+        Name = 'COD_LOTE'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'NOME'
+        DataType = ftString
+        Precision = -1
+        Size = 160
+      end    
+      item
+        Name = 'SAFRA'
+        DataType = ftFixedChar
+        Precision = -1
+        Size = 16
+      end    
+      item
+        Name = 'COMPLEMENTO'
+        DataType = ftFixedChar
+        Precision = -1
+        Size = 80
+      end    
+      item
+        Name = 'CAFE_BOM'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'BICA'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'ESCOLHA'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'TOTAL'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'OBS'
+        DataType = ftString
+        Precision = -1
+        Size = 400
+      end    
+      item
+        Name = 'STATUS'
+        DataType = ftString
+        Precision = -1
+        Size = 32
+      end>
+    Database = DataModule1.IBCMaquina
+    Transaction = DataModule1.SQLTMaquina
+    SQL.Strings = (
+      'select * from Lote_Coco'
+      'where Cod_lote = :IDLote'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'IDLote'
+        ParamType = ptInput
+      end>
+    left = 32
+    top = 24
+    object qrLoteCocoCOD_LOTE: TLongintField
+      FieldKind = fkData
+      FieldName = 'COD_LOTE'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qrLoteCocoNOME: TStringField
+      FieldKind = fkData
+      FieldName = 'NOME'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 160
+    end
+    object qrLoteCocoSAFRA: TStringField
+      FieldKind = fkData
+      FieldName = 'SAFRA'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 16
+    end
+    object qrLoteCocoCOMPLEMENTO: TStringField
+      FieldKind = fkData
+      FieldName = 'COMPLEMENTO'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 80
+    end
+    object qrLoteCocoOBS: TStringField
+      FieldKind = fkData
+      FieldName = 'OBS'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 400
+    end
+    object qrLoteCocoSTATUS: TStringField
+      FieldKind = fkData
+      FieldName = 'STATUS'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 32
+    end
+  end
 end

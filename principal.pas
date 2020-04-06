@@ -35,7 +35,7 @@ var
 implementation
 
 uses
-  BuscaCliente, Romaneio, CadLoteCoco;
+  BuscaCliente, Romaneio, BuscaCadLoteCoco;
 {$R *.lfm}
 
 { TfrmPrincipal }
@@ -49,8 +49,8 @@ end;
 
 procedure TfrmPrincipal.mnuLoteCocoClick(Sender: TObject);
 begin
-    frmCadLoteCoco:=TfrmCadLoteCoco.Create(Application);
-    frmCadLoteCoco.ShowModal;
+    frmBuscaCadLoteCoco:=TfrmBuscaCadLoteCoco.Create(Application);
+    frmBuscaCadLoteCoco.ShowModal;
 end;
 
 procedure TfrmPrincipal.smnRomaneioClick(Sender: TObject);

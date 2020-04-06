@@ -5,10 +5,30 @@ unit CadLoteCoco;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs;
+  Classes, SysUtils, sqldb, db, Forms, Controls, Graphics, Dialogs, StdCtrls,
+  DBCtrls;
 
 type
+
+  { TfrmCadLoteCoco }
+
   TfrmCadLoteCoco = class(TForm)
+    dsLoteCoco: TDataSource;
+    dbeNome: TDBEdit;
+    dbeSafra: TDBEdit;
+    dbeComplemento: TDBEdit;
+    dbeObs: TDBEdit;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    qrLoteCoco: TSQLQuery;
+    qrLoteCocoCOD_LOTE: TLongintField;
+    qrLoteCocoCOMPLEMENTO: TStringField;
+    qrLoteCocoNOME: TStringField;
+    qrLoteCocoOBS: TStringField;
+    qrLoteCocoSAFRA: TStringField;
+    qrLoteCocoSTATUS: TStringField;
   private
 
   public
@@ -21,6 +41,9 @@ var
 implementation
 
 {$R *.lfm}
+
+{ TfrmCadLoteCoco }
+
 
 end.
 

@@ -1,0 +1,117 @@
+object frmBuscaCadLoteCoco: TfrmBuscaCadLoteCoco
+  Left = 387
+  Height = 486
+  Top = 179
+  Width = 636
+  Caption = 'frmBuscaCadLoteCoco'
+  ClientHeight = 486
+  ClientWidth = 636
+  Color = clSilver
+  LCLVersion = '2.0.6.0'
+  object dbgLote: TDBGrid
+    Left = 36
+    Height = 217
+    Top = 108
+    Width = 428
+    Color = clWindow
+    Columns = <    
+      item
+        Title.Caption = 'Nome'
+        Width = 400
+      end>
+    DataSource = dsLoteCoco
+    TabOrder = 0
+  end
+  object btNovo: TButton
+    Left = 100
+    Height = 25
+    Top = 401
+    Width = 75
+    Caption = 'Novo'
+    OnClick = btNovoClick
+    TabOrder = 1
+  end
+  object btEditar: TButton
+    Left = 240
+    Height = 25
+    Top = 401
+    Width = 75
+    Caption = 'Editar'
+    OnClick = btEditarClick
+    TabOrder = 2
+  end
+  object btSair: TButton
+    Left = 416
+    Height = 25
+    Top = 401
+    Width = 75
+    Caption = 'Sair'
+    OnClick = btSairClick
+    TabOrder = 3
+  end
+  object qrLoteCoco: TSQLQuery
+    IndexName = 'DEFAULT_ORDER'
+    FieldDefs = <    
+      item
+        Name = 'COD_LOTE'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'NOME'
+        DataType = ftString
+        Precision = -1
+        Size = 160
+      end    
+      item
+        Name = 'STATUS'
+        DataType = ftString
+        Precision = -1
+        Size = 32
+      end>
+    Active = True
+    Database = DataModule1.IBCMaquina
+    Transaction = DataModule1.SQLTMaquina
+    SQL.Strings = (
+      'Select Cod_lote, Nome, Status from Lote_Coco'
+      'where Status = ''Aberto'''
+    )
+    Params = <>
+    left = 77
+    top = 23
+    object qrLoteCocoNOME: TStringField
+      FieldKind = fkData
+      FieldName = 'NOME'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 160
+    end
+    object qrLoteCocoCOD_LOTE: TLongintField
+      FieldKind = fkData
+      FieldName = 'COD_LOTE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qrLoteCocoSTATUS: TStringField
+      FieldKind = fkData
+      FieldName = 'STATUS'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 32
+    end
+  end
+  object dsLoteCoco: TDataSource
+    DataSet = qrLoteCoco
+    left = 203
+    top = 34
+  end
+end
