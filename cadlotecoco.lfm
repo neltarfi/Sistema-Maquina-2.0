@@ -7,65 +7,69 @@ object frmCadLoteCoco: TfrmCadLoteCoco
   ClientHeight = 461
   ClientWidth = 679
   Color = clSilver
+  OnClose = FormClose
+  OnShow = FormShow
   LCLVersion = '2.0.6.0'
   object Label1: TLabel
     Left = 103
-    Height = 17
+    Height = 15
     Top = 114
-    Width = 113
+    Width = 87
     Caption = 'Nome.................:'
     ParentColor = False
   end
   object Label2: TLabel
     Left = 103
-    Height = 17
+    Height = 15
     Top = 144
-    Width = 112
+    Width = 83
     Caption = 'Safra..................:'
     ParentColor = False
   end
   object Label3: TLabel
     Left = 103
-    Height = 17
+    Height = 15
     Top = 176
-    Width = 112
+    Width = 89
     Caption = 'Complemento...:'
     ParentColor = False
   end
   object Label4: TLabel
     Left = 103
-    Height = 17
+    Height = 15
     Top = 208
-    Width = 111
+    Width = 84
     Caption = 'Obs....................:'
     ParentColor = False
   end
   object dbeNome: TDBEdit
     Left = 224
-    Height = 27
+    Height = 23
     Top = 104
     Width = 384
     DataField = 'NOME'
     DataSource = dsLoteCoco
+    ReadOnly = True
     CharCase = ecNormal
     MaxLength = 0
     TabOrder = 0
   end
   object dbeSafra: TDBEdit
     Left = 224
-    Height = 27
+    Height = 23
     Top = 134
-    Width = 64
+    Width = 40
+    CustomEditMask = True
     DataField = 'SAFRA'
     DataSource = dsLoteCoco
     CharCase = ecNormal
-    EditMask = '9999;0;_'
+    EditMask = '0000;0;_'
     MaxLength = 4
     TabOrder = 1
   end
   object dbeComplemento: TDBEdit
     Left = 224
-    Height = 27
+    Height = 23
     Top = 166
     Width = 240
     DataField = 'COMPLEMENTO'
@@ -76,7 +80,7 @@ object frmCadLoteCoco: TfrmCadLoteCoco
   end
   object dbeObs: TDBEdit
     Left = 224
-    Height = 27
+    Height = 23
     Top = 198
     Width = 424
     DataField = 'OBS'
@@ -85,13 +89,30 @@ object frmCadLoteCoco: TfrmCadLoteCoco
     MaxLength = 100
     TabOrder = 3
   end
+  object btSalvar: TButton
+    Left = 140
+    Height = 25
+    Top = 365
+    Width = 75
+    Caption = 'Salvar'
+    OnClick = btSalvarClick
+    TabOrder = 4
+  end
+  object btSair: TButton
+    Left = 368
+    Height = 25
+    Top = 365
+    Width = 75
+    Caption = 'Sair'
+    OnClick = btSairClick
+    TabOrder = 5
+  end
   object dsLoteCoco: TDataSource
     DataSet = qrLoteCoco
     left = 149
     top = 26
   end
   object qrLoteCoco: TSQLQuery
-    IndexName = 'DEFAULT_ORDER'
     FieldDefs = <    
       item
         Name = 'COD_LOTE'
@@ -152,14 +173,15 @@ object frmCadLoteCoco: TfrmCadLoteCoco
     Transaction = DataModule1.SQLTMaquina
     SQL.Strings = (
       'select * from Lote_Coco'
-      'where Cod_lote = :IDLote'
+      'where Cod_lote = :IDCodigo'
     )
     Params = <    
       item
         DataType = ftUnknown
-        Name = 'IDLote'
+        Name = 'IDCodigo'
         ParamType = ptInput
       end>
+    UpdateMode = upWhereAll
     left = 32
     top = 24
     object qrLoteCocoCOD_LOTE: TLongintField
@@ -220,6 +242,31 @@ object frmCadLoteCoco: TfrmCadLoteCoco
       ReadOnly = False
       Required = False
       Size = 32
+    end
+  end
+  object qrAuxLoteCoco: TSQLQuery
+    FieldDefs = <    
+      item
+        Name = 'COD_LOTE'
+        DataType = ftInteger
+        Precision = -1
+      end>
+    Database = DataModule1.IBCMaquina
+    Transaction = DataModule1.SQLTMaquina
+    SQL.Strings = (
+      'select Cod_lote from Lote_Coco'
+    )
+    Params = <>
+    left = 297
+    top = 24
+    object qrAuxLoteCocoCOD_LOTE: TLongintField
+      FieldKind = fkData
+      FieldName = 'COD_LOTE'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
     end
   end
 end

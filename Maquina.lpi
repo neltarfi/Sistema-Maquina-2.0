@@ -122,6 +122,7 @@
         <Filename Value="buscacadlotecoco.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmBuscaCadLoteCoco"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="BuscaCadLoteCoco"/>
       </Unit11>

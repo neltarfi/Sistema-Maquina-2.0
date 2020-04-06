@@ -25,6 +25,8 @@ type
     procedure btEditarClick(Sender: TObject);
     procedure btNovoClick(Sender: TObject);
     procedure btSairClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
+    procedure FormShow(Sender: TObject);
   private
 
   public
@@ -45,17 +47,28 @@ begin
   frmBuscaCadLoteCoco.Close;
 end;
 
+procedure TfrmBuscaCadLoteCoco.FormClose(Sender: TObject;
+  var CloseAction: TCloseAction);
+begin
+     qrLoteCoco.Close;
+end;
+
+procedure TfrmBuscaCadLoteCoco.FormShow(Sender: TObject);
+begin
+     qrLoteCoco.Open;
+end;
+
 procedure TfrmBuscaCadLoteCoco.btNovoClick(Sender: TObject);
 begin
      Opcao:='Novo';
-     frmCadLoteCoco:=TfrmCadLoteCoco.Create(Application);
+     frmCadLoteCoco:=TfrmCadLoteCoco.Create(Self);
      frmCadLoteCoco.ShowModal;
 end;
 
 procedure TfrmBuscaCadLoteCoco.btEditarClick(Sender: TObject);
 begin
      Opcao:='Editar';
-     frmCadLoteCoco:=TfrmCadLoteCoco.Create(Application);
+     frmCadLoteCoco:=TfrmCadLoteCoco.Create(Self);
      frmCadLoteCoco.ShowModal;
 end;
 

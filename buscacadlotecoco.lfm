@@ -7,6 +7,8 @@ object frmBuscaCadLoteCoco: TfrmBuscaCadLoteCoco
   ClientHeight = 486
   ClientWidth = 636
   Color = clSilver
+  OnClose = FormClose
+  OnShow = FormShow
   LCLVersion = '2.0.6.0'
   object dbgLote: TDBGrid
     Left = 36
@@ -18,8 +20,10 @@ object frmBuscaCadLoteCoco: TfrmBuscaCadLoteCoco
       item
         Title.Caption = 'Nome'
         Width = 400
+        FieldName = 'NOME'
       end>
     DataSource = dsLoteCoco
+    ReadOnly = True
     TabOrder = 0
   end
   object btNovo: TButton
@@ -69,7 +73,6 @@ object frmBuscaCadLoteCoco: TfrmBuscaCadLoteCoco
         Precision = -1
         Size = 32
       end>
-    Active = True
     Database = DataModule1.IBCMaquina
     Transaction = DataModule1.SQLTMaquina
     SQL.Strings = (
@@ -77,6 +80,7 @@ object frmBuscaCadLoteCoco: TfrmBuscaCadLoteCoco
       'where Status = ''Aberto'''
     )
     Params = <>
+    UpdateMode = upWhereAll
     left = 77
     top = 23
     object qrLoteCocoNOME: TStringField
