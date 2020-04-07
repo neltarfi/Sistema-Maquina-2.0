@@ -516,8 +516,17 @@ object frmRomaneio: TfrmRomaneio
       Height = 29
       Top = 336
       Width = 284
+      DataField = 'LOTECOCO'
+      DataSource = dsRomaneio
+      Font.Height = -13
+      Font.Name = 'Sans'
+      Font.Style = [fsBold]
+      KeyField = 'COD_LOTE'
+      ListField = 'NOME'
       ListFieldIndex = 0
+      ListSource = dsLoteCoco
       LookupCache = False
+      ParentFont = False
       TabOrder = 19
     end
     object dbeObs: TDBEdit
@@ -1389,7 +1398,8 @@ object frmRomaneio: TfrmRomaneio
     Database = DataModule1.IBCMaquina
     Transaction = DataModule1.SQLTMaquina
     SQL.Strings = (
-      'select * from Romaneio order by Cod_Romaneio'
+      'select * from Romaneio r'
+      'order by Cod_Romaneio'
     )
     Params = <>
     left = 192
@@ -1676,5 +1686,63 @@ object frmRomaneio: TfrmRomaneio
       ReadOnly = False
       Required = True
     end
+  end
+  object qrLoteCoco: TSQLQuery
+    IndexName = 'DEFAULT_ORDER'
+    FieldDefs = <    
+      item
+        Name = 'COD_LOTE'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'NOME'
+        DataType = ftString
+        Precision = -1
+        Size = 160
+      end>
+    Database = DataModule1.IBCMaquina
+    Transaction = DataModule1.SQLTMaquina
+    SQL.Strings = (
+      'select Cod_Lote, Nome from Lote_Coco'
+      'where (status = :IDstatus1) or (status= :IDstatus2)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'IDstatus1'
+        ParamType = ptInput
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'IDstatus2'
+        ParamType = ptInput
+      end>
+    left = 109
+    top = 506
+    object qrLoteCocoCOD_LOTE: TLongintField
+      FieldKind = fkData
+      FieldName = 'COD_LOTE'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qrLoteCocoNOME: TStringField
+      FieldKind = fkData
+      FieldName = 'NOME'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 160
+    end
+  end
+  object dsLoteCoco: TDataSource
+    DataSet = qrLoteCoco
+    left = 209
+    top = 509
   end
 end

@@ -18,6 +18,7 @@ type
     btSair: TButton;
     btImprimir: TButton;
     btFiltro: TButton;
+    dsLoteCoco: TDataSource;
     dbeTotalRomaneio: TDBEdit;
     dbePorcFundoRural: TDBEdit;
     dbeAliquota: TDBEdit;
@@ -66,6 +67,8 @@ type
     qrDepositadoCOMPRADO: TLongintField;
     qrDepositadoDEPOSITADO: TLongintField;
     qrDepositadoSALDO: TLongintField;
+    qrLoteCocoCOD_LOTE: TLongintField;
+    qrLoteCocoNOME: TStringField;
     qrRomaneioBEBERCOCO: TLongintField;
     qrRomaneioBEBERLIMPO: TFloatField;
     qrRomaneioCANCELADO: TStringField;
@@ -151,6 +154,7 @@ type
     qrRomaneio: TSQLQuery;
     qrAuxCompra: TSQLQuery;
     qrAuxDepositado: TSQLQuery;
+    qrLoteCoco: TSQLQuery;
     procedure btNovoClick(Sender: TObject);
     procedure btSairClick(Sender: TObject);
     procedure btSalvarClick(Sender: TObject);
@@ -215,6 +219,10 @@ begin
   qrListNomePro.Close;
   qrListNomePro.ParamByName('IDCliente').Value:=dbNomeCli.KeyValue;
   qrListNomePro.Open;
+  qrLoteCoco.Close;
+  qrLoteCoco.ParamByName('IDstatus1').AsString:='Aberto';
+  qrLoteCoco.ParamByName('IDstatus2').AsString:='Fechado';
+  qrLoteCoco.Open;
   if qrRomaneio.RecordCount > 0 then
   begin
     qrDepositado.Close;
@@ -256,6 +264,7 @@ begin
   qrDepositado.Close;
   qrAuxDepositado.Close;
   qrAuxCompra.Close;
+  qrLoteCoco.Close;
 
 
 end;
@@ -281,6 +290,10 @@ end;
 procedure TfrmRomaneio.btNovoClick(Sender: TObject);
 begin
   Novo:=true;
+  qrLoteCoco.Close;
+  qrLoteCoco.ParamByName('IDstatus1').AsString:='Aberto';
+  qrLoteCoco.ParamByName('IDstatus2').AsString:='Aberto';
+  qrLoteCoco.Open;
   btFiltro.Enabled:=False;
   qrRomaneio.Insert;
   qrCompra.Insert;
@@ -347,6 +360,10 @@ begin
 
            qrRomaneio.ApplyUpdates;
            DataModule1.SQLTMaquina.CommitRetaining;
+           qrLoteCoco.Close;
+           qrLoteCoco.ParamByName('IDstatus1').AsString:='Aberto';
+           qrLoteCoco.ParamByName('IDstatus2').AsString:='Fechado';
+           qrLoteCoco.Open;
            qrRomaneio.Close;
            qrRomaneio.Open;
            qrRomaneio.Last;
@@ -598,7 +615,6 @@ begin
      dbeDesconto2.ReadOnly:=False;
      qrRomaneio.FieldByName('Legenda2').Text:='Outros descontos';
      dblLoteCoco.Enabled:=True;
-     dblLoteCoco.Clear;
      dbeObs.Clear;
      dbeDepositado.Text:='0';
      dbeComprado.ReadOnly:=False;
@@ -755,6 +771,7 @@ begin
      if (strToint(dbeComprado.Text) > 0) and (strTofloat(dbeValor.Text) = 0) then
         Erro:=Erro+'-O Valor unitário não pode ser zero quando o valor comprado é maior que zero'+chr(13);
      if length(dbeObs.Text) > 100 then Erro:=Erro+'-O Campo Obs não pode utrapaçar 100 caracteres'+chr(13);
+     if dblLoteCoco.KeyValue < 1 then Erro:= Erro+'-O Campo Lote Coco não pode ficar vazio'+chr(13);
      if Erro = '' then
         SalvarTrue := True
      else
