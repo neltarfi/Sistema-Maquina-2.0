@@ -28,6 +28,13 @@ object frmPrincipal: TfrmPrincipal
         OnClick = smnRomaneioClick
       end
     end
+    object mnFerramentas: TMenuItem
+      Caption = '&Ferramentas'
+      object mnMudaLote: TMenuItem
+        Caption = 'Muda Lote'
+        OnClick = mnMudaLoteClick
+      end
+    end
     object mnSair: TMenuItem
       Caption = '&Sair'
       OnClick = mnSairClick

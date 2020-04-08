@@ -15,11 +15,14 @@ type
     MainMenu1: TMainMenu;
     Cadastro: TMenuItem;
     Clientes: TMenuItem;
+    mnMudaLote: TMenuItem;
+    mnFerramentas: TMenuItem;
     smnRomaneio: TMenuItem;
     mnLacamento: TMenuItem;
     mnuLoteCoco: TMenuItem;
     mnSair: TMenuItem;
     procedure ClientesClick(Sender: TObject);
+    procedure mnMudaLoteClick(Sender: TObject);
     procedure mnuLoteCocoClick(Sender: TObject);
     procedure smnRomaneioClick(Sender: TObject);
     procedure mnSairClick(Sender: TObject);
@@ -35,7 +38,7 @@ var
 implementation
 
 uses
-  BuscaCliente, Romaneio, BuscaCadLoteCoco;
+  BuscaCliente, Romaneio, BuscaCadLoteCoco, MudaLote;
 {$R *.lfm}
 
 { TfrmPrincipal }
@@ -46,6 +49,13 @@ begin
   frmBuscaCli:= TfrmBuscaCli.Create(Application);
   frmBuscaCli.ShowModal;
 end;
+
+procedure TfrmPrincipal.mnMudaLoteClick(Sender: TObject);
+begin
+     frmMudaLote:=TfrmMudaLote.Create(Application);
+     frmMudaLote.ShowModal;
+end;
+
 
 procedure TfrmPrincipal.mnuLoteCocoClick(Sender: TObject);
 begin

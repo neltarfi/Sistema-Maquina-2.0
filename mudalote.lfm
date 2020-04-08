@@ -1,0 +1,266 @@
+object frmMudaLote: TfrmMudaLote
+  Left = 141
+  Height = 485
+  Top = 161
+  Width = 871
+  Caption = 'Muda Lote'
+  ClientHeight = 485
+  ClientWidth = 871
+  Color = clSilver
+  OnClose = FormClose
+  OnShow = FormShow
+  LCLVersion = '2.0.6.0'
+  object DBGrid1: TDBGrid
+    Left = 9
+    Height = 283
+    Top = 106
+    Width = 428
+    Color = clWindow
+    Columns = <    
+      item
+        Title.Caption = 'Data'
+        Width = 50
+        FieldName = 'DATA'
+      end    
+      item
+        Title.Caption = 'Rom.'
+        Width = 50
+        FieldName = 'COD_ROMANEIO'
+      end    
+      item
+        Title.Caption = 'Cliente'
+        FieldName = 'NOME'
+      end>
+    DataSource = dsGridOrigem
+    TabOrder = 0
+  end
+  object btSeleciona: TButton
+    Left = 448
+    Height = 25
+    Top = 242
+    Width = 24
+    Caption = '->'
+    OnClick = btSelecionaClick
+    TabOrder = 1
+  end
+  object sgDestino: TStringGrid
+    Left = 479
+    Height = 279
+    Top = 111
+    Width = 383
+    ColCount = 4
+    Columns = <    
+      item
+        Title.Caption = 'Data'
+        Width = 50
+      end    
+      item
+        Title.Caption = 'Rom.'
+        Width = 50
+      end    
+      item
+        Title.Caption = 'Cliente'
+        Width = 250
+      end>
+    TabOrder = 2
+  end
+  object dblOrigem: TDBLookupComboBox
+    Left = 16
+    Height = 29
+    Top = 64
+    Width = 360
+    KeyField = 'COD_LOTE'
+    ListField = 'NOME'
+    ListFieldIndex = 0
+    ListSource = dsLoteOrigem
+    LookupCache = False
+    OnSelect = dblOrigemSelect
+    TabOrder = 3
+  end
+  object DBLookupComboBox2: TDBLookupComboBox
+    Left = 488
+    Height = 29
+    Top = 64
+    Width = 374
+    KeyField = 'COD_LOTE'
+    ListField = 'NOME'
+    ListFieldIndex = 0
+    ListSource = dsLoteOrigem
+    LookupCache = False
+    OnSelect = DBLookupComboBox2Select
+    TabOrder = 4
+  end
+  object qrLoteOrigem: TSQLQuery
+    FieldDefs = <    
+      item
+        Name = 'COD_LOTE'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'NOME'
+        DataType = ftString
+        Precision = -1
+        Size = 160
+      end>
+    Database = DataModule1.IBCMaquina
+    Transaction = DataModule1.SQLTMaquina
+    SQL.Strings = (
+      'select Cod_lote, Nome from Lote_Coco'
+    )
+    Params = <>
+    left = 136
+    object qrLoteOrigemCOD_LOTE: TLongintField
+      FieldKind = fkData
+      FieldName = 'COD_LOTE'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qrLoteOrigemNOME: TStringField
+      FieldKind = fkData
+      FieldName = 'NOME'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 160
+    end
+  end
+  object qrGridOrigem: TSQLQuery
+    FieldDefs = <    
+      item
+        Name = 'NOME'
+        DataType = ftString
+        Precision = -1
+        Size = 120
+      end    
+      item
+        Name = 'COD_ROMANEIO'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'LOTECOCO'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'DATA'
+        DataType = ftDate
+        Precision = -1
+      end>
+    Database = DataModule1.IBCMaquina
+    Transaction = DataModule1.SQLTMaquina
+    SQL.Strings = (
+      'select c.Nome, r.Cod_Romaneio, r.LoteCoco, r.Data from Romaneio r'
+      'inner join Clientes c on c.Cod_Cliente = r.Cod_Cli'
+      'where r.LoteCoco = :IDOrigem'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'IDOrigem'
+        ParamType = ptInput
+      end>
+    left = 50
+    top = 410
+    object qrGridOrigemDATA: TDateField
+      FieldKind = fkData
+      FieldName = 'DATA'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qrGridOrigemCOD_ROMANEIO: TLongintField
+      FieldKind = fkData
+      FieldName = 'COD_ROMANEIO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qrGridOrigemNOME: TStringField
+      FieldKind = fkData
+      FieldName = 'NOME'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 120
+    end
+    object qrGridOrigemLOTECOCO: TLongintField
+      FieldKind = fkData
+      FieldName = 'LOTECOCO'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object dsLoteOrigem: TDataSource
+    DataSet = qrLoteOrigem
+    left = 232
+  end
+  object dsGridOrigem: TDataSource
+    DataSet = qrGridOrigem
+    left = 158
+    top = 416
+  end
+  object qrLoteDestino: TSQLQuery
+    IndexName = 'DEFAULT_ORDER'
+    FieldDefs = <    
+      item
+        Name = 'COD_LOTE'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'NOME'
+        DataType = ftString
+        Precision = -1
+        Size = 160
+      end>
+    Active = True
+    Database = DataModule1.IBCMaquina
+    Transaction = DataModule1.SQLTMaquina
+    SQL.Strings = (
+      'select Cod_lote, Nome from Lote_Coco'
+    )
+    Params = <>
+    left = 499
+    top = 8
+    object qrLoteDestinoCOD_LOTE: TLongintField
+      FieldKind = fkData
+      FieldName = 'COD_LOTE'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qrLoteDestinoNOME: TStringField
+      FieldKind = fkData
+      FieldName = 'NOME'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 160
+    end
+  end
+  object dsLoteDestino: TDataSource
+    DataSet = qrLoteDestino
+    left = 640
+    top = 8
+  end
+end

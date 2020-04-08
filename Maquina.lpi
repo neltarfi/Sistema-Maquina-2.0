@@ -36,7 +36,7 @@
         <PackageName Value="LCL"/>
       </Item3>
     </RequiredPackages>
-    <Units Count="12">
+    <Units Count="13">
       <Unit0>
         <Filename Value="Maquina.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -126,6 +126,14 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="BuscaCadLoteCoco"/>
       </Unit11>
+      <Unit12>
+        <Filename Value="mudalote.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmMudaLote"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="MudaLote"/>
+      </Unit12>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
