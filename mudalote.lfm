@@ -11,18 +11,19 @@ object frmMudaLote: TfrmMudaLote
   OnShow = FormShow
   LCLVersion = '2.0.6.0'
   object DBGrid1: TDBGrid
-    Left = 9
+    Left = 8
     Height = 283
-    Top = 106
+    Top = 107
     Width = 428
     Color = clWindow
     Columns = <    
       item
         Title.Caption = 'Data'
-        Width = 50
+        Width = 60
         FieldName = 'DATA'
       end    
       item
+        Alignment = taRightJustify
         Title.Caption = 'Rom.'
         Width = 50
         FieldName = 'COD_ROMANEIO'
@@ -32,6 +33,7 @@ object frmMudaLote: TfrmMudaLote
         FieldName = 'NOME'
       end>
     DataSource = dsGridOrigem
+    ReadOnly = True
     TabOrder = 0
   end
   object btSeleciona: TButton
@@ -51,10 +53,12 @@ object frmMudaLote: TfrmMudaLote
     ColCount = 4
     Columns = <    
       item
+        Alignment = taCenter
         Title.Caption = 'Data'
-        Width = 50
+        Width = 60
       end    
       item
+        Alignment = taRightJustify
         Title.Caption = 'Rom.'
         Width = 50
       end    
@@ -66,7 +70,7 @@ object frmMudaLote: TfrmMudaLote
   end
   object dblOrigem: TDBLookupComboBox
     Left = 16
-    Height = 29
+    Height = 23
     Top = 64
     Width = 360
     KeyField = 'COD_LOTE'
@@ -77,9 +81,9 @@ object frmMudaLote: TfrmMudaLote
     OnSelect = dblOrigemSelect
     TabOrder = 3
   end
-  object DBLookupComboBox2: TDBLookupComboBox
+  object dblDestino: TDBLookupComboBox
     Left = 488
-    Height = 29
+    Height = 23
     Top = 64
     Width = 374
     KeyField = 'COD_LOTE'
@@ -87,8 +91,42 @@ object frmMudaLote: TfrmMudaLote
     ListFieldIndex = 0
     ListSource = dsLoteOrigem
     LookupCache = False
-    OnSelect = DBLookupComboBox2Select
+    OnSelect = dblDestinoSelect
     TabOrder = 4
+  end
+  object btSalvar: TButton
+    Left = 424
+    Height = 25
+    Top = 440
+    Width = 75
+    Caption = 'Salvar'
+    OnClick = btSalvarClick
+    TabOrder = 5
+  end
+  object btSair: TButton
+    Left = 770
+    Height = 25
+    Top = 442
+    Width = 75
+    Caption = 'Sair'
+    OnClick = btSairClick
+    TabOrder = 6
+  end
+  object Label1: TLabel
+    Left = 16
+    Height = 15
+    Top = 40
+    Width = 82
+    Caption = 'Lote de Origem'
+    ParentColor = False
+  end
+  object Label2: TLabel
+    Left = 488
+    Height = 15
+    Top = 40
+    Width = 82
+    Caption = 'Lote de Destino'
+    ParentColor = False
   end
   object qrLoteOrigem: TSQLQuery
     FieldDefs = <    
@@ -107,6 +145,7 @@ object frmMudaLote: TfrmMudaLote
     Transaction = DataModule1.SQLTMaquina
     SQL.Strings = (
       'select Cod_lote, Nome from Lote_Coco'
+      'where status = ''Aberto'''
     )
     Params = <>
     left = 136
@@ -216,7 +255,6 @@ object frmMudaLote: TfrmMudaLote
     top = 416
   end
   object qrLoteDestino: TSQLQuery
-    IndexName = 'DEFAULT_ORDER'
     FieldDefs = <    
       item
         Name = 'COD_LOTE'
@@ -229,15 +267,14 @@ object frmMudaLote: TfrmMudaLote
         Precision = -1
         Size = 160
       end>
-    Active = True
     Database = DataModule1.IBCMaquina
     Transaction = DataModule1.SQLTMaquina
     SQL.Strings = (
       'select Cod_lote, Nome from Lote_Coco'
+      'where status = ''Aberto'''
     )
     Params = <>
-    left = 499
-    top = 8
+    left = 576
     object qrLoteDestinoCOD_LOTE: TLongintField
       FieldKind = fkData
       FieldName = 'COD_LOTE'
@@ -262,5 +299,52 @@ object frmMudaLote: TfrmMudaLote
     DataSet = qrLoteDestino
     left = 640
     top = 8
+  end
+  object qrDestino: TSQLQuery
+    IndexName = 'DEFAULT_ORDER'
+    FieldDefs = <    
+      item
+        Name = 'COD_ROMANEIO'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'LOTECOCO'
+        DataType = ftInteger
+        Precision = -1
+      end>
+    Database = DataModule1.IBCMaquina
+    Transaction = DataModule1.SQLTMaquina
+    SQL.Strings = (
+      'select Cod_Romaneio, LoteCoco from Romaneio'
+      'where Cod_Romaneio = :IDCodigo'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'IDCodigo'
+        ParamType = ptInput
+      end>
+    UpdateMode = upWhereAll
+    left = 624
+    top = 416
+    object qrDestinoCOD_ROMANEIO: TLongintField
+      FieldKind = fkData
+      FieldName = 'COD_ROMANEIO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qrDestinoLOTECOCO: TLongintField
+      FieldKind = fkData
+      FieldName = 'LOTECOCO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
   end
 end
