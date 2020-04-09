@@ -48,12 +48,13 @@ type
     Label29: TLabel;
     Label31: TLabel;
     Label32: TLabel;
+    qrAcertoHISTORICO: TStringField;
     qrAuxCompraCOD_COMPRA: TLongintField;
     qrAuxDepositadoCOD_DEPOSITADO: TLongintField;
     qrCompraALIQUOTA: TFloatField;
     qrCompraCANCELADO: TStringField;
     qrCompraCOD_COMPRA: TLongintField;
-    qrCompraCOD_CONTACORRENTE: TLongintField;
+    qrCompraCOD_DETACERTO: TLongintField;
     qrCompraCOD_ROMANEIO: TLongintField;
     qrCompraDATA: TDateField;
     qrCompraOBS: TStringField;
@@ -155,6 +156,15 @@ type
     qrAuxCompra: TSQLQuery;
     qrAuxDepositado: TSQLQuery;
     qrLoteCoco: TSQLQuery;
+    qrAcerto: TSQLQuery;
+    qrAcertoCOD_ACERTO: TLongintField;
+    qrAcertoCOD_CLI: TLongintField;
+    qrAcertoCOD_DETACERTO: TLongintField;
+    qrAcertoCREDITO: TFloatField;
+    qrAcertoDATA: TDateField;
+    qrAcertoDEBITO: TFloatField;
+    qrAcertoSELECIONADO: TStringField;
+    qrAcertoSTATUS: TStringField;
     procedure btNovoClick(Sender: TObject);
     procedure btSairClick(Sender: TObject);
     procedure btSalvarClick(Sender: TObject);
@@ -345,8 +355,19 @@ begin
                 qrCompra.FieldByName('Cod_Compra').Value:= -1;
                 qrCompra.FieldByName('Cod_Romaneio').Value:=qrRomaneio.RecordCount+1;
                 qrCompra.FieldByName('Data').Value:=strToDate(dbeData.Text);
+                qrAcerto.Open;
+                qrCompra.FieldByName('Cod_DetAcerto').Value:=qrAcerto.RecordCount;
                 qrCompra.FieldByName('Cancelado').Text:='False';
                 qrCompra.ApplyUpdates;
+                qrAcerto.Append;
+                qrAcerto.FieldByName('Cod_DetAcerto').Value:=-1;
+                qrAcerto.FieldByName('Cod_Cli').Value:= dbNomeCli.KeyValue;
+                qrAcerto.FieldByName('Data').Value:=strToDate(dbeData.Text);
+                qrAcerto.FieldByName('Historico').AsString:='Romaneio '+intTostr(qrRomaneio.RecordCount+1)+' Compra '+intTostr(qrAuxCompra.RecordCount);
+                qrAcerto.FieldByName('Debito').Value:=strtoFloat(FormatFloat('0.00',strToFloat(edtValorLivre.Text)));
+                qrAcerto.FieldByName('Credito').Value:=0.0;
+                qrAcerto.FieldByName('Status').Text:='Ativo';
+                qrAcerto.ApplyUpdates;
            end
            else
            begin
@@ -367,6 +388,8 @@ begin
            qrRomaneio.Close;
            qrRomaneio.Open;
            qrRomaneio.Last;
+           qrAuxDepositado.Close;
+           qrAuxCompra.Close;
            Novo:=False;
            PopulaCampos;
            desabilitaControles;

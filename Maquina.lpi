@@ -36,7 +36,7 @@
         <PackageName Value="LCL"/>
       </Item3>
     </RequiredPackages>
-    <Units Count="13">
+    <Units Count="14">
       <Unit0>
         <Filename Value="Maquina.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -134,6 +134,14 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="MudaLote"/>
       </Unit12>
+      <Unit13>
+        <Filename Value="acerto.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmAcerto"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Acerto"/>
+      </Unit13>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

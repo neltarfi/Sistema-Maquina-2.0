@@ -967,6 +967,7 @@ object frmRomaneio: TfrmRomaneio
     top = 80
   end
   object qrCompra: TSQLQuery
+    IndexName = 'DEFAULT_ORDER'
     FieldDefs = <    
       item
         Name = 'COD_COMPRA'
@@ -1016,7 +1017,7 @@ object frmRomaneio: TfrmRomaneio
         Size = 400
       end    
       item
-        Name = 'COD_CONTACORRENTE'
+        Name = 'COD_DETACERTO'
         DataType = ftInteger
         Precision = -1
       end    
@@ -1130,9 +1131,9 @@ object frmRomaneio: TfrmRomaneio
       Required = False
       Size = 400
     end
-    object qrCompraCOD_CONTACORRENTE: TLongintField
+    object qrCompraCOD_DETACERTO: TLongintField
       FieldKind = fkData
-      FieldName = 'COD_CONTACORRENTE'
+      FieldName = 'COD_DETACERTO'
       Index = 9
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
@@ -1688,7 +1689,6 @@ object frmRomaneio: TfrmRomaneio
     end
   end
   object qrLoteCoco: TSQLQuery
-    IndexName = 'DEFAULT_ORDER'
     FieldDefs = <    
       item
         Name = 'COD_LOTE'
@@ -1744,5 +1744,155 @@ object frmRomaneio: TfrmRomaneio
     DataSet = qrLoteCoco
     left = 209
     top = 509
+  end
+  object qrAcerto: TSQLQuery
+    FieldDefs = <    
+      item
+        Name = 'COD_DETACERTO'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'COD_ACERTO'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'COD_CLI'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'SELECIONADO'
+        DataType = ftFixedChar
+        Precision = -1
+        Size = 4
+      end    
+      item
+        Name = 'DATA'
+        DataType = ftDate
+        Precision = -1
+      end    
+      item
+        Name = 'HISTORICO'
+        DataType = ftString
+        Precision = -1
+        Size = 120
+      end    
+      item
+        Name = 'DEBITO'
+        DataType = ftFloat
+        Precision = -1
+      end    
+      item
+        Name = 'CREDITO'
+        DataType = ftFloat
+        Precision = -1
+      end    
+      item
+        Name = 'STATUS'
+        DataType = ftString
+        Precision = -1
+        Size = 36
+      end>
+    Database = DataModule1.IBCMaquina
+    Transaction = DataModule1.SQLTMaquina
+    SQL.Strings = (
+      'select * from DetAcerto'
+    )
+    Params = <>
+    UpdateMode = upWhereAll
+    left = 697
+    top = 428
+    object qrAcertoCOD_DETACERTO: TLongintField
+      FieldKind = fkData
+      FieldName = 'COD_DETACERTO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qrAcertoCOD_ACERTO: TLongintField
+      FieldKind = fkData
+      FieldName = 'COD_ACERTO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qrAcertoCOD_CLI: TLongintField
+      FieldKind = fkData
+      FieldName = 'COD_CLI'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qrAcertoSELECIONADO: TStringField
+      FieldKind = fkData
+      FieldName = 'SELECIONADO'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 4
+    end
+    object qrAcertoDATA: TDateField
+      FieldKind = fkData
+      FieldName = 'DATA'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qrAcertoHISTORICO: TStringField
+      FieldKind = fkData
+      FieldName = 'HISTORICO'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 120
+    end
+    object qrAcertoDEBITO: TFloatField
+      FieldKind = fkData
+      FieldName = 'DEBITO'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = -1
+    end
+    object qrAcertoCREDITO: TFloatField
+      FieldKind = fkData
+      FieldName = 'CREDITO'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = -1
+    end
+    object qrAcertoSTATUS: TStringField
+      FieldKind = fkData
+      FieldName = 'STATUS'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 36
+    end
   end
 end

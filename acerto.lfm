@@ -1,0 +1,102 @@
+object frmAcerto: TfrmAcerto
+  Left = 215
+  Height = 553
+  Top = 161
+  Width = 803
+  Caption = 'Acerto'
+  ClientHeight = 553
+  ClientWidth = 803
+  OnClose = FormClose
+  OnShow = FormShow
+  LCLVersion = '2.0.6.0'
+  object dblCliente: TDBLookupComboBox
+    Left = 412
+    Height = 29
+    Top = 81
+    Width = 324
+    KeyField = 'COD_CLIENTE'
+    ListField = 'NOME'
+    ListFieldIndex = 0
+    ListSource = dsCliente
+    LookupCache = False
+    TabOrder = 0
+  end
+  object qrCliente: TSQLQuery
+    IndexName = 'DEFAULT_ORDER'
+    FieldDefs = <    
+      item
+        Name = 'SUBTRACT'
+        DataType = ftFloat
+        Precision = -1
+      end    
+      item
+        Name = 'STATUS'
+        DataType = ftString
+        Precision = -1
+        Size = 36
+      end    
+      item
+        Name = 'NOME'
+        DataType = ftString
+        Precision = -1
+        Size = 120
+      end    
+      item
+        Name = 'COD_CLIENTE'
+        DataType = ftInteger
+        Precision = -1
+      end>
+    Active = True
+    Database = DataModule1.IBCMaquina
+    Transaction = DataModule1.SQLTMaquina
+    SQL.Strings = (
+      'select (sum(da.Debito) - sum(da.Credito)),'
+      '       da.Status,'
+      '       c.Nome,'
+      '       c.Cod_Cliente'
+      'from DetAcerto da'
+      'inner join Clientes c on c.Cod_Cliente = da.Cod_Cli'
+      'group by c.Nome, c.Cod_Cliente, Status'
+      'having  ((sum(da.Debito) - sum(da.Credito))<>0) and (Status = ''Ativo'')'
+      ''
+      ''
+    )
+    Params = <>
+    left = 464
+    top = 16
+    object qrClienteNOME: TStringField
+      FieldKind = fkData
+      FieldName = 'NOME'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 120
+    end
+    object qrClienteCOD_CLIENTE: TLongintField
+      FieldKind = fkData
+      FieldName = 'COD_CLIENTE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qrClienteSTATUS: TStringField
+      FieldKind = fkData
+      FieldName = 'STATUS'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 36
+    end
+  end
+  object dsCliente: TDataSource
+    DataSet = qrCliente
+    left = 565
+    top = 19
+  end
+end
