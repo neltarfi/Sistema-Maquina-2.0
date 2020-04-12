@@ -61,7 +61,7 @@ type
     qrCompraPESO: TLongintField;
     qrCompraPORCFUNDORURAL: TLongintField;
     qrCompraSACOKG: TStringField;
-    qrCompraVALOR: TFloatField;
+    qrCompraVALOR: TBCDField;
     qrDepositadoCANCELADO: TStringField;
     qrDepositadoCOD_DEPOSITADO: TLongintField;
     qrDepositadoCOD_ROMANEIO: TLongintField;
@@ -360,13 +360,14 @@ begin
                 qrCompra.FieldByName('Cancelado').Text:='False';
                 qrCompra.ApplyUpdates;
                 qrAcerto.Append;
+                qrAcerto.FieldByName('Cod_Acerto').Value:=0;
                 qrAcerto.FieldByName('Cod_DetAcerto').Value:=-1;
                 qrAcerto.FieldByName('Cod_Cli').Value:= dbNomeCli.KeyValue;
                 qrAcerto.FieldByName('Data').Value:=strToDate(dbeData.Text);
                 qrAcerto.FieldByName('Historico').AsString:='Romaneio '+intTostr(qrRomaneio.RecordCount+1)+' Compra '+intTostr(qrAuxCompra.RecordCount);
                 qrAcerto.FieldByName('Debito').Value:=strtoFloat(FormatFloat('0.00',strToFloat(edtValorLivre.Text)));
                 qrAcerto.FieldByName('Credito').Value:=0.0;
-                qrAcerto.FieldByName('Status').Text:='Ativo';
+                qrAcerto.FieldByName('Status').Text:='Bloqueado';
                 qrAcerto.ApplyUpdates;
            end
            else
@@ -758,14 +759,13 @@ end;
 procedure TfrmRomaneio.CalcCompra;
 var Aux:double;
 begin
-     if (dbeComprado.Text>'0') and (strTofloat(dbeValor.Text)>0.00) then
+     if (dbeComprado.Text>'0') and (dbeValor.Text>'0') then
      begin
         if rgOpcao.Value='Saco' then
-           edtValorBruto.Text:=FormatFloat('0.00',(qrCompra.FieldByName('Valor').Value*qrCompra.FieldByName('Peso').Value/40))
+           edtValorBruto.Text:=FormatFloat('0.00',qrCompra.FieldByName('Valor').Value*qrCompra.FieldByName('Peso').Value/40)
         else
         begin
-             Aux:=qrCompra.FieldByName('Valor').Value*qrCompra.FieldByName('Peso').Value*qrRomaneio.FieldByName('Renda').Value/40000;
-             edtValorBruto.Text:=FormatFloat('0.00',Aux);
+             edtValorBruto.Text:=FormatFloat('0.00',qrCompra.FieldByName('Valor').Value*qrCompra.FieldByName('Peso').Value*qrRomaneio.FieldByName('Renda').Value/40000);
         end;
         edtFunRural.Text:=FormatFloat('0.00',(strTofloat(edtValorBruto.Text)*qrCompra.FieldByName('Aliquota').Value*qrCompra.FieldByName('PorcFundoRural').Value/10000));
         edtValorLivre.Text:=FormatFloat('0.00',(strtofloat(edtValorBruto.Text)-strToFloat(edtFunRural.Text)));
@@ -791,7 +791,7 @@ begin
      if dbNomePro.KeyValue < 1 then Erro:=Erro+'-O Nome da Propriedade não pode ficar vazio'+chr(13);
      if strToint(dbeRenda.Text) <= 0 then Erro:=Erro+'-A renda tem que ser maior que zero'+chr(13);
      if strToint(dbePesoBruto.Text) <= 0 then Erro:=Erro+'-O peso bruto tem que ser maior que zero'+chr(13);
-     if (strToint(dbeComprado.Text) > 0) and (strTofloat(dbeValor.Text) = 0) then
+     if (strToint(dbeComprado.Text) > 0) and (dbeValor.Text = '0') then
         Erro:=Erro+'-O Valor unitário não pode ser zero quando o valor comprado é maior que zero'+chr(13);
      if length(dbeObs.Text) > 100 then Erro:=Erro+'-O Campo Obs não pode utrapaçar 100 caracteres'+chr(13);
      if dblLoteCoco.KeyValue < 1 then Erro:= Erro+'-O Campo Lote Coco não pode ficar vazio'+chr(13);
