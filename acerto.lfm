@@ -1,7 +1,7 @@
 object frmAcerto: TfrmAcerto
-  Left = 169
+  Left = 133
   Height = 553
-  Top = 157
+  Top = 155
   Width = 889
   Caption = 'Acerto'
   ClientHeight = 553
@@ -28,7 +28,7 @@ object frmAcerto: TfrmAcerto
       TabOrder = 0
       object dblCliente: TDBLookupComboBox
         Left = 16
-        Height = 23
+        Height = 29
         Top = 64
         Width = 360
         KeyField = 'COD_CLIENTE'
@@ -53,7 +53,7 @@ object frmAcerto: TfrmAcerto
         ChildSizing.ShrinkVertical = crsScaleChilds
         ChildSizing.Layout = cclLeftToRightThenTopToBottom
         ChildSizing.ControlsPerLine = 1
-        ClientHeight = 38
+        ClientHeight = 39
         ClientWidth = 109
         ItemIndex = 0
         Items.Strings = (
@@ -65,7 +65,7 @@ object frmAcerto: TfrmAcerto
       end
     end
     object DBNavigator1: TDBNavigator
-      Left = 41
+      Left = 40
       Height = 25
       Top = 445
       Width = 241
@@ -78,78 +78,56 @@ object frmAcerto: TfrmAcerto
       ChildSizing.ControlsPerLine = 100
       ClientHeight = 25
       ClientWidth = 241
-      DataSource = dsAcerto
+      DataSource = dsFiltroAcerto
+      OnClick = DBNavigator1Click
       Options = []
       TabOrder = 1
       VisibleButtons = [nbFirst, nbPrior, nbNext, nbLast]
     end
-    object Panel4: TPanel
+    object pLansamento: TPanel
       Left = 8
       Height = 175
       Top = 208
       Width = 401
       ClientHeight = 175
       ClientWidth = 401
+      Enabled = False
       TabOrder = 2
-      OnClick = Panel4Click
-      object edtCredito: TEdit
-        Left = 320
-        Height = 23
-        Top = 88
-        Width = 72
-        TabOrder = 0
-      end
-      object edtDebito: TEdit
-        Left = 240
-        Height = 23
-        Top = 88
-        Width = 72
-        Font.Color = clRed
-        ParentFont = False
-        TabOrder = 1
-      end
-      object edtHistorico: TEdit
-        Left = 104
-        Height = 23
-        Top = 32
-        Width = 288
-        TabOrder = 2
-      end
       object Label4: TLabel
         Left = 8
-        Height = 15
+        Height = 17
         Top = 8
-        Width = 24
+        Width = 32
         Caption = 'Data'
         ParentColor = False
       end
       object Label5: TLabel
         Left = 104
-        Height = 15
+        Height = 17
         Top = 8
-        Width = 48
+        Width = 62
         Caption = 'Histórico'
         ParentColor = False
       end
       object Label6: TLabel
-        Left = 240
-        Height = 15
-        Top = 64
-        Width = 35
+        Left = 320
+        Height = 17
+        Top = 72
+        Width = 46
         Caption = 'Débito'
         ParentColor = False
       end
       object Label7: TLabel
-        Left = 320
-        Height = 15
-        Top = 64
-        Width = 39
+        Left = 234
+        Height = 17
+        Top = 72
+        Width = 51
         Caption = 'Crédito'
         ParentColor = False
       end
       object dbdData: TDBDateEdit
         Left = 8
-        Height = 23
+        Height = 27
         Top = 32
         Width = 88
         CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
@@ -157,16 +135,92 @@ object frmAcerto: TfrmAcerto
         ButtonWidth = 23
         NumGlyphs = 1
         MaxLength = 0
-        TabOrder = 3
-        Text = 'dbdData'
+        TabOrder = 0
+        DataField = 'DATA'
+        DataSource = dsGrid
       end
-      object Button1: TButton
-        Left = 297
+      object btCancelaLan: TButton
+        Left = 336
         Height = 25
         Top = 136
         Width = 75
-        Caption = 'Button1'
+        Caption = 'Cancelar'
+        OnClick = btCancelaLanClick
+        TabOrder = 1
+      end
+      object btSalvaLan: TButton
+        Left = 256
+        Height = 25
+        Top = 136
+        Width = 75
+        Caption = 'Salvar'
+        Enabled = False
+        OnClick = btSalvaLanClick
+        TabOrder = 2
+      end
+      object btNovoLan: TButton
+        Left = 8
+        Height = 25
+        Top = 136
+        Width = 75
+        Caption = 'Novo'
+        OnClick = btNovoLanClick
+        TabOrder = 3
+      end
+      object dbeDebito: TDBEdit
+        Left = 319
+        Height = 27
+        Top = 95
+        Width = 80
+        DataField = 'DEBITO'
+        DataSource = dsGrid
+        Alignment = taRightJustify
+        CharCase = ecNormal
+        MaxLength = 0
         TabOrder = 4
+        OnExit = dbeDebitoExit
+      end
+      object dbeCredito: TDBEdit
+        Left = 234
+        Height = 27
+        Top = 94
+        Width = 80
+        DataField = 'CREDITO'
+        DataSource = dsGrid
+        Alignment = taRightJustify
+        CharCase = ecNormal
+        MaxLength = 0
+        TabOrder = 5
+        OnExit = dbeCreditoExit
+      end
+      object dbeHistorico: TDBEdit
+        Left = 104
+        Height = 27
+        Top = 32
+        Width = 288
+        DataField = 'HISTORICO'
+        DataSource = dsGrid
+        CharCase = ecNormal
+        MaxLength = 30
+        TabOrder = 6
+      end
+      object btEditaLan: TButton
+        Left = 91
+        Height = 25
+        Top = 136
+        Width = 75
+        Caption = 'Editar'
+        OnClick = btEditaLanClick
+        TabOrder = 7
+      end
+      object btExcluiLan: TButton
+        Left = 176
+        Height = 25
+        Top = 136
+        Width = 75
+        Caption = 'Excluir'
+        OnClick = btExcluiLanClick
+        TabOrder = 8
       end
     end
   end
@@ -179,14 +233,6 @@ object frmAcerto: TfrmAcerto
     ClientHeight = 491
     ClientWidth = 456
     TabOrder = 1
-    object Edit1: TEdit
-      Left = 8
-      Height = 23
-      Top = 88
-      Width = 418
-      TabOrder = 0
-      Text = 'Edit1'
-    end
     object DBGrid1: TDBGrid
       Left = 8
       Height = 305
@@ -206,81 +252,115 @@ object frmAcerto: TfrmAcerto
         end      
         item
           Title.Caption = 'Historico'
-          Width = 150
+          Width = 170
           FieldName = 'HISTORICO'
         end      
         item
+          Alignment = taRightJustify
+          MaxSize = 64
+          Title.Alignment = taCenter
+          Title.Caption = 'Credito'
+          Width = 64
+          FieldName = 'CREDITO'
+        end      
+        item
+          Alignment = taRightJustify
           Font.Color = clRed
+          MaxSize = 50
+          Title.Alignment = taCenter
           Title.Caption = 'Debito'
           Width = 64
           FieldName = 'DEBITO'
-          DisplayFormat = '0.00'
-        end      
-        item
-          Title.Caption = 'Credito'
-          FieldName = 'CREDITO'
-          DisplayFormat = '0.00'
         end>
       DataSource = dsGrid
       ReadOnly = True
-      TabOrder = 1
+      TabOrder = 0
       OnDblClick = DBGrid1DblClick
     end
     object Label1: TLabel
       Left = 8
-      Height = 15
+      Height = 17
       Top = 72
-      Width = 73
+      Width = 91
       Caption = 'Nome Cliente'
       ParentColor = False
     end
-    object edtCodAcerto: TEdit
-      Left = 8
-      Height = 23
-      Top = 40
-      Width = 56
-      TabOrder = 2
-    end
     object Label2: TLabel
       Left = 8
-      Height = 15
+      Height = 17
       Top = 21
-      Width = 63
+      Width = 80
       Caption = 'Cód. Acerto'
       ParentColor = False
     end
     object Label3: TLabel
       Left = 304
-      Height = 15
+      Height = 17
       Top = 448
-      Width = 29
+      Width = 38
       Caption = 'Saldo'
       ParentColor = False
     end
     object dbeSaldo: TDBEdit
       Left = 344
-      Height = 23
+      Height = 27
       Top = 440
       Width = 80
       DataField = 'SALDO'
       DataSource = dsSaldo
       CharCase = ecNormal
       MaxLength = 0
+      TabOrder = 1
+    end
+    object dbeCodAcerto: TDBEdit
+      Left = 8
+      Height = 27
+      Top = 40
+      Width = 80
+      DataField = 'COD_ACERTO'
+      DataSource = dsFiltroAcerto
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 2
+    end
+    object dbeNomeCli: TDBEdit
+      Left = 8
+      Height = 27
+      Top = 88
+      Width = 424
+      DataField = 'NOME'
+      DataSource = dsFiltroAcerto
+      CharCase = ecNormal
+      MaxLength = 0
       TabOrder = 3
     end
+  end
+  object btNovoAcerto: TButton
+    Left = 48
+    Height = 25
+    Top = 512
+    Width = 88
+    Caption = 'Novo Acerto'
+    OnClick = btNovoAcertoClick
+    TabOrder = 2
+  end
+  object btFechaAcerto: TButton
+    Left = 168
+    Height = 25
+    Top = 512
+    Width = 99
+    Caption = 'Fecha Acerto'
+    Enabled = False
+    OnClick = btFechaAcertoClick
+    TabOrder = 3
   end
   object qrCliente: TSQLQuery
     FieldDefs = <    
       item
-        Name = 'SUBTRACT'
-        DataType = ftFloat
-        Precision = -1
-      end    
-      item
-        Name = 'STATUS'
+        Name = 'CANCELADO'
         DataType = ftString
         Precision = -1
-        Size = 36
+        Size = 20
       end    
       item
         Name = 'NOME'
@@ -292,18 +372,23 @@ object frmAcerto: TfrmAcerto
         Name = 'COD_CLIENTE'
         DataType = ftInteger
         Precision = -1
+      end    
+      item
+        Name = 'COD_ACERTO'
+        DataType = ftInteger
+        Precision = -1
       end>
     Database = DataModule1.IBCMaquina
     Transaction = DataModule1.SQLTMaquina
     SQL.Strings = (
-      'select (sum(da.Credito) - sum(da.Debito)),'
-      '       da.Status,'
+      'select da.Cancelado,'
       '       c.Nome,'
-      '       c.Cod_Cliente'
+      '       c.Cod_Cliente,'
+      '       da.Cod_Acerto'
       'from DetAcerto da'
       'inner join Clientes c on c.Cod_Cliente = da.Cod_Cli'
-      'group by c.Nome, c.Cod_Cliente, Status'
-      'having  ((sum(da.Credito) - sum(da.Debito))<>0) and (Status <> ''Cancelado'')'
+      'group by c.Nome, c.Cod_Cliente, da.Cancelado, da.Cod_Acerto'
+      'having  (da.Cod_Acerto=0) and (da.Cancelado = ''False'')'
       ''
       ''
     )
@@ -328,16 +413,6 @@ object frmAcerto: TfrmAcerto
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = True
-    end
-    object qrClienteSTATUS: TStringField
-      FieldKind = fkData
-      FieldName = 'STATUS'
-      Index = 2
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-      Size = 36
     end
   end
   object dsCliente: TDataSource
@@ -396,6 +471,12 @@ object frmAcerto: TfrmAcerto
         DataType = ftString
         Precision = -1
         Size = 36
+      end    
+      item
+        Name = 'CANCELADO'
+        DataType = ftString
+        Precision = -1
+        Size = 20
       end>
     Database = DataModule1.IBCMaquina
     Transaction = DataModule1.SQLTMaquina
@@ -403,7 +484,7 @@ object frmAcerto: TfrmAcerto
       'select * from DetAcerto'
       'where ((Cod_Acerto >= :IDAcerto1) and (Cod_Acerto <= :IDAcerto2))'
       '      and ((Cod_Cli >= :IDCliente1) and (Cod_Cli <= :IDCliente2))'
-      '      and (Status <> ''Cancelado'')'
+      '      and (Cancelado = ''False'')'
     )
     Params = <    
       item
@@ -456,20 +537,10 @@ object frmAcerto: TfrmAcerto
       ReadOnly = False
       Required = False
     end
-    object qrGridSELECIONADO: TStringField
-      FieldKind = fkData
-      FieldName = 'SELECIONADO'
-      Index = 3
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-      Size = 4
-    end
     object qrGridDATA: TDateField
       FieldKind = fkData
       FieldName = 'DATA'
-      Index = 4
+      Index = 3
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -478,7 +549,7 @@ object frmAcerto: TfrmAcerto
     object qrGridHISTORICO: TStringField
       FieldKind = fkData
       FieldName = 'HISTORICO'
-      Index = 5
+      Index = 4
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -488,7 +559,7 @@ object frmAcerto: TfrmAcerto
     object qrGridCREDITO: TBCDField
       FieldKind = fkData
       FieldName = 'CREDITO'
-      Index = 6
+      Index = 5
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -502,7 +573,7 @@ object frmAcerto: TfrmAcerto
     object qrGridDEBITO: TBCDField
       FieldKind = fkData
       FieldName = 'DEBITO'
-      Index = 7
+      Index = 6
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -516,12 +587,31 @@ object frmAcerto: TfrmAcerto
     object qrGridSTATUS: TStringField
       FieldKind = fkData
       FieldName = 'STATUS'
-      Index = 8
+      Index = 7
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
       Size = 36
+    end
+    object qrGridCANCELADO: TStringField
+      FieldKind = fkData
+      FieldName = 'CANCELADO'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qrGridSELECIONADO: TStringField
+      FieldKind = fkData
+      FieldName = 'SELECIONADO'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 4
     end
   end
   object dsGrid: TDataSource
@@ -537,10 +627,16 @@ object frmAcerto: TfrmAcerto
         Precision = -1
       end    
       item
-        Name = 'STATUS'
+        Name = 'FECHADO'
         DataType = ftString
         Precision = -1
-        Size = 36
+        Size = 20
+      end    
+      item
+        Name = 'CANCELADO'
+        DataType = ftString
+        Precision = -1
+        Size = 20
       end>
     Database = DataModule1.IBCMaquina
     Transaction = DataModule1.SQLTMaquina
@@ -559,15 +655,23 @@ object frmAcerto: TfrmAcerto
       ReadOnly = False
       Required = True
     end
-    object qrAcertoSTATUS: TStringField
+    object qrAcertoFECHADO: TStringField
       FieldKind = fkData
-      FieldName = 'STATUS'
+      FieldName = 'FECHADO'
       Index = 1
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      Size = 36
+    end
+    object qrAcertoCANCELADO: TStringField
+      FieldKind = fkData
+      FieldName = 'CANCELADO'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
     end
   end
   object dsAcerto: TDataSource
@@ -584,6 +688,22 @@ object frmAcerto: TfrmAcerto
         Size = 2
       end    
       item
+        Name = 'COD_CLI'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'COD_ACERTO'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'SELECIONADO'
+        DataType = ftFixedChar
+        Precision = -1
+        Size = 4
+      end    
+      item
         Name = 'STATUS'
         DataType = ftString
         Precision = -1
@@ -598,9 +718,9 @@ object frmAcerto: TfrmAcerto
       '       da.Selecionado,'
       '       da.Status'
       'from DetAcerto da'
-      'group by da.Cod_Acerto, da.Cod_Cli, da.Status, da.Selecionado'
+      'group by da.Cod_Acerto, da.Cod_Cli,da.Status, da.Selecionado'
       'having  (da.Cod_Acerto = :IDAcerto) and (da.Cod_Cli = :IDCliente) and (da.Selecionado=''X'')'
-      '        and (da.Status <> ''Cancelado'')'
+      '        and ((da.Status = ''Bloqueado'') or (da.Status = ''Ativo''))'
     )
     Params = <    
       item
@@ -620,5 +740,104 @@ object frmAcerto: TfrmAcerto
     DataSet = qrSaldo
     left = 679
     top = 459
+  end
+  object qrAuxCliente: TSQLQuery
+    FieldDefs = <    
+      item
+        Name = 'COD_CLIENTE'
+        DataType = ftInteger
+        Precision = -1
+      end>
+    Database = DataModule1.IBCMaquina
+    Transaction = DataModule1.SQLTMaquina
+    SQL.Strings = (
+      'select Cod_Cliente from Clientes'
+    )
+    Params = <>
+    left = 240
+    top = 32
+    object qrAuxClienteCOD_CLIENTE: TLongintField
+      FieldKind = fkData
+      FieldName = 'COD_CLIENTE'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+  end
+  object qrFiltroAcerto: TSQLQuery
+    FieldDefs = <    
+      item
+        Name = 'COD_ACERTO'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'COD_CLI'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'NOME'
+        DataType = ftString
+        Precision = -1
+        Size = 120
+      end>
+    Database = DataModule1.IBCMaquina
+    Transaction = DataModule1.SQLTMaquina
+    SQL.Strings = (
+      'select a.Cod_Acerto, da.Cod_Cli, c.Nome  from Acerto a'
+      'inner join DetAcerto da on da.Cod_Acerto = a.Cod_Acerto'
+      'inner join Clientes c on c.Cod_Cliente = da.Cod_Cli'
+      'group by a.Cod_Acerto, da.Cod_cli, c.Nome'
+      'having (da.Cod_Cli >= :IDCliente1) and (da.Cod_Cli <= :IDCliente2)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'IDCliente1'
+        ParamType = ptInput
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'IDCliente2'
+        ParamType = ptInput
+      end>
+    left = 472
+    top = 477
+    object qrFiltroAcertoCOD_ACERTO: TLongintField
+      FieldKind = fkData
+      FieldName = 'COD_ACERTO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qrFiltroAcertoCOD_CLI: TLongintField
+      FieldKind = fkData
+      FieldName = 'COD_CLI'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qrFiltroAcertoNOME: TStringField
+      FieldKind = fkData
+      FieldName = 'NOME'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 120
+    end
+  end
+  object dsFiltroAcerto: TDataSource
+    DataSet = qrFiltroAcerto
+    left = 563
+    top = 479
   end
 end

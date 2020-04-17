@@ -48,6 +48,7 @@ type
     Label29: TLabel;
     Label31: TLabel;
     Label32: TLabel;
+    qrAcertoCANCELADO: TStringField;
     qrAcertoHISTORICO: TStringField;
     qrAuxCompraCOD_COMPRA: TLongintField;
     qrAuxDepositadoCOD_DEPOSITADO: TLongintField;
@@ -363,11 +364,14 @@ begin
                 qrAcerto.FieldByName('Cod_Acerto').Value:=0;
                 qrAcerto.FieldByName('Cod_DetAcerto').Value:=-1;
                 qrAcerto.FieldByName('Cod_Cli').Value:= dbNomeCli.KeyValue;
+                qrAcerto.FieldByName('Selecionado').AsString:='XX';
                 qrAcerto.FieldByName('Data').Value:=strToDate(dbeData.Text);
                 qrAcerto.FieldByName('Historico').AsString:='Romaneio '+intTostr(qrRomaneio.RecordCount+1)+' Compra '+intTostr(qrAuxCompra.RecordCount);
                 qrAcerto.FieldByName('Debito').Value:=strtoFloat(FormatFloat('0.00',strToFloat(edtValorLivre.Text)));
                 qrAcerto.FieldByName('Credito').Value:=0.0;
                 qrAcerto.FieldByName('Status').Text:='Bloqueado';
+                qrAcerto.FieldByName('Cancelado').AsString:='False';
+
                 qrAcerto.ApplyUpdates;
            end
            else
@@ -787,6 +791,7 @@ end;
 function TfrmRomaneio.SalvarTrue():boolean;
 begin
      Erro:='';
+     if dbeData.Text='' then Erro:=Erro+'-O Campo data não pode ficar vazio'+chr(13);
      if dbNomeCli.KeyValue < 1 then Erro:='-O Nome do Cliente não pode ficar vazio'+chr(13);
      if dbNomePro.KeyValue < 1 then Erro:=Erro+'-O Nome da Propriedade não pode ficar vazio'+chr(13);
      if strToint(dbeRenda.Text) <= 0 then Erro:=Erro+'-A renda tem que ser maior que zero'+chr(13);

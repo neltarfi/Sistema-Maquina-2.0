@@ -6,9 +6,9 @@ object DataModule1: TDataModule1
   Width = 440
   PPI = 96
   object IBCMaquina: TIBConnection
-    Connected = False
+    Connected = True
     LoginPrompt = False
-    DatabaseName = 'C:\Sistema Maquina2.0\Banco de Dados\Maquina.fdb'
+    DatabaseName = '/home/nelson/Sistema Maquina2.0/Bamco de Dados/Maquina.fdb'
     KeepConnection = False
     Password = 'masterkey'
     Transaction = SQLTMaquina
@@ -20,7 +20,7 @@ object DataModule1: TDataModule1
     top = 96
   end
   object SQLTMaquina: TSQLTransaction
-    Active = False
+    Active = True
     Database = IBCMaquina
     left = 256
     top = 104
