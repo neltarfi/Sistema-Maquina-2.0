@@ -92,6 +92,8 @@ type
     procedure QueryClienteAberto;
     function SalvarTrue:boolean;
     procedure AtualizaGrid;
+    procedure DesabilitaControles;
+    procedure AbilitaControles;
   private
 
   public
@@ -184,6 +186,7 @@ begin
           pLansamento.Enabled:=true;
           btFechaAcerto.Enabled:=True;
           pLansamento.Enabled:=True;
+          DesabilitaControles;
 
           qrGrid.Close;
           qrGrid.ParamByName('IDAcerto1').Value:=0;
@@ -242,6 +245,7 @@ begin
          btExcluiLan.Enabled:=True;
     end;
     btSalvaLan.Enabled:=False;
+    DesabilitaControles;
 end;
 
 procedure TfrmAcerto.btEditaLanClick(Sender: TObject);
@@ -250,6 +254,7 @@ begin
      btNovoLan.Enabled:=False;
      btSalvaLan.Enabled:=True;
      btExcluiLan.Enabled:=False;
+     AbilitaControles;
 end;
 
 procedure TfrmAcerto.btExcluiLanClick(Sender: TObject);
@@ -300,6 +305,7 @@ begin
                     pLansamento.Enabled:=False;
                     btNovoAcerto.Enabled:=True;
                     btFechaAcerto.Enabled:=False;
+                    dblCliente.Clear;
                end;
                AtualizaGrid;
           end
@@ -339,6 +345,7 @@ begin
      btExcluiLan.Enabled:=False;
      btCancelaLan.SetFocus;
      btNovoLan.Enabled:=False;
+     AbilitaControles;
 end;
 
 procedure TfrmAcerto.btSalvaLanClick(Sender: TObject);
@@ -369,6 +376,7 @@ begin
               end;
               btNovoAcerto.Enabled:=True;
               btFechaAcerto.Enabled:=True;
+              DesabilitaControles;
           end
           else MessageDLG(Erro, mtError,[mbOK],0);
      end;
@@ -453,6 +461,22 @@ begin
     qrGrid.ParamByName('IDCliente1').Value:=1;
     qrGrid.ParamByName('IDCliente2').Value:=qrAuxCliente.RecordCount;
     qrGrid.Open;
+end;
+
+procedure TfrmAcerto.DesabilitaControles;
+begin
+    dbdData.ReadOnly:=True;
+    dbeHistorico.ReadOnly:=True;
+    dbeCredito.ReadOnly:=True;
+    dbeDebito.ReadOnly:=True;
+end;
+
+procedure TfrmAcerto.AbilitaControles;
+Begin
+    dbdData.ReadOnly:=False;
+    dbeHistorico.ReadOnly:=False;
+    dbeCredito.ReadOnly:=False;
+    dbeDebito.ReadOnly:=False;
 end;
 
 end.
