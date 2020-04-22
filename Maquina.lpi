@@ -36,7 +36,7 @@
         <PackageName Value="LCL"/>
       </Item3>
     </RequiredPackages>
-    <Units Count="14">
+    <Units Count="16">
       <Unit0>
         <Filename Value="Maquina.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -142,6 +142,21 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Acerto"/>
       </Unit13>
+      <Unit14>
+        <Filename Value="compra.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmCompra"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Compra"/>
+      </Unit14>
+      <Unit15>
+        <Filename Value="impacerto.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmImpAcerto"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="impAcerto"/>
+      </Unit15>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

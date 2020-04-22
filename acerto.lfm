@@ -223,6 +223,18 @@ object frmAcerto: TfrmAcerto
         TabOrder = 8
       end
     end
+    object lCancelado: TLabel
+      Left = 64
+      Height = 40
+      Top = 400
+      Width = 312
+      AutoSize = False
+      Font.Color = clRed
+      Font.Height = -27
+      Font.Name = 'Sans'
+      ParentColor = False
+      ParentFont = False
+    end
   end
   object Panel3: TPanel
     Left = 424
@@ -353,6 +365,25 @@ object frmAcerto: TfrmAcerto
     Enabled = False
     OnClick = btFechaAcertoClick
     TabOrder = 3
+  end
+  object btSair: TButton
+    Left = 696
+    Height = 25
+    Top = 512
+    Width = 75
+    Caption = 'Sair'
+    OnClick = btSairClick
+    TabOrder = 4
+  end
+  object btExcluiAcerto: TButton
+    Left = 344
+    Height = 25
+    Top = 512
+    Width = 94
+    Caption = 'Exclui Acerto'
+    Enabled = False
+    OnClick = btExcluiAcertoClick
+    TabOrder = 5
   end
   object qrCliente: TSQLQuery
     FieldDefs = <    
@@ -634,16 +665,18 @@ object frmAcerto: TfrmAcerto
       end    
       item
         Name = 'CANCELADO'
-        DataType = ftString
+        DataType = ftFixedChar
         Precision = -1
         Size = 20
       end>
+    Filtered = True
     Database = DataModule1.IBCMaquina
     Transaction = DataModule1.SQLTMaquina
     SQL.Strings = (
       'select * from Acerto'
     )
     Params = <>
+    UpdateMode = upWhereAll
     left = 319
     top = 456
     object qrAcertoCOD_ACERTO: TLongintField

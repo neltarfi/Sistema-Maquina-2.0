@@ -1,0 +1,28 @@
+object frmCompra: TfrmCompra
+  Left = 282
+  Height = 501
+  Top = 177
+  Width = 709
+  Caption = 'Compra '
+  ClientHeight = 501
+  ClientWidth = 709
+  LCLVersion = '2.0.6.0'
+  object DBGrid1: TDBGrid
+    Left = 21
+    Height = 310
+    Top = 138
+    Width = 417
+    Color = clWindow
+    Columns = <>
+    TabOrder = 0
+  end
+  object DBLookupComboBox1: TDBLookupComboBox
+    Left = 19
+    Height = 29
+    Top = 45
+    Width = 407
+    ListFieldIndex = 0
+    LookupCache = False
+    TabOrder = 1
+  end
+end

@@ -1,0 +1,53 @@
+object frmImpAcerto: TfrmImpAcerto
+  Left = 182
+  Height = 440
+  Top = 173
+  Width = 793
+  Caption = 'Imprime Acerto'
+  ClientHeight = 440
+  ClientWidth = 793
+  LCLVersion = '2.0.6.0'
+  object RLReport1: TRLReport
+    Left = 8
+    Height = 1123
+    Top = 8
+    Width = 794
+    Font.Color = clBlack
+    Font.Height = -13
+    Font.Name = 'Arial'
+    RealBounds.Left = 0
+    RealBounds.Top = 0
+    RealBounds.Width = 0
+    RealBounds.Height = 0
+    object RLBand1: TRLBand
+      Left = 38
+      Height = 16
+      Top = 102
+      Width = 718
+      RealBounds.Left = 0
+      RealBounds.Top = 0
+      RealBounds.Width = 0
+      RealBounds.Height = 0
+    end
+    object RLBand2: TRLBand
+      Left = 38
+      Height = 16
+      Top = 118
+      Width = 718
+      RealBounds.Left = 0
+      RealBounds.Top = 0
+      RealBounds.Width = 0
+      RealBounds.Height = 0
+    end
+    object RLGroup1: TRLGroup
+      Left = 38
+      Height = 64
+      Top = 38
+      Width = 718
+      RealBounds.Left = 0
+      RealBounds.Top = 0
+      RealBounds.Width = 0
+      RealBounds.Height = 0
+    end
+  end
+end
