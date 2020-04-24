@@ -9,7 +9,7 @@ uses
   Interfaces, // this includes the LCL widgetset
   Forms, Principal, BuscaCliente, Module1, CadCli, Funcoes, BuscaPro, CadPro,
   Romaneio, fortes324forlaz, ImpRomaneio, CadLoteCoco, BuscaCadLoteCoco,
-  MudaLote, Acerto, unit1;
+  MudaLote, Acerto, Compra, impAcerto;
 
 {$R *.res}
 

@@ -1,17 +1,19 @@
 object frmImpAcerto: TfrmImpAcerto
-  Left = 182
+  Left = 181
   Height = 440
-  Top = 173
+  Top = 170
   Width = 793
   Caption = 'Imprime Acerto'
   ClientHeight = 440
   ClientWidth = 793
+  OnClose = FormClose
   LCLVersion = '2.0.6.0'
   object RLReport1: TRLReport
     Left = 8
     Height = 1123
     Top = 8
     Width = 794
+    DataSource = dsImpAcerto
     Font.Color = clBlack
     Font.Height = -13
     Font.Name = 'Arial'
@@ -19,35 +21,451 @@ object frmImpAcerto: TfrmImpAcerto
     RealBounds.Top = 0
     RealBounds.Width = 0
     RealBounds.Height = 0
+    ShowProgress = False
+    BeforePrint = RLReport1BeforePrint
     object RLBand1: TRLBand
       Left = 38
-      Height = 16
-      Top = 102
+      Height = 72
+      Top = 38
       Width = 718
+      BandType = btHeader
       RealBounds.Left = 0
       RealBounds.Top = 0
       RealBounds.Width = 0
       RealBounds.Height = 0
-    end
-    object RLBand2: TRLBand
-      Left = 38
-      Height = 16
-      Top = 118
-      Width = 718
-      RealBounds.Left = 0
-      RealBounds.Top = 0
-      RealBounds.Width = 0
-      RealBounds.Height = 0
+      object RLLabel1: TRLLabel
+        Left = 192
+        Height = 33
+        Top = 8
+        Width = 303
+        Caption = 'Relatório de Acerto'
+        Font.Color = clBlack
+        Font.Height = -27
+        Font.Name = 'Sans'
+        Font.Style = [fsBold]
+        ParentFont = False
+        RealBounds.Left = 0
+        RealBounds.Top = 0
+        RealBounds.Width = 0
+        RealBounds.Height = 0
+      end
     end
     object RLGroup1: TRLGroup
       Left = 38
-      Height = 64
-      Top = 38
+      Height = 160
+      Top = 110
       Width = 718
+      DataFields = 'COD_ACERTO'
       RealBounds.Left = 0
       RealBounds.Top = 0
       RealBounds.Width = 0
       RealBounds.Height = 0
+      object RLBand4: TRLBand
+        Left = 0
+        Height = 23
+        Top = 97
+        Width = 718
+        RealBounds.Left = 0
+        RealBounds.Top = 0
+        RealBounds.Width = 0
+        RealBounds.Height = 0
+        object RLDBText3: TRLDBText
+          Left = 0
+          Height = 15
+          Top = 0
+          Width = 112
+          AutoSize = False
+          DataField = 'DATA'
+          DataSource = dsImpAcerto
+          RealBounds.Left = 0
+          RealBounds.Top = 0
+          RealBounds.Width = 0
+          RealBounds.Height = 0
+        end
+        object RLDBText4: TRLDBText
+          Left = 112
+          Height = 15
+          Top = 0
+          Width = 352
+          AutoSize = False
+          DataField = 'HISTORICO'
+          DataSource = dsImpAcerto
+          RealBounds.Left = 0
+          RealBounds.Top = 0
+          RealBounds.Width = 0
+          RealBounds.Height = 0
+        end
+        object RLDBText5: TRLDBText
+          Left = 472
+          Height = 15
+          Top = 0
+          Width = 120
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'CREDITO'
+          DataSource = dsImpAcerto
+          RealBounds.Left = 0
+          RealBounds.Top = 0
+          RealBounds.Width = 0
+          RealBounds.Height = 0
+        end
+        object RLDBText6: TRLDBText
+          Left = 600
+          Height = 15
+          Top = 0
+          Width = 112
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'DEBITO'
+          DataSource = dsImpAcerto
+          RealBounds.Left = 0
+          RealBounds.Top = 0
+          RealBounds.Width = 0
+          RealBounds.Height = 0
+        end
+      end
+      object RLBand2: TRLBand
+        Left = 0
+        Height = 97
+        Top = 0
+        Width = 718
+        BandType = btHeader
+        Borders.Sides = sdCustom
+        Borders.DrawLeft = False
+        Borders.DrawTop = True
+        Borders.DrawRight = False
+        Borders.DrawBottom = True
+        Borders.Width = 2
+        RealBounds.Left = 0
+        RealBounds.Top = 0
+        RealBounds.Width = 0
+        RealBounds.Height = 0
+        object RLDBText1: TRLDBText
+          Left = 24
+          Height = 15
+          Top = 42
+          Width = 112
+          Alignment = taRightJustify
+          AutoSize = False
+          Borders.Sides = sdCustom
+          Borders.DrawLeft = True
+          Borders.DrawTop = True
+          Borders.DrawRight = True
+          Borders.DrawBottom = True
+          Borders.Color = clSilver
+          DataField = 'COD_ACERTO'
+          DataSource = dsImpAcerto
+          RealBounds.Left = 0
+          RealBounds.Top = 0
+          RealBounds.Width = 0
+          RealBounds.Height = 0
+        end
+        object RLLabel2: TRLLabel
+          Left = 24
+          Height = 15
+          Top = 18
+          Width = 112
+          AutoSize = False
+          Caption = 'Codigo Acerto'
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Sans'
+          Font.Style = [fsBold]
+          ParentFont = False
+          RealBounds.Left = 0
+          RealBounds.Top = 0
+          RealBounds.Width = 0
+          RealBounds.Height = 0
+        end
+        object RLDBText2: TRLDBText
+          Left = 153
+          Height = 15
+          Top = 42
+          Width = 529
+          AutoSize = False
+          DataField = 'NOME'
+          DataSource = dsImpAcerto
+          RealBounds.Left = 0
+          RealBounds.Top = 0
+          RealBounds.Width = 0
+          RealBounds.Height = 0
+        end
+        object RLLabel3: TRLLabel
+          Left = 153
+          Height = 15
+          Top = 18
+          Width = 55
+          AutoSize = False
+          Caption = 'Nome'
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Sans'
+          Font.Style = [fsBold]
+          ParentFont = False
+          RealBounds.Left = 0
+          RealBounds.Top = 0
+          RealBounds.Width = 0
+          RealBounds.Height = 0
+        end
+        object RLLabel4: TRLLabel
+          Left = 24
+          Height = 17
+          Top = 74
+          Width = 40
+          Caption = 'Data'
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Sans'
+          Font.Style = [fsBold]
+          ParentFont = False
+          RealBounds.Left = 0
+          RealBounds.Top = 0
+          RealBounds.Width = 0
+          RealBounds.Height = 0
+        end
+        object RLLabel5: TRLLabel
+          Left = 214
+          Height = 17
+          Top = 72
+          Width = 70
+          Caption = 'Histórico'
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Sans'
+          Font.Style = [fsBold]
+          ParentFont = False
+          RealBounds.Left = 0
+          RealBounds.Top = 0
+          RealBounds.Width = 0
+          RealBounds.Height = 0
+        end
+        object RLLabel6: TRLLabel
+          Left = 528
+          Height = 17
+          Top = 72
+          Width = 58
+          Caption = 'Crédito'
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Sans'
+          Font.Style = [fsBold]
+          ParentFont = False
+          RealBounds.Left = 0
+          RealBounds.Top = 0
+          RealBounds.Width = 0
+          RealBounds.Height = 0
+        end
+        object RLLabel8: TRLLabel
+          Left = 656
+          Height = 17
+          Top = 72
+          Width = 53
+          Caption = 'Débito'
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Sans'
+          Font.Style = [fsBold]
+          ParentFont = False
+          RealBounds.Left = 0
+          RealBounds.Top = 0
+          RealBounds.Width = 0
+          RealBounds.Height = 0
+        end
+      end
+      object RLBand3: TRLBand
+        Left = 0
+        Height = 32
+        Top = 120
+        Width = 718
+        BandType = btFooter
+        Borders.Sides = sdCustom
+        Borders.DrawLeft = False
+        Borders.DrawTop = True
+        Borders.DrawRight = False
+        Borders.DrawBottom = True
+        RealBounds.Left = 0
+        RealBounds.Top = 0
+        RealBounds.Width = 0
+        RealBounds.Height = 0
+        object RLDBResult1: TRLDBResult
+          Left = 478
+          Height = 15
+          Top = 9
+          Width = 114
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'CREDITO'
+          DataSource = dsImpAcerto
+          DisplayMask = '0.00'
+          Info = riSum
+          RealBounds.Left = 0
+          RealBounds.Top = 0
+          RealBounds.Width = 0
+          RealBounds.Height = 0
+        end
+        object RLDBResult2: TRLDBResult
+          Left = 600
+          Height = 15
+          Top = 9
+          Width = 113
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'DEBITO'
+          DataSource = dsImpAcerto
+          DisplayMask = '0.00'
+          Info = riSum
+          RealBounds.Left = 0
+          RealBounds.Top = 0
+          RealBounds.Width = 0
+          RealBounds.Height = 0
+        end
+        object RLLabel7: TRLLabel
+          Left = 408
+          Height = 17
+          Top = 9
+          Width = 45
+          Caption = 'Saldo'
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Sans'
+          Font.Style = [fsBold]
+          ParentFont = False
+          RealBounds.Left = 0
+          RealBounds.Top = 0
+          RealBounds.Width = 0
+          RealBounds.Height = 0
+        end
+      end
     end
+  end
+  object qrimpAcerto: TSQLQuery
+    FieldDefs = <    
+      item
+        Name = 'COD_ACERTO'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'NOME'
+        DataType = ftString
+        Precision = -1
+        Size = 120
+      end    
+      item
+        Name = 'DATA'
+        DataType = ftDate
+        Precision = -1
+      end    
+      item
+        Name = 'HISTORICO'
+        DataType = ftString
+        Precision = -1
+        Size = 120
+      end    
+      item
+        Name = 'CREDITO'
+        DataType = ftBCD
+        Precision = 9
+        Size = 2
+      end    
+      item
+        Name = 'DEBITO'
+        DataType = ftBCD
+        Precision = 9
+        Size = 2
+      end>
+    Database = DataModule1.IBCMaquina
+    Transaction = DataModule1.SQLTMaquina
+    SQL.Strings = (
+      'select da.Cod_Acerto,'
+      '       c.Nome,'
+      '       da.Data,'
+      '       da.Historico,'
+      '       da.Credito,'
+      '       da.Debito'
+      'from DetAcerto da'
+      'inner join Clientes c on c.Cod_Cliente = da.Cod_Cli'
+      'Where da.Cod_Acerto = :IDAcerto'
+      'Order by da.Cod_Acerto'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'IDAcerto'
+        ParamType = ptInput
+      end>
+    left = 536
+    top = 8
+    object qrimpAcertoCOD_ACERTO: TLongintField
+      FieldKind = fkData
+      FieldName = 'COD_ACERTO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qrimpAcertoNOME: TStringField
+      FieldKind = fkData
+      FieldName = 'NOME'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 120
+    end
+    object qrimpAcertoDATA: TDateField
+      FieldKind = fkData
+      FieldName = 'DATA'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qrimpAcertoHISTORICO: TStringField
+      FieldKind = fkData
+      FieldName = 'HISTORICO'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 120
+    end
+    object qrimpAcertoCREDITO: TBCDField
+      FieldKind = fkData
+      FieldName = 'CREDITO'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Precision = 9
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Size = 2
+    end
+    object qrimpAcertoDEBITO: TBCDField
+      FieldKind = fkData
+      FieldName = 'DEBITO'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Precision = 9
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Size = 2
+    end
+  end
+  object dsImpAcerto: TDataSource
+    DataSet = qrimpAcerto
+    left = 616
+    top = 8
   end
 end

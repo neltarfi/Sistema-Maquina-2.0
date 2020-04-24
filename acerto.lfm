@@ -376,7 +376,7 @@ object frmAcerto: TfrmAcerto
     TabOrder = 4
   end
   object btExcluiAcerto: TButton
-    Left = 344
+    Left = 304
     Height = 25
     Top = 512
     Width = 94
@@ -384,6 +384,16 @@ object frmAcerto: TfrmAcerto
     Enabled = False
     OnClick = btExcluiAcertoClick
     TabOrder = 5
+  end
+  object btImprimir: TButton
+    Left = 432
+    Height = 25
+    Top = 512
+    Width = 75
+    Caption = 'Imprimir'
+    Enabled = False
+    OnClick = btImprimirClick
+    TabOrder = 6
   end
   object qrCliente: TSQLQuery
     FieldDefs = <    
@@ -665,7 +675,7 @@ object frmAcerto: TfrmAcerto
       end    
       item
         Name = 'CANCELADO'
-        DataType = ftFixedChar
+        DataType = ftString
         Precision = -1
         Size = 20
       end>
@@ -838,7 +848,7 @@ object frmAcerto: TfrmAcerto
         ParamType = ptInput
       end>
     left = 472
-    top = 477
+    top = 456
     object qrFiltroAcertoCOD_ACERTO: TLongintField
       FieldKind = fkData
       FieldName = 'COD_ACERTO'
@@ -870,7 +880,7 @@ object frmAcerto: TfrmAcerto
   end
   object dsFiltroAcerto: TDataSource
     DataSet = qrFiltroAcerto
-    left = 563
-    top = 479
+    left = 560
+    top = 459
   end
 end

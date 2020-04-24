@@ -22,6 +22,7 @@ type
     btFechaAcerto: TButton;
     btSair: TButton;
     btExcluiAcerto: TButton;
+    btImprimir: TButton;
     dsFiltroAcerto: TDataSource;
     dbdData: TDBDateEdit;
     dbeDebito: TDBEdit;
@@ -80,6 +81,7 @@ type
     procedure btExcluiAcertoClick(Sender: TObject);
     procedure btExcluiLanClick(Sender: TObject);
     procedure btFechaAcertoClick(Sender: TObject);
+    procedure btImprimirClick(Sender: TObject);
     procedure btNovoAcertoClick(Sender: TObject);
     procedure btNovoLanClick(Sender: TObject);
     procedure btSairClick(Sender: TObject);
@@ -110,7 +112,7 @@ var
   Erro:string;
 
 implementation
-  uses Module1;
+  uses Module1, ImpAcerto;
 {$R *.lfm}
 
 { TfrmAcerto }
@@ -135,6 +137,7 @@ begin
           QueryClienteAberto;
           btNovoAcerto.Enabled:=True;
           btExcluiAcerto.Enabled:=False;
+          btImprimir.Enabled:=False;
           if qrCliente.RecordCount>0 then btFechaAcerto.Enabled:=True;
           qrFiltroAcerto.Close;
 
@@ -180,11 +183,13 @@ begin
           Begin
                lCancelado.Caption:='Cancelado';
                btExcluiAcerto.Enabled:=False;
+               btImprimir.Enabled:=False;
           end
          else
          begin
               lCancelado.Caption:='';
               btExcluiAcerto.Enabled:=True;
+              btImprimir.Enabled:=True;
          end;
          qrAcerto.Filtered:=False;
      end;
@@ -243,11 +248,13 @@ begin
     begin
          lCancelado.Caption:='Cancelado';
          btExcluiAcerto.Enabled:=False;
+         btImprimir.Enabled:=False;
     end
     else
     begin
          lCancelado.Caption:='';
          btExcluiAcerto.Enabled:=True;
+         btImprimir.Enabled:=True;
     end;
     qrAcerto.Filtered:=False;
 
@@ -314,10 +321,11 @@ begin
                    qrGrid.ApplyUpdates;
                    qrGrid.FindNext;
               end;
+
               qrAcerto.Edit;
-              qrAcerto.FieldByName('Cod_Acerto').Value:=strtoint(dbeCodAcerto.Text);
               qrAcerto.FieldByName('Cancelado').AsString:='True';
               qrAcerto.ApplyUpdates;
+              DataModule1.SQLTMaquina.CommitRetaining;
               lCancelado.Caption:='Cancelado';
               qrGrid.Append;
               qrGrid.FieldByName('Cod_DetAcerto').Value:=-1;
@@ -336,8 +344,8 @@ begin
               qrGrid.Open;
               qrAcerto.Close;
               qrAcerto.Open;
-              if qrCliente.RecordCount>0 then btFechaAcerto.Enabled:=True
-              else  btFechaAcerto.Enabled:=False;
+              btExcluiAcerto.Enabled:=False;
+              btImprimir.Enabled:=False;
          end
          else MessageDLG('Esse Acerto ja está Excluido', mtError,[mbOK],0);
 
@@ -374,6 +382,9 @@ begin
                qrAcerto.FieldByName('Fechado').AsString:='True';
                qrAcerto.FieldByName('Cancelado').AsString:='False';
                qrAcerto.ApplyUpdates;
+               DataModule1.SQLTMaquina.CommitRetaining;
+               qrAcerto.Close;
+               qrAcerto.Open;
                qrGrid.Filter:='(Cod_Acerto=0) and (Selecionado=''XX'') and (Cancelado=''False'') and (Cod_Cli='+intTostr(dblCliente.KeyValue)+')';
                qrGrid.Filtered:=True;
                qrGrid.FindFirst;
@@ -398,6 +409,12 @@ begin
           end
           else MessageDLG('O Saldo do acerto não é zero', mtError,[mbOK],0);
     end;
+end;
+
+procedure TfrmAcerto.btImprimirClick(Sender: TObject);
+begin
+     frmImpAcerto:=TfrmImpAcerto.Create(Self);
+     frmImpAcerto.RLReport1.Preview();
 end;
 
 procedure TfrmAcerto.btNovoAcertoClick(Sender: TObject);

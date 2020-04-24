@@ -154,6 +154,7 @@
         <Filename Value="impacerto.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmImpAcerto"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="impAcerto"/>
       </Unit15>
