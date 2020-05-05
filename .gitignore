@@ -25,7 +25,7 @@
 backup/
 *.bak
 lib/
-Banco de Dados/
+*Banco de Dados/
 
 # Application bundle for Mac OS
 *.app/

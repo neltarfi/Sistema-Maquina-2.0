@@ -23,6 +23,7 @@ type
     btSair: TButton;
     btExcluiAcerto: TButton;
     btImprimir: TButton;
+    btLimpaControles: TButton;
     dsFiltroAcerto: TDataSource;
     dbdData: TDBDateEdit;
     dbeDebito: TDBEdit;
@@ -82,6 +83,7 @@ type
     procedure btExcluiLanClick(Sender: TObject);
     procedure btFechaAcertoClick(Sender: TObject);
     procedure btImprimirClick(Sender: TObject);
+    procedure btLimpaControlesClick(Sender: TObject);
     procedure btNovoAcertoClick(Sender: TObject);
     procedure btNovoLanClick(Sender: TObject);
     procedure btSairClick(Sender: TObject);
@@ -93,7 +95,6 @@ type
     procedure DBNavigator1Click(Sender: TObject; Button: TDBNavButtonType);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormShow(Sender: TObject);
-    procedure StatusClick(Sender: TObject);
     procedure QuerySaldoAberto;
     procedure QuerySaldoFechado;
     procedure QueryClienteAberto;
@@ -101,15 +102,17 @@ type
     procedure AtualizaGrid;
     procedure DesabilitaControles;
     procedure AbilitaControles;
+    procedure StatusSelectionChanged(Sender: TObject);
   private
 
   public
-
+  var CodImprimir:integer;
   end;
 
 var
   frmAcerto: TfrmAcerto;
   Erro:string;
+
 
 implementation
   uses Module1, ImpAcerto;
@@ -126,8 +129,7 @@ begin
      qrFiltroAcerto.Open;
 end;
 
-
-procedure TfrmAcerto.StatusClick(Sender: TObject);
+procedure TfrmAcerto.StatusSelectionChanged(Sender: TObject);
 begin
     dblCliente.Clear;
     lCancelado.Caption:='';
@@ -373,7 +375,6 @@ end;
 procedure TfrmAcerto.btFechaAcertoClick(Sender: TObject);
 begin
     if MessageDLG('Deseja realmente Fechar esse Acerto?' ,mtconfirmation,[mbYes,mbNo],0)=mrYes  then
-
     begin
           if qrSaldo.FieldByName('Saldo').Value=0 then
           begin
@@ -382,9 +383,6 @@ begin
                qrAcerto.FieldByName('Fechado').AsString:='True';
                qrAcerto.FieldByName('Cancelado').AsString:='False';
                qrAcerto.ApplyUpdates;
-               DataModule1.SQLTMaquina.CommitRetaining;
-               qrAcerto.Close;
-               qrAcerto.Open;
                qrGrid.Filter:='(Cod_Acerto=0) and (Selecionado=''XX'') and (Cancelado=''False'') and (Cod_Cli='+intTostr(dblCliente.KeyValue)+')';
                qrGrid.Filtered:=True;
                qrGrid.FindFirst;
@@ -395,7 +393,10 @@ begin
                     qrGrid.ApplyUpdates;
                     qrGrid.FindNext;
                end;
+               CodImprimir:=qrAcerto.RecordCount;
                DataModule1.SQLTMaquina.CommitRetaining;
+               qrAcerto.Close;
+               qrAcerto.Open;
                qrGrid.Filtered:=False;
                QueryClienteAberto;
                if qrCliente.RecordCount=0 then
@@ -406,6 +407,12 @@ begin
                     dblCliente.Clear;
                end;
                AtualizaGrid;
+               if MessageDLG('Deseja Imprimir esse Acerto?' ,mtconfirmation,[mbYes,mbNo],0)=mrYes  then
+               begin
+
+                    frmImpAcerto:=TfrmImpAcerto.Create(Application);
+                    frmImpAcerto.RLReport1.Preview;
+               end;
           end
           else MessageDLG('O Saldo do acerto não é zero', mtError,[mbOK],0);
     end;
@@ -413,8 +420,22 @@ end;
 
 procedure TfrmAcerto.btImprimirClick(Sender: TObject);
 begin
+     CodImprimir:=strToint(dbeCodAcerto.Text);
      frmImpAcerto:=TfrmImpAcerto.Create(Self);
      frmImpAcerto.RLReport1.Preview();
+end;
+
+procedure TfrmAcerto.btLimpaControlesClick(Sender: TObject);
+begin
+    qrGrid.Close;
+    qrGrid.Open;
+    qrSaldo.Close;
+    qrSaldo.Open;
+    btSalvaLan.Enabled:=False;
+    btNovoLan.Enabled:=True;
+    pLansamento.Enabled:=False;
+    Status.ItemIndex:=1;
+     Status.ItemIndex:=0;
 end;
 
 procedure TfrmAcerto.btNovoAcertoClick(Sender: TObject);

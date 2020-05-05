@@ -62,7 +62,7 @@ uses Acerto;
 procedure TfrmImpAcerto.RLReport1BeforePrint(Sender: TObject;
   var PrintIt: boolean);
 begin
-     qrImpAcerto.ParamByName('IDAcerto').Value:=strToint(frmAcerto.dbeCodAcerto.Text);
+     qrImpAcerto.ParamByName('IDAcerto').Value:=frmAcerto.CodImprimir;
      qrImpAcerto.Open;
 end;
 
