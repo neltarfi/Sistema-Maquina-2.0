@@ -8,7 +8,7 @@ object DataModule1: TDataModule1
   object IBCMaquina: TIBConnection
     Connected = True
     LoginPrompt = False
-    DatabaseName = '/home/nelson/Sistema Maquina2.0/Bamco de Dados/Maquina.fdb'
+    DatabaseName = '/home/nelson/Sistema Maquina2.0/Bamco_de_Dados/Maquina.fdb'
     KeepConnection = False
     Password = 'masterkey'
     Transaction = SQLTMaquina
@@ -20,7 +20,7 @@ object DataModule1: TDataModule1
     top = 96
   end
   object SQLTMaquina: TSQLTransaction
-    Active = True
+    Active = False
     Database = IBCMaquina
     left = 256
     top = 104
