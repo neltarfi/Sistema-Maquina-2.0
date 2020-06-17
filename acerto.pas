@@ -151,6 +151,7 @@ begin
           qrGrid.Open;
      end
      else
+
      begin
           QuerySaldoFechado;
           pLansamento.Enabled:=False;
@@ -373,8 +374,11 @@ begin
 end;
 
 procedure TfrmAcerto.btFechaAcertoClick(Sender: TObject);
+var Botao1, Botao2:integer;
 begin
-    if MessageDLG('Deseja realmente Fechar esse Acerto?' ,mtconfirmation,[mbYes,mbNo],0)=mrYes  then
+     Botao1:=MessageDLG('Deseja realmente Fechar esse Acerto?' ,mtconfirmation,[mbYes,mbNo],0);
+     if botao1=MRYES Then Botao2:= MessageDLG('Deseja imprimir esse Acerto?' ,mtconfirmation,[mbYes,mbNo],0);
+     if Botao1=mrYes  then
     begin
           if qrSaldo.FieldByName('Saldo').Value=0 then
           begin
@@ -407,7 +411,8 @@ begin
                     dblCliente.Clear;
                end;
                AtualizaGrid;
-               if MessageDLG('Deseja Imprimir esse Acerto?' ,mtconfirmation,[mbYes,mbNo],0)=mrYes  then
+
+               if  (Botao2=MRYES) then
                begin
 
                     frmImpAcerto:=TfrmImpAcerto.Create(Application);
