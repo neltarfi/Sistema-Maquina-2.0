@@ -1,7 +1,7 @@
 object frmImpRomaneio: TfrmImpRomaneio
-  Left = 184
+  Left = 322
   Height = 549
-  Top = 172
+  Top = 168
   Width = 839
   Caption = 'Relatório de Romaneio'
   ClientHeight = 549
@@ -61,9 +61,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           RealBounds.Height = 0
           object RLLabel1: TRLLabel
             Left = 0
-            Height = 17
+            Height = 16
             Top = 12
-            Width = 133
+            Width = 118
             Caption = 'Código Romaneio'
             Font.Color = clBlack
             Font.Height = -13
@@ -96,9 +96,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel2: TRLLabel
             Left = 248
-            Height = 17
+            Height = 16
             Top = 8
-            Width = 40
+            Width = 33
             Caption = 'Data'
             Font.Color = clBlack
             Font.Height = -13
@@ -131,9 +131,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel3: TRLLabel
             Left = 0
-            Height = 17
+            Height = 16
             Top = 39
-            Width = 152
+            Width = 130
             Caption = 'Nome do Cliente....:'
             Font.Color = clBlack
             Font.Height = -13
@@ -166,9 +166,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel4: TRLLabel
             Left = -2
-            Height = 17
+            Height = 16
             Top = 71
-            Width = 154
+            Width = 131
             Caption = 'Propriedade...........:'
             Font.Color = clBlack
             Font.Height = -13
@@ -201,9 +201,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel5: TRLLabel
             Left = 2
-            Height = 17
+            Height = 16
             Top = 96
-            Width = 150
+            Width = 125
             Borders.Sides = sdCustom
             Borders.DrawLeft = False
             Borders.DrawTop = False
@@ -432,9 +432,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel6: TRLLabel
             Left = 8
-            Height = 17
+            Height = 16
             Top = 9
-            Width = 116
+            Width = 97
             Caption = 'Renda............:'
             Font.Color = clBlack
             Font.Height = -13
@@ -448,9 +448,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel7: TRLLabel
             Left = 8
-            Height = 17
+            Height = 16
             Top = 25
-            Width = 226
+            Width = 185
             Caption = 'Peso Bruto...........................:'
             Font.Color = clBlack
             Font.Height = -13
@@ -464,9 +464,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel8: TRLLabel
             Left = 8
-            Height = 17
+            Height = 16
             Top = 49
-            Width = 224
+            Width = 184
             Caption = 'Impureza.............................:'
             Font.Color = clBlack
             Font.Height = -13
@@ -560,9 +560,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel9: TRLLabel
             Left = 8
-            Height = 17
+            Height = 16
             Top = 81
-            Width = 63
+            Width = 54
             Caption = 'Plástico'
             Font.Color = clBlack
             Font.Height = -13
@@ -576,7 +576,7 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel10: TRLLabel
             Left = 72
-            Height = 15
+            Height = 16
             Top = 65
             Width = 73
             Caption = 'Quan. Saco'
@@ -587,7 +587,7 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel11: TRLLabel
             Left = 143
-            Height = 15
+            Height = 16
             Top = 65
             Width = 68
             Caption = 'Peso/Saco'
@@ -617,9 +617,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel12: TRLLabel
             Left = 8
-            Height = 17
+            Height = 16
             Top = 101
-            Width = 34
+            Width = 31
             Caption = 'Juta'
             Font.Color = clBlack
             Font.Height = -13
@@ -633,9 +633,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel13: TRLLabel
             Left = 212
-            Height = 17
+            Height = 16
             Top = 101
-            Width = 25
+            Width = 20
             Caption = '....'
             Font.Color = clBlack
             Font.Height = -13
@@ -649,9 +649,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel14: TRLLabel
             Left = 218
-            Height = 17
+            Height = 16
             Top = 121
-            Width = 20
+            Width = 16
             Caption = '...'
             Font.Color = clBlack
             Font.Height = -13
@@ -665,9 +665,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel15: TRLLabel
             Left = 212
-            Height = 17
+            Height = 16
             Top = 81
-            Width = 25
+            Width = 20
             Caption = '....'
             Font.Color = clBlack
             Font.Height = -13
@@ -681,9 +681,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel16: TRLLabel
             Left = 194
-            Height = 17
+            Height = 16
             Top = 7
-            Width = 54
+            Width = 48
             Caption = 'g/Saco'
             Font.Color = clBlack
             Font.Height = -13
@@ -717,9 +717,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel17: TRLLabel
             Left = 218
-            Height = 17
+            Height = 16
             Top = 137
-            Width = 18
+            Width = 14
             Caption = '%'
             Font.Color = clBlack
             Font.Height = -13
@@ -733,9 +733,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel18: TRLLabel
             Left = 8
-            Height = 17
+            Height = 16
             Top = 137
-            Width = 163
+            Width = 137
             Caption = 'Porcentagem...........:'
             Font.Color = clBlack
             Font.Height = -13
@@ -767,9 +767,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel19: TRLLabel
             Left = 8
-            Height = 17
+            Height = 16
             Top = 169
-            Width = 112
+            Width = 96
             Caption = 'Café P/ Beber:'
             Font.Color = clBlack
             Font.Height = -13
@@ -783,7 +783,7 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel20: TRLLabel
             Left = 130
-            Height = 15
+            Height = 16
             Top = 153
             Width = 39
             Caption = 'Limpo'
@@ -813,9 +813,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel21: TRLLabel
             Left = 218
-            Height = 17
+            Height = 16
             Top = 185
-            Width = 20
+            Width = 16
             Caption = '...'
             Font.Color = clBlack
             Font.Height = -13
@@ -847,9 +847,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel22: TRLLabel
             Left = 8
-            Height = 17
+            Height = 16
             Top = 209
-            Width = 226
+            Width = 189
             Caption = 'Saldo Coco...........................:'
             Font.Color = clBlack
             Font.Height = -13
@@ -863,9 +863,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel23: TRLLabel
             Left = 312
-            Height = 17
+            Height = 16
             Top = 25
-            Width = 24
+            Width = 21
             Caption = 'Kg'
             Font.Color = clBlack
             Font.Height = -13
@@ -879,9 +879,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel24: TRLLabel
             Left = 312
-            Height = 17
+            Height = 16
             Top = 49
-            Width = 24
+            Width = 21
             Caption = 'Kg'
             Font.Color = clBlack
             Font.Height = -13
@@ -895,9 +895,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel25: TRLLabel
             Left = 312
-            Height = 17
+            Height = 16
             Top = 79
-            Width = 24
+            Width = 21
             Caption = 'Kg'
             Font.Color = clBlack
             Font.Height = -13
@@ -911,9 +911,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel26: TRLLabel
             Left = 312
-            Height = 17
+            Height = 16
             Top = 101
-            Width = 24
+            Width = 21
             Caption = 'Kg'
             Font.Color = clBlack
             Font.Height = -13
@@ -927,9 +927,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel27: TRLLabel
             Left = 312
-            Height = 17
+            Height = 16
             Top = 121
-            Width = 24
+            Width = 21
             Caption = 'Kg'
             Font.Color = clBlack
             Font.Height = -13
@@ -943,9 +943,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel28: TRLLabel
             Left = 312
-            Height = 17
+            Height = 16
             Top = 137
-            Width = 24
+            Width = 21
             Caption = 'Kg'
             Font.Color = clBlack
             Font.Height = -13
@@ -959,9 +959,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel29: TRLLabel
             Left = 312
-            Height = 17
+            Height = 16
             Top = 169
-            Width = 24
+            Width = 21
             Caption = 'Kg'
             Font.Color = clBlack
             Font.Height = -13
@@ -975,9 +975,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel30: TRLLabel
             Left = 312
-            Height = 17
+            Height = 16
             Top = 185
-            Width = 24
+            Width = 21
             Caption = 'Kg'
             Font.Color = clBlack
             Font.Height = -13
@@ -991,9 +991,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel31: TRLLabel
             Left = 312
-            Height = 17
+            Height = 16
             Top = 209
-            Width = 24
+            Width = 21
             Caption = 'Kg'
             Font.Color = clBlack
             Font.Height = -13
@@ -1196,9 +1196,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel34: TRLLabel
             Left = 36
-            Height = 17
+            Height = 16
             Top = 45
-            Width = 230
+            Width = 195
             Caption = 'Saldo Comprado....................:'
             Font.Color = clBlack
             Font.Height = -13
@@ -1212,9 +1212,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel35: TRLLabel
             Left = 39
-            Height = 17
+            Height = 16
             Top = 65
-            Width = 155
+            Width = 130
             Caption = 'Valor......................:'
             Font.Color = clBlack
             Font.Height = -13
@@ -1228,9 +1228,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object rlUnidadePreco: TRLLabel
             Left = 196
-            Height = 17
+            Height = 16
             Top = 65
-            Width = 47
+            Width = 41
             Caption = 'Preço'
             Font.Color = clBlack
             Font.Height = -13
@@ -1244,9 +1244,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel37: TRLLabel
             Left = 39
-            Height = 17
+            Height = 16
             Top = 121
-            Width = 202
+            Width = 168
             Caption = 'Valor Bruto......................:'
             Font.Color = clBlack
             Font.Height = -13
@@ -1260,9 +1260,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel38: TRLLabel
             Left = 41
-            Height = 17
+            Height = 16
             Top = 137
-            Width = 122
+            Width = 107
             Caption = 'Porc. Fun. Rural'
             Font.Color = clBlack
             Font.Height = -13
@@ -1276,9 +1276,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel39: TRLLabel
             Left = 39
-            Height = 17
+            Height = 16
             Top = 177
-            Width = 202
+            Width = 170
             Caption = 'Fundo Rural.....................:'
             Font.Color = clBlack
             Font.Height = -13
@@ -1292,9 +1292,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel40: TRLLabel
             Left = 41
-            Height = 17
+            Height = 16
             Top = 201
-            Width = 202
+            Width = 170
             Caption = 'Valor Livre.......................:'
             Font.Color = clBlack
             Font.Height = -13
@@ -1308,9 +1308,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel41: TRLLabel
             Left = 335
-            Height = 17
+            Height = 16
             Top = 17
-            Width = 24
+            Width = 21
             Caption = 'Kg'
             Font.Color = clBlack
             Font.Height = -13
@@ -1324,9 +1324,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel42: TRLLabel
             Left = 337
-            Height = 17
+            Height = 16
             Top = 41
-            Width = 24
+            Width = 21
             Caption = 'Kg'
             Font.Color = clBlack
             Font.Height = -13
@@ -1340,9 +1340,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel36: TRLLabel
             Left = 209
-            Height = 17
+            Height = 16
             Top = 137
-            Width = 18
+            Width = 14
             Caption = '%'
             Font.Color = clBlack
             Font.Height = -13
@@ -1356,9 +1356,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel43: TRLLabel
             Left = 209
-            Height = 17
+            Height = 16
             Top = 161
-            Width = 18
+            Width = 14
             Caption = '%'
             Font.Color = clBlack
             Font.Height = -13
@@ -1372,9 +1372,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel44: TRLLabel
             Left = 105
-            Height = 17
+            Height = 16
             Top = 161
-            Width = 65
+            Width = 57
             Caption = 'Aliquota'
             Font.Color = clBlack
             Font.Height = -13
@@ -1389,9 +1389,9 @@ object frmImpRomaneio: TfrmImpRomaneio
         end
         object RLLabel32: TRLLabel
           Left = 8
-          Height = 17
+          Height = 16
           Top = 368
-          Width = 38
+          Width = 32
           Caption = 'Obs:'
           Font.Color = clBlack
           Font.Height = -13
@@ -1424,7 +1424,7 @@ object frmImpRomaneio: TfrmImpRomaneio
         end
         object RLLabel89: TRLLabel
           Left = -2
-          Height = 15
+          Height = 16
           Top = 400
           Width = 708
           Caption = '................................................................................................................................................................................'
@@ -1461,9 +1461,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           RealBounds.Height = 0
           object RLLabel45: TRLLabel
             Left = 0
-            Height = 17
+            Height = 16
             Top = 12
-            Width = 133
+            Width = 118
             Caption = 'Código Romaneio'
             Font.Color = clBlack
             Font.Height = -13
@@ -1496,9 +1496,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel46: TRLLabel
             Left = 248
-            Height = 17
+            Height = 16
             Top = 8
-            Width = 40
+            Width = 33
             Caption = 'Data'
             Font.Color = clBlack
             Font.Height = -13
@@ -1531,9 +1531,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel47: TRLLabel
             Left = 0
-            Height = 17
+            Height = 16
             Top = 39
-            Width = 152
+            Width = 130
             Caption = 'Nome do Cliente....:'
             Font.Color = clBlack
             Font.Height = -13
@@ -1566,9 +1566,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel48: TRLLabel
             Left = -2
-            Height = 17
+            Height = 16
             Top = 71
-            Width = 154
+            Width = 131
             Caption = 'Propriedade...........:'
             Font.Color = clBlack
             Font.Height = -13
@@ -1601,9 +1601,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel49: TRLLabel
             Left = 2
-            Height = 17
+            Height = 16
             Top = 96
-            Width = 150
+            Width = 125
             Borders.Sides = sdCustom
             Borders.DrawLeft = False
             Borders.DrawTop = False
@@ -1832,9 +1832,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel50: TRLLabel
             Left = 8
-            Height = 17
+            Height = 16
             Top = 9
-            Width = 116
+            Width = 97
             Caption = 'Renda............:'
             Font.Color = clBlack
             Font.Height = -13
@@ -1848,9 +1848,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel51: TRLLabel
             Left = 8
-            Height = 17
+            Height = 16
             Top = 25
-            Width = 226
+            Width = 185
             Caption = 'Peso Bruto...........................:'
             Font.Color = clBlack
             Font.Height = -13
@@ -1864,9 +1864,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel52: TRLLabel
             Left = 8
-            Height = 17
+            Height = 16
             Top = 49
-            Width = 224
+            Width = 184
             Caption = 'Impureza.............................:'
             Font.Color = clBlack
             Font.Height = -13
@@ -1960,9 +1960,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel53: TRLLabel
             Left = 8
-            Height = 17
+            Height = 16
             Top = 81
-            Width = 63
+            Width = 54
             Caption = 'Plástico'
             Font.Color = clBlack
             Font.Height = -13
@@ -1976,7 +1976,7 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel54: TRLLabel
             Left = 72
-            Height = 15
+            Height = 16
             Top = 65
             Width = 73
             Caption = 'Quan. Saco'
@@ -1987,7 +1987,7 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel55: TRLLabel
             Left = 143
-            Height = 15
+            Height = 16
             Top = 65
             Width = 68
             Caption = 'Peso/Saco'
@@ -2017,9 +2017,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel56: TRLLabel
             Left = 8
-            Height = 17
+            Height = 16
             Top = 101
-            Width = 34
+            Width = 31
             Caption = 'Juta'
             Font.Color = clBlack
             Font.Height = -13
@@ -2033,9 +2033,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel57: TRLLabel
             Left = 212
-            Height = 17
+            Height = 16
             Top = 101
-            Width = 25
+            Width = 20
             Caption = '....'
             Font.Color = clBlack
             Font.Height = -13
@@ -2049,9 +2049,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel58: TRLLabel
             Left = 218
-            Height = 17
+            Height = 16
             Top = 121
-            Width = 20
+            Width = 16
             Caption = '...'
             Font.Color = clBlack
             Font.Height = -13
@@ -2065,9 +2065,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel59: TRLLabel
             Left = 212
-            Height = 17
+            Height = 16
             Top = 81
-            Width = 25
+            Width = 20
             Caption = '....'
             Font.Color = clBlack
             Font.Height = -13
@@ -2081,9 +2081,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel60: TRLLabel
             Left = 194
-            Height = 17
+            Height = 16
             Top = 7
-            Width = 54
+            Width = 48
             Caption = 'g/Saco'
             Font.Color = clBlack
             Font.Height = -13
@@ -2117,9 +2117,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel61: TRLLabel
             Left = 218
-            Height = 17
+            Height = 16
             Top = 137
-            Width = 18
+            Width = 14
             Caption = '%'
             Font.Color = clBlack
             Font.Height = -13
@@ -2133,9 +2133,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel62: TRLLabel
             Left = 8
-            Height = 17
+            Height = 16
             Top = 137
-            Width = 163
+            Width = 137
             Caption = 'Porcentagem...........:'
             Font.Color = clBlack
             Font.Height = -13
@@ -2167,9 +2167,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel63: TRLLabel
             Left = 8
-            Height = 17
+            Height = 16
             Top = 169
-            Width = 112
+            Width = 96
             Caption = 'Café P/ Beber:'
             Font.Color = clBlack
             Font.Height = -13
@@ -2183,7 +2183,7 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel64: TRLLabel
             Left = 130
-            Height = 15
+            Height = 16
             Top = 153
             Width = 39
             Caption = 'Limpo'
@@ -2213,9 +2213,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel65: TRLLabel
             Left = 218
-            Height = 17
+            Height = 16
             Top = 185
-            Width = 20
+            Width = 16
             Caption = '...'
             Font.Color = clBlack
             Font.Height = -13
@@ -2247,9 +2247,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel66: TRLLabel
             Left = 8
-            Height = 17
+            Height = 16
             Top = 209
-            Width = 226
+            Width = 189
             Caption = 'Saldo Coco...........................:'
             Font.Color = clBlack
             Font.Height = -13
@@ -2263,9 +2263,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel67: TRLLabel
             Left = 312
-            Height = 17
+            Height = 16
             Top = 25
-            Width = 24
+            Width = 21
             Caption = 'Kg'
             Font.Color = clBlack
             Font.Height = -13
@@ -2279,9 +2279,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel68: TRLLabel
             Left = 312
-            Height = 17
+            Height = 16
             Top = 49
-            Width = 24
+            Width = 21
             Caption = 'Kg'
             Font.Color = clBlack
             Font.Height = -13
@@ -2295,9 +2295,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel69: TRLLabel
             Left = 312
-            Height = 17
+            Height = 16
             Top = 79
-            Width = 24
+            Width = 21
             Caption = 'Kg'
             Font.Color = clBlack
             Font.Height = -13
@@ -2311,9 +2311,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel70: TRLLabel
             Left = 312
-            Height = 17
+            Height = 16
             Top = 101
-            Width = 24
+            Width = 21
             Caption = 'Kg'
             Font.Color = clBlack
             Font.Height = -13
@@ -2327,9 +2327,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel71: TRLLabel
             Left = 312
-            Height = 17
+            Height = 16
             Top = 121
-            Width = 24
+            Width = 21
             Caption = 'Kg'
             Font.Color = clBlack
             Font.Height = -13
@@ -2343,9 +2343,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel72: TRLLabel
             Left = 312
-            Height = 17
+            Height = 16
             Top = 137
-            Width = 24
+            Width = 21
             Caption = 'Kg'
             Font.Color = clBlack
             Font.Height = -13
@@ -2359,9 +2359,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel73: TRLLabel
             Left = 312
-            Height = 17
+            Height = 16
             Top = 169
-            Width = 24
+            Width = 21
             Caption = 'Kg'
             Font.Color = clBlack
             Font.Height = -13
@@ -2375,9 +2375,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel74: TRLLabel
             Left = 312
-            Height = 17
+            Height = 16
             Top = 185
-            Width = 24
+            Width = 21
             Caption = 'Kg'
             Font.Color = clBlack
             Font.Height = -13
@@ -2391,9 +2391,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel75: TRLLabel
             Left = 312
-            Height = 17
+            Height = 16
             Top = 209
-            Width = 24
+            Width = 21
             Caption = 'Kg'
             Font.Color = clBlack
             Font.Height = -13
@@ -2596,9 +2596,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel77: TRLLabel
             Left = 36
-            Height = 17
+            Height = 16
             Top = 45
-            Width = 230
+            Width = 195
             Caption = 'Saldo Comprado....................:'
             Font.Color = clBlack
             Font.Height = -13
@@ -2612,9 +2612,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel78: TRLLabel
             Left = 39
-            Height = 17
+            Height = 16
             Top = 65
-            Width = 155
+            Width = 130
             Caption = 'Valor......................:'
             Font.Color = clBlack
             Font.Height = -13
@@ -2628,9 +2628,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object rlUnidadePreco1: TRLLabel
             Left = 196
-            Height = 17
+            Height = 16
             Top = 65
-            Width = 47
+            Width = 41
             Caption = 'Preço'
             Font.Color = clBlack
             Font.Height = -13
@@ -2644,9 +2644,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel79: TRLLabel
             Left = 39
-            Height = 17
+            Height = 16
             Top = 121
-            Width = 202
+            Width = 168
             Caption = 'Valor Bruto......................:'
             Font.Color = clBlack
             Font.Height = -13
@@ -2660,9 +2660,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel80: TRLLabel
             Left = 41
-            Height = 17
+            Height = 16
             Top = 137
-            Width = 122
+            Width = 107
             Caption = 'Porc. Fun. Rural'
             Font.Color = clBlack
             Font.Height = -13
@@ -2676,9 +2676,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel81: TRLLabel
             Left = 39
-            Height = 17
+            Height = 16
             Top = 177
-            Width = 202
+            Width = 170
             Caption = 'Fundo Rural.....................:'
             Font.Color = clBlack
             Font.Height = -13
@@ -2692,9 +2692,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel82: TRLLabel
             Left = 41
-            Height = 17
+            Height = 16
             Top = 201
-            Width = 202
+            Width = 170
             Caption = 'Valor Livre.......................:'
             Font.Color = clBlack
             Font.Height = -13
@@ -2708,9 +2708,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel83: TRLLabel
             Left = 335
-            Height = 17
+            Height = 16
             Top = 17
-            Width = 24
+            Width = 21
             Caption = 'Kg'
             Font.Color = clBlack
             Font.Height = -13
@@ -2724,9 +2724,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel84: TRLLabel
             Left = 337
-            Height = 17
+            Height = 16
             Top = 41
-            Width = 24
+            Width = 21
             Caption = 'Kg'
             Font.Color = clBlack
             Font.Height = -13
@@ -2740,9 +2740,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel85: TRLLabel
             Left = 209
-            Height = 17
+            Height = 16
             Top = 137
-            Width = 18
+            Width = 14
             Caption = '%'
             Font.Color = clBlack
             Font.Height = -13
@@ -2756,9 +2756,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel86: TRLLabel
             Left = 209
-            Height = 17
+            Height = 16
             Top = 161
-            Width = 18
+            Width = 14
             Caption = '%'
             Font.Color = clBlack
             Font.Height = -13
@@ -2772,9 +2772,9 @@ object frmImpRomaneio: TfrmImpRomaneio
           end
           object RLLabel87: TRLLabel
             Left = 105
-            Height = 17
+            Height = 16
             Top = 161
-            Width = 65
+            Width = 57
             Caption = 'Aliquota'
             Font.Color = clBlack
             Font.Height = -13
@@ -2789,9 +2789,9 @@ object frmImpRomaneio: TfrmImpRomaneio
         end
         object RLLabel88: TRLLabel
           Left = 8
-          Height = 17
+          Height = 16
           Top = 368
-          Width = 38
+          Width = 32
           Caption = 'Obs:'
           Font.Color = clBlack
           Font.Height = -13
@@ -2824,7 +2824,7 @@ object frmImpRomaneio: TfrmImpRomaneio
         end
         object RLLabel90: TRLLabel
           Left = -2
-          Height = 15
+          Height = 16
           Top = 400
           Width = 708
           Caption = '................................................................................................................................................................................'
@@ -3318,6 +3318,7 @@ object frmImpRomaneio: TfrmImpRomaneio
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
+      Currency = True
       MaxValue = 0
       MinValue = 0
       Precision = -1
