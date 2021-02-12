@@ -1,11 +1,11 @@
-unit impAcerto;
+unit ImpAcerto;
 
 {$mode objfpc}{$H+}
 
 interface
 
 uses
-  Classes, SysUtils, sqldb, db, Forms, Controls, Graphics, Dialogs, RLReport;
+  Classes, SysUtils, SQLDB, DB, Forms, Controls, Graphics, Dialogs, RLReport;
 
 type
 
@@ -13,13 +13,13 @@ type
 
   TfrmImpAcerto = class(TForm)
     dsImpAcerto: TDataSource;
-    qrimpAcertoCOD_ACERTO: TLongintField;
-    qrimpAcertoCREDITO: TBCDField;
-    qrimpAcertoDATA: TDateField;
-    qrimpAcertoDEBITO: TBCDField;
-    qrimpAcertoHISTORICO: TStringField;
-    qrimpAcertoNOME: TStringField;
-    qrimpAcerto: TSQLQuery;
+    qrImpAcertoCOD_ACERTO: TLongintField;
+    qrImpAcertoCREDITO: TBCDField;
+    qrImpAcertoDATA: TDateField;
+    qrImpAcertoDEBITO: TBCDField;
+    qrImpAcertoHISTORICO: TStringField;
+    qrImpAcertoNOME: TStringField;
+    qrImpAcerto: TSQLQuery;
     RLBand1: TRLBand;
     RLBand2: TRLBand;
     RLBand3: TRLBand;
@@ -40,10 +40,9 @@ type
     RLLabel5: TRLLabel;
     RLLabel6: TRLLabel;
     RLLabel7: TRLLabel;
-    RLLabel8: TRLLabel;
     RLReport1: TRLReport;
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
-    procedure RLReport1BeforePrint(Sender: TObject; var PrintIt: boolean);
+    procedure RLReport1BeforePrint(Sender: TObject; var PrintIt: Boolean);
   private
 
   public
@@ -54,13 +53,15 @@ var
   frmImpAcerto: TfrmImpAcerto;
 
 implementation
+
 uses Acerto;
+
 {$R *.lfm}
 
 { TfrmImpAcerto }
 
 procedure TfrmImpAcerto.RLReport1BeforePrint(Sender: TObject;
-  var PrintIt: boolean);
+  var PrintIt: Boolean);
 begin
      qrImpAcerto.ParamByName('IDAcerto').Value:=frmAcerto.CodImprimir;
      qrImpAcerto.Open;

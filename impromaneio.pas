@@ -1,11 +1,11 @@
-unit impRomaneio;
+unit ImpRomaneio;
 
 {$mode objfpc}{$H+}
 
 interface
 
 uses
-  Classes, SysUtils, sqldb, db, Forms, Controls, Graphics, Dialogs, RLReport;
+  Classes, SysUtils, SQLDB, DB, Forms, Controls, Graphics, Dialogs, RLReport;
 
 type
 
@@ -16,7 +16,7 @@ type
     qrImpRomaneio: TSQLQuery;
     qrImpRomaneioALIQUOTA: TFloatField;
     qrImpRomaneioBEBERCOCO: TLongintField;
-    qrImpRomaneioBEBERLIMPO: TFloatField;
+    qrImpRomaneioBEBERLIMPO: TLongintField;
     qrImpRomaneioCANCELADO: TStringField;
     qrImpRomaneioCIDADE: TStringField;
     qrImpRomaneioCOD_ROMANEIO: TLongintField;
@@ -42,26 +42,28 @@ type
     qrImpRomaneioRENDA: TLongintField;
     qrImpRomaneioSACOKG: TStringField;
     qrImpRomaneioTOTALROMANEIO: TLongintField;
-    qrImpRomaneioVALOR: TFloatField;
+    qrImpRomaneioVALOR: TBCDField;
+    rlAliquota1: TRLDBText;
     RLBand1: TRLBand;
     rlBeberCoco1: TRLDBText;
     rlBeberLimpo1: TRLDBText;
     rlCodRomaneio: TRLDBText;
     rlCodRomaneio1: TRLDBText;
+    rlData: TRLDBText;
     rlData1: TRLDBText;
     RLDBText1: TRLDBText;
-    rlBeberLimpo: TRLDBText;
     RLDBText10: TRLDBText;
+    RLDBText11: TRLDBText;
     RLDBText12: TRLDBText;
-    RLDBText13: TRLDBText;
-    RLDBText14: TRLDBText;
-    RLDBText18: TRLDBText;
-    RLDBText19: TRLDBText;
-    RLDBText20: TRLDBText;
-    RLDBText21: TRLDBText;
-    RLDBText22: TRLDBText;
-    RLDBText23: TRLDBText;
-    RLDBText24: TRLDBText;
+    RLDBText2: TRLDBText;
+    RLDBText3: TRLDBText;
+    RLDBText4: TRLDBText;
+    RLDBText5: TRLDBText;
+    rlBeberLimpo: TRLDBText;
+    rlBeberCoco: TRLDBText;
+    RLDBText6: TRLDBText;
+    rlAliquota: TRLDBText;
+    RLDBText7: TRLDBText;
     RLDBText8: TRLDBText;
     RLDBText9: TRLDBText;
     rlDepositado1: TRLDBText;
@@ -69,8 +71,7 @@ type
     rlDescPorcentagem1: TRLDBText;
     rlFundoRural1: TRLDBText;
     rlImpureza1: TRLDBText;
-    RLLabel36: TRLLabel;
-    RLLabel43: TRLLabel;
+    RLLabel35: TRLLabel;
     RLLabel44: TRLLabel;
     RLLabel45: TRLLabel;
     RLLabel46: TRLLabel;
@@ -113,104 +114,99 @@ type
     RLLabel83: TRLLabel;
     RLLabel84: TRLLabel;
     RLLabel85: TRLLabel;
-    RLLabel86: TRLLabel;
-    RLLabel87: TRLLabel;
-    RLLabel88: TRLLabel;
-    RLLabel89: TRLLabel;
-    RLLabel90: TRLLabel;
+    rlLegenda3: TRLDBText;
+    rlLegenda4: TRLDBText;
+    rlNomePro1: TRLDBText;
+    rlObs: TRLDBText;
+    RLLabel43: TRLLabel;
+    rlObs1: TRLDBText;
     RLPanel5: TRLPanel;
     RLPanel6: TRLPanel;
     RLPanel7: TRLPanel;
     RLPanel8: TRLPanel;
     rlPesoBruto1: TRLDBText;
+    rlPesoJuta1: TRLDBText;
     rlPesoPlastico1: TRLDBText;
     rlQuanJuta1: TRLDBText;
     rlQuanPlastico1: TRLDBText;
-    rlRenda1: TRLDBText;
     rlSaldoCoco1: TRLDBText;
     rlSaldoComprado1: TRLDBText;
     rlTotalJuta1: TRLDBText;
     rlTotalPlastico1: TRLDBText;
     rlUnidadePreco1: TRLLabel;
-    rlValorBruto: TRLDBText;
-    rlFundoRural: TRLDBText;
+    rlValor1: TRLDBText;
     rlValorBruto1: TRLDBText;
     rlValorLivre: TRLDBText;
-    RLDBText15: TRLDBText;
-    RLDBText17: TRLDBText;
-    RLDBText2: TRLDBText;
-    RLDBText6: TRLDBText;
-    RLDBText7: TRLDBText;
-    rlDepositado: TRLDBText;
+    rlFundoRural: TRLDBText;
+    RLLabel37: TRLLabel;
+    RLLabel38: TRLLabel;
+    RLLabel39: TRLLabel;
+    RLLabel40: TRLLabel;
     RLLabel41: TRLLabel;
     RLLabel42: TRLLabel;
+    rlValorBruto: TRLDBText;
+    RLLabel36: TRLLabel;
+    rlValor: TRLDBText;
+    rlDepositado: TRLDBText;
+    RLLabel33: TRLLabel;
+    RLLabel34: TRLLabel;
+    rlUnidadePreco: TRLLabel;
     rlSaldoComprado: TRLDBText;
+    RLLabel29: TRLLabel;
+    RLLabel30: TRLLabel;
+    RLLabel31: TRLLabel;
+    RLLabel32: TRLLabel;
+    rlSaldoCoco: TRLDBText;
+    rlDesconto2: TRLDBText;
+    RLLabel27: TRLLabel;
+    RLLabel28: TRLLabel;
+    rlLegenda2: TRLDBText;
+    rlDescPorcentagem: TRLDBText;
+    RLLabel19: TRLLabel;
+    RLLabel20: TRLLabel;
+    RLLabel21: TRLLabel;
     RLLabel22: TRLLabel;
     RLLabel23: TRLLabel;
     RLLabel24: TRLLabel;
     RLLabel25: TRLLabel;
     RLLabel26: TRLLabel;
-    RLLabel27: TRLLabel;
-    RLLabel28: TRLLabel;
-    RLLabel29: TRLLabel;
-    RLLabel30: TRLLabel;
-    RLLabel31: TRLLabel;
-    RLLabel32: TRLLabel;
-    RLLabel33: TRLLabel;
-    RLLabel34: TRLLabel;
-    RLLabel35: TRLLabel;
-    rlUnidadePreco: TRLLabel;
-    RLLabel37: TRLLabel;
-    RLLabel38: TRLLabel;
-    RLLabel39: TRLLabel;
-    RLLabel40: TRLLabel;
-    rlSaldoCoco: TRLDBText;
-    RLLabel12: TRLLabel;
-    RLLabel13: TRLLabel;
-    RLLabel14: TRLLabel;
-    RLLabel15: TRLLabel;
+    rlLegenda1: TRLDBText;
     RLLabel16: TRLLabel;
     RLLabel17: TRLLabel;
     RLLabel18: TRLLabel;
-    RLLabel19: TRLLabel;
-    RLLabel20: TRLLabel;
-    RLLabel21: TRLLabel;
     rlTotalJuta: TRLDBText;
-    RLDBText11: TRLDBText;
-    rlDescPorcentagem: TRLDBText;
-    rlBeberCoco: TRLDBText;
-    rlDesconto2: TRLDBText;
-    RLDBText16: TRLDBText;
-    rlData: TRLDBText;
-    RLDBText3: TRLDBText;
-    RLDBText4: TRLDBText;
-    RLDBText5: TRLDBText;
-    rlQuanPlastico: TRLDBText;
-    rlPesoPlastico: TRLDBText;
+    rlPesoJuta: TRLDBText;
     rlQuanJuta: TRLDBText;
+    RLLabel14: TRLLabel;
+    RLLabel15: TRLLabel;
+    rlTotalPlastico: TRLDBText;
+    rlPesoPlastico: TRLDBText;
+    RLLabel12: TRLLabel;
+    RLLabel13: TRLLabel;
+    rlQuanPlastico: TRLDBText;
     RLLabel10: TRLLabel;
     RLLabel11: TRLLabel;
+    rlPesoBruto: TRLDBText;
+    rlImpureza: TRLDBText;
+    RLLabel5: TRLLabel;
     RLLabel6: TRLLabel;
     RLLabel7: TRLLabel;
     RLLabel8: TRLLabel;
     RLLabel9: TRLLabel;
-    rlRenda: TRLDBText;
-    rlPesoBruto: TRLDBText;
-    rlImpureza: TRLDBText;
-    rlTotalPlastico: TRLDBText;
+    rlNomePro: TRLDBText;
     RLLabel1: TRLLabel;
     RLLabel2: TRLLabel;
     RLLabel3: TRLLabel;
     RLLabel4: TRLLabel;
-    RLLabel5: TRLLabel;
     RLPanel1: TRLPanel;
     RLPanel2: TRLPanel;
     RLPanel3: TRLPanel;
     RLPanel4: TRLPanel;
     RLReport1: TRLReport;
     rlValorLivre1: TRLDBText;
+    procedure dsImpRomaneioDataChange(Sender: TObject; Field: TField);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
-    procedure RLReport1BeforePrint(Sender: TObject; var PrintIt: boolean);
+    procedure RLReport1BeforePrint(Sender: TObject; var PrintIt: Boolean);
   private
 
   public
@@ -221,14 +217,25 @@ var
   frmImpRomaneio: TfrmImpRomaneio;
 
 implementation
-  uses Romaneio;
+uses Romaneio;
 {$R *.lfm}
 
-  { TfrmImpRomaneio }
+{ TfrmImpRomaneio }
 
+
+procedure TfrmImpRomaneio.dsImpRomaneioDataChange(Sender: TObject; Field: TField);
+begin
+
+end;
+
+procedure TfrmImpRomaneio.FormClose(Sender: TObject;
+  var CloseAction: TCloseAction);
+begin
+  qrImpRomaneio.Close;
+end;
 
 procedure TfrmImpRomaneio.RLReport1BeforePrint(Sender: TObject;
-  var PrintIt: boolean);
+  var PrintIt: Boolean);
 var Aux:integer;AuxPorc, AuxRestoDiv,AuxDiv:double; AuxBeberLimpo:string;
 begin
     qrImpRomaneio.Close;
@@ -290,14 +297,6 @@ begin
      end;
 
 end;
-
-procedure TfrmImpRomaneio.FormClose(Sender: TObject;
-  var CloseAction: TCloseAction);
-begin
-  qrImpRomaneio.Close;
-end;
-
-
 
 end.
 
