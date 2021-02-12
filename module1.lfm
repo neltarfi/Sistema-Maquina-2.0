@@ -6,15 +6,15 @@ object DataModule1: TDataModule1
   Width = 440
   PPI = 96
   object IBCMaquina: TIBConnection
-    Connected = False
+    Connected = True
     LoginPrompt = False
-    DatabaseName = 'E:\Arquivos\Sistema Maquina2.0\Banco de Dados\Maquina.fdb'
+    DatabaseName = 'C:\Users\Nelson\Documents\Sistema-Maquina-2.0\Banco de Dados\MAQUINA.FDB'
     KeepConnection = False
     Password = 'masterkey'
     Transaction = SQLTMaquina
     UserName = 'SYSDBA'
     CharSet = 'utf8'
-    HostName = '192.168.0.98'
+    HostName = 'localhost'
     CheckTransactionParams = False
     left = 120
     top = 96

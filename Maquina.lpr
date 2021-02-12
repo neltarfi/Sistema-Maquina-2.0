@@ -8,7 +8,7 @@ uses
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
   Forms, Principal, BuscaCliente, Module1, CadCli, Funcoes, BuscaPro, CadPro,
-  Romaneio, fortes324forlaz, ImpRomaneio, CadLoteCoco, BuscaCadLoteCoco,
+  Romaneio, ImpRomaneio, CadLoteCoco, BuscaCadLoteCoco,
   MudaLote, Acerto, Compra, impAcerto;
 
 {$R *.res}

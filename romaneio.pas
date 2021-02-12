@@ -689,6 +689,8 @@ end;
 procedure TfrmRomaneio.CalcRomaneio;
 var
  Aux,Renda:integer;AuxRestoDiv, AuxDiv, AuxPorc:double;
+ AuxTotalPlastico, AuxTotalJuta: integer;
+ AuxPesoPlastico, AuxPesoJuta : double;
 begin
      if qrRomaneio.FieldByName('Renda').Text='' then
         qrRomaneio.FieldByName('Renda').Text:='0';
@@ -710,8 +712,12 @@ begin
         qrRomaneio.FieldByName('Desconto1').Text:='0';
      if qrRomaneio.FieldByName('Desconto2').Text='' then
         qrRomaneio.FieldByName('Desconto2').Text:='0';
-     edtTotalPlastico.Text:=inttostr(Round(qrRomaneio.FieldByName('PesoPlastico').Value*qrRomaneio.FieldByName('QuanPlastico').Value));
-     edtTotalJuta.Text:=intTostr(Round(qrRomaneio.FieldByName('QuanJuta').Value*qrRomaneio.FieldByName('PesoJuta').Value));
+     AuxPesoPlastico:= qrRomaneio.FieldByName('PesoPlastico').Value*qrRomaneio.FieldByName('QuanPlastico').Value;
+     AuxTotalPlastico:= Round(AuxPesoPlastico);
+     edtTotalPlastico.Text:=inttostr(AuxTotalPlastico);
+     AuxPesoJuta:=qrRomaneio.FieldByName('QuanJuta').Value*qrRomaneio.FieldByName('PesoJuta').Value;
+     AuxTotalJuta:= Round(AuxPesoJuta);
+     edtTotalJuta.Text:=intTostr(AuxTotalJuta);
      Aux:=qrRomaneio.FieldByName('PesoBruto').Value-qrRomaneio.FieldByName('Impureza').Value-strToInt(edtTotalPlastico.Text);
      Aux:=Aux-strToint(edtTotalJuta.Text)-qrRomaneio.FieldByName('Desconto1').Value;
      if qrRomaneio.FieldByName('Porcentagem').Value >0 then

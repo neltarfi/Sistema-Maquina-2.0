@@ -27,7 +27,7 @@
     </RunParams>
     <RequiredPackages Count="3">
       <Item1>
-        <PackageName Value="fortes324forlaz"/>
+        <PackageName Value="frce"/>
       </Item1>
       <Item2>
         <PackageName Value="FCL"/>
@@ -108,7 +108,7 @@
         <ComponentName Value="frmImpRomaneio"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="impRomaneio"/>
+        <UnitName Value="ImpRomaneio"/>
       </Unit9>
       <Unit10>
         <Filename Value="cadlotecoco.pas"/>
